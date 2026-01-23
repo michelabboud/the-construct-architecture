@@ -1,7 +1,7 @@
 # JOBS - Active Work Tracker
 <!-- AI-RESUMABLE: This file is designed for AI model consumption -->
-<!-- LAST_UPDATED: 2026-01-23T20:00:00Z -->
-<!-- SESSION_CONTEXT: Phase 2 Oracle & Level-Up complete - 145 tests passing -->
+<!-- LAST_UPDATED: 2026-01-23T21:00:00Z -->
+<!-- SESSION_CONTEXT: Phase 3 Multi-Provider / Keymaker complete - 187 tests passing -->
 
 > **Note:** Completed jobs are archived to [`JOBS_COMPLETED.md`](JOBS_COMPLETED.md)
 
@@ -12,7 +12,7 @@
 - PRIORITY: high
 - STARTED: 2026-01-23
 - PLAN_DOC: docs/implementation-plan.md
-- CURRENT_PHASE: 2 (Complete)
+- CURRENT_PHASE: 3 (Complete)
 - PHASES:
   - [x] Phase 1: Foundation (COMPLETED)
     - [x] Contract schema with Zod validation
@@ -30,11 +30,20 @@
     - [x] Specialization tracking per task type
     - [x] Oracle integrated with ContractExecutor
     - [x] Test: 145 tests passing
-  - [ ] Phase 3: Multi-Provider / Keymaker (PENDING)
+  - [x] Phase 3: Multi-Provider / Keymaker (COMPLETED)
+    - [x] Provider registry with OpenAI, Anthropic, Google, Groq, Together, Ollama
+    - [x] Unified AI client using OpenAI SDK for compatible providers
+    - [x] Tool adapters for Anthropic and Google Gemini
+    - [x] Provider router with Oracle integration for performance-based routing
+    - [x] Keymaker class with generate, chat, executeWithTools
+    - [x] Worker integrated with Keymaker for real AI calls
+    - [x] Cost estimation and tracking
+    - [x] Fallback execution with multiple provider attempts
+    - [x] Test: 187 tests passing
   - [ ] Phase 4: Reference System & Full Architect (PENDING)
   - [ ] Phase 5: Full Sentinels / QA System (PENDING)
 - BLOCKED_BY: null
-- NEXT_ACTION: Begin Phase 3 - Keymaker / Multi-Provider AI integration
+- NEXT_ACTION: Begin Phase 4 - Reference System & Full Architect
 - CONTEXT: |
     **Session Progress (2026-01-23):**
 
@@ -45,21 +54,35 @@
 
     **Phase 2 (Complete):**
     - Installed sql.js (pure JS SQLite, works with Node 24)
-    - Created src/oracle/database.ts with SQLite wrapper
-    - Created src/oracle/agent-profile-store.ts for persistence
-    - Rewrote src/oracle/oracle.ts with full judgment logic:
-      - Verdict determination (approved/needs_revision/rejected)
-      - XP calculation with bonuses (score, speed, budget, streaks)
-      - Achievement tracking
-      - Compliance assessment
-      - Quality scoring
-    - Integrated Oracle with ContractExecutor
-    - Created comprehensive tests:
-      - test/level-up.test.ts (20 tests)
-      - test/agent-profile-store.test.ts (17 tests)
-      - test/oracle.test.ts (21 tests)
-      - test/integration/oracle-integration.test.ts (13 tests)
+    - Created database layer and AgentProfileStore
+    - Full Oracle judgment implementation
     - All 145 tests passing
+
+    **Phase 3 (Complete):**
+    - Discovered litellm is Python-only, implemented custom solution
+    - Created provider registry (src/keymaker/providers.ts)
+      - 6 providers: OpenAI, Anthropic, Google, Groq, Together, Ollama
+      - Model definitions with pricing, capabilities, context windows
+    - Created unified AI client (src/keymaker/ai-client.ts)
+      - OpenAI SDK wrapper for compatible providers
+      - Message conversion, tool handling
+    - Created tool adapters (src/keymaker/tool-adapters/)
+      - Anthropic adapter with direct HTTP requests
+      - Google Gemini adapter with direct HTTP requests
+    - Created provider router (src/keymaker/router.ts)
+      - Oracle integration for performance-based routing
+      - Cost, latency, and capability-based scoring
+      - Fallback execution with multiple attempts
+    - Updated Keymaker class (src/keymaker/keymaker.ts)
+      - generate(), chat(), executeWithTools()
+      - Contract constraint extraction
+      - Provider testing
+    - Updated Worker (src/programs/worker.ts)
+      - Integrated with Keymaker
+      - Builds prompts from contracts
+      - Supports tool execution
+    - Fixed many exactOptionalPropertyTypes issues
+    - All 187 tests passing
 
     **Core Principle:** "Code that calls AI, not AI that calls code"
 
@@ -68,8 +91,8 @@
     - The Oracle: ✅ Working (judgment, XP, achievements, persistence)
     - The Agents: ✅ ContractExecutor with Oracle integration
     - The Sentinels: ✅ Working (action/path/tool blocking, output validation)
-    - The Programs: ✅ Worker working (placeholder execution)
-    - The Keymaker: ⏳ Phase 3
+    - The Programs: ✅ Worker with Keymaker integration
+    - The Keymaker: ✅ Working (multi-provider, routing, tools)
 
     **Technology Stack:**
     - Zod for schema validation ✅
@@ -77,36 +100,21 @@
     - Jest for testing ✅
     - YAML parsing ✅
     - sql.js for SQLite ✅
-    - LiteLLM client (Phase 3)
+    - OpenAI SDK for AI gateway ✅
 
 - ARTIFACTS:
     - created:
-      - docs/architecture.md
-      - docs/contract-schema.md
-      - docs/implementation-plan.md
-      - docs/reference-system.md
-      - docs/level-up-system.md
-      - README.md
-      - CLAUDE.md
-      - jest.config.js
-      - test/contract.schema.test.ts
-      - test/architect.test.ts
-      - test/sentinels.test.ts
-      - test/integration/contract-execution.test.ts
-      - test/fixtures/valid-contract.yaml
-      - test/fixtures/invalid-contract.yaml
-      - src/oracle/database.ts (Phase 2)
-      - src/oracle/agent-profile-store.ts (Phase 2)
-      - test/level-up.test.ts (Phase 2)
-      - test/agent-profile-store.test.ts (Phase 2)
-      - test/oracle.test.ts (Phase 2)
-      - test/integration/oracle-integration.test.ts (Phase 2)
+      - src/keymaker/providers.ts (Phase 3)
+      - src/keymaker/ai-client.ts (Phase 3)
+      - src/keymaker/router.ts (Phase 3)
+      - src/keymaker/tool-adapters/index.ts (Phase 3)
+      - src/keymaker/tool-adapters/anthropic-adapter.ts (Phase 3)
+      - src/keymaker/tool-adapters/google-adapter.ts (Phase 3)
+      - test/keymaker.test.ts (Phase 3)
     - modified:
-      - package.json (added sql.js, @types/sql.js)
-      - src/architect/architect.ts (minimatch integration)
-      - src/sentinels/sentinels.ts (minimatch integration)
-      - src/oracle/level-up.ts (TypeScript fixes)
-      - src/oracle/oracle.ts (full implementation)
-      - src/agents/contract-executor.ts (Oracle integration)
+      - src/keymaker/keymaker.ts (full implementation)
+      - src/programs/worker.ts (Keymaker integration)
+      - package.json (added openai SDK)
     - pending:
-      - Phase 3: Keymaker AI integration with LiteLLM
+      - Phase 4: Reference System & Full Architect
+      - Phase 5: Full Sentinels / QA System
