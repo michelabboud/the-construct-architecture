@@ -1,0 +1,72 @@
+# Test contract for Phase 1 verification
+contract:
+  id: "test-001"
+  version: "1.0.0"
+  type: "image_generation"
+  name: "Test Image Generation"
+
+  metadata:
+    created_at: "2026-01-23T12:00:00Z"
+    created_by: "test-suite"
+    priority: normal
+    tags: ["test", "image"]
+
+  requirements:
+    description: "Generate a simple test image to verify contract execution"
+    deliverables:
+      - type: image
+        format: png
+        min_width: 512
+        min_height: 512
+        save_to: "~/test-output/"
+
+  goals:
+    description: "Verify contract execution works end-to-end"
+    objectives:
+      - "Image is generated"
+      - "Output matches format requirements"
+      - "Cost stays within limits"
+    success_threshold: 6.0
+
+  limitations:
+    forbidden_actions:
+      - "DELETE any file"
+      - "EXECUTE shell commands"
+    forbidden_paths:
+      - pattern: "**/src/**"
+        reason: "Never write to source directory"
+      - pattern: "**/node_modules/**"
+        reason: "Never modify dependencies"
+
+  freedom:
+    decisions:
+      - area: "prompt_engineering"
+        description: "Choose optimal prompt for image generation"
+        constraints: ["Must be family-friendly"]
+    adaptations:
+      - "May adjust parameters for quality"
+
+  context:
+    inputs:
+      prompt: "A simple geometric shape on white background"
+      style: "minimalist"
+    background:
+      purpose: "Testing contract execution"
+
+  resources:
+    models:
+      allowed:
+        - "gemini-2.0-flash"
+        - "gpt-4o"
+      preferred: "gemini-2.0-flash"
+
+  limits:
+    cost:
+      max_usd: 0.10
+      warn_at: 0.08
+    time:
+      max_duration_ms: 30000
+      warn_at_ms: 20000
+    retries:
+      max_attempts: 2
+      backoff: exponential
