@@ -10,6 +10,7 @@
  * Phase 1 Implementation - Basic validation
  */
 
+import { minimatch } from 'minimatch';
 import type { Architect } from '../architect/architect.js';
 import type { Contract } from '../architect/schemas/contract.schema.js';
 
@@ -225,16 +226,16 @@ export class Sentinels {
   }
 
   /**
-   * Simple glob pattern matching
+   * Glob pattern matching using minimatch
    */
   private matchesPattern(path: string, pattern: string): boolean {
-    const regexPattern = pattern
-      .replace(/\*\*/g, '.*')
-      .replace(/\*/g, '[^/]*')
-      .replace(/\?/g, '.');
+    const normalizedPath = path.replace(/\\/g, '/');
+    const normalizedPattern = pattern.replace(/\\/g, '/');
 
-    const regex = new RegExp(`^${regexPattern}$`);
-    return regex.test(path);
+    return minimatch(normalizedPath, normalizedPattern, {
+      dot: true,
+      matchBase: true,
+    });
   }
 
   /**

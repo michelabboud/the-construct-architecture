@@ -1,0 +1,13 @@
+# Missing required fields
+contract:
+  id: "invalid-001"
+  # version: missing
+  type: "image_generation"
+  # name: missing
+  # metadata: missing
+
+  requirements:
+    description: "This contract is invalid"
+
+  # goals: missing
+  # limitations: missing

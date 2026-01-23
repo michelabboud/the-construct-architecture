@@ -9,6 +9,7 @@
  * Phase 1 Implementation - Minimal version
  */
 
+import { minimatch } from 'minimatch';
 import { Contract, ContractSchema, validateContract, ContractValidationResult } from './schemas/contract.schema.js';
 
 export interface ArchitectConfig {
@@ -158,17 +159,16 @@ export class Architect {
   }
 
   /**
-   * Simple glob pattern matching
-   * TODO: Use minimatch for proper glob support
+   * Glob pattern matching using minimatch
    */
   private matchesPattern(path: string, pattern: string): boolean {
-    // Convert glob pattern to regex
-    const regexPattern = pattern
-      .replace(/\*\*/g, '.*')
-      .replace(/\*/g, '[^/]*')
-      .replace(/\?/g, '.');
+    // Normalize path separators
+    const normalizedPath = path.replace(/\\/g, '/');
+    const normalizedPattern = pattern.replace(/\\/g, '/');
 
-    const regex = new RegExp(`^${regexPattern}$`);
-    return regex.test(path);
+    return minimatch(normalizedPath, normalizedPattern, {
+      dot: true,         // Match dotfiles
+      matchBase: true,   // Match basename if pattern has no slashes
+    });
   }
 }

@@ -34,13 +34,18 @@ export class LevelUpSystem {
     const newTotalXp = profile.xp + xpAwarded;
     const levelUp = this.checkLevelUp(profile, newTotalXp);
 
-    return {
+    const award: XPAward = {
       agentId: event.agentId,
       event: event.type,
       xpAwarded,
       totalXp: newTotalXp,
-      levelUp,
     };
+
+    if (levelUp) {
+      award.levelUp = levelUp;
+    }
+
+    return award;
   }
 
   /**
@@ -85,7 +90,7 @@ export class LevelUpSystem {
       return 0; // Already at max level
     }
 
-    const nextLevel = levels[currentIndex + 1];
+    const nextLevel = levels[currentIndex + 1]!;
     return LEVEL_THRESHOLDS[nextLevel] - profile.xp;
   }
 }

@@ -1,0 +1,38 @@
+contract:
+  id: "test-001"
+  version: "1.0.0"
+  type: "image_generation"
+  name: "Test Image Generation"
+
+  metadata:
+    created_at: "2026-01-23T12:00:00Z"
+    created_by: "test-suite"
+    priority: normal
+    tags: ["test", "image"]
+
+  requirements:
+    description: "Generate a test image"
+    deliverables:
+      - type: image
+        format: png
+        save_to: "~/test-output/"
+
+  goals:
+    objectives:
+      - "High quality output"
+    success_threshold: 6.0
+
+  limitations:
+    forbidden_paths:
+      - pattern: "**/src/**"
+        reason: "Don't modify source code"
+      - pattern: "**/node_modules/**"
+        reason: "Don't touch dependencies"
+
+  limits:
+    cost:
+      max_usd: 0.10
+    time:
+      max_duration_ms: 30000
+    retries:
+      max_attempts: 2
