@@ -24,7 +24,7 @@ describe('Contract Execution Integration', () => {
     architect = new Architect();
     await architect.initialize();
     sentinels = new Sentinels(architect);
-    executor = new ContractExecutor(architect, sentinels);
+    executor = new ContractExecutor({ architect, sentinels });
     worker = new Worker(sentinels);
   });
 

@@ -3,12 +3,14 @@
  *
  * Part of The Agents (Orchestrator)
  *
- * Phase 1 Implementation
+ * Phase 1 & 2 Implementation
  */
 
 import type { Architect } from '../architect/architect.js';
 import type { Sentinels } from '../sentinels/sentinels.js';
 import type { Contract } from '../architect/schemas/contract.schema.js';
+import type { Oracle } from '../oracle/oracle.js';
+import type { Judgment } from '../types/judgment.js';
 
 export interface ExecutionResult {
   success: boolean;
@@ -23,6 +25,7 @@ export interface ExecutionResult {
     score: number;
     errors: string[];
   };
+  judgment?: Judgment;
   error?: string;
 }
 
@@ -34,18 +37,34 @@ export interface ExecutionContext {
 }
 
 /**
+ * Contract Executor Configuration
+ */
+export interface ContractExecutorConfig {
+  architect: Architect;
+  sentinels: Sentinels;
+  oracle?: Oracle;
+  agentId?: string;
+}
+
+/**
  * Contract Executor
  *
- * TODO Phase 1:
- * - Parse contract YAML
- * - Execute requirements in order
- * - Track progress and report to Oracle
+ * Executes contracts and reports results to the Oracle for judgment.
  */
 export class ContractExecutor {
-  constructor(
-    private architect: Architect,
-    private sentinels: Sentinels
-  ) {}
+  private architect: Architect;
+  private sentinels: Sentinels;
+  private oracle?: Oracle;
+  private agentId: string;
+
+  constructor(config: ContractExecutorConfig) {
+    this.architect = config.architect;
+    this.sentinels = config.sentinels;
+    if (config.oracle) {
+      this.oracle = config.oracle;
+    }
+    this.agentId = config.agentId ?? 'default/agent';
+  }
 
   /**
    * Execute a contract
@@ -61,15 +80,15 @@ export class ContractExecutor {
 
     try {
       // Validate contract against Architect rules
-      const validation = this.architect.validateContract(contract);
-      if (!validation.valid) {
+      const contractValidation = this.architect.validateContract(contract);
+      if (!contractValidation.valid) {
         return {
           success: false,
           contractId: contract.contract.id,
           duration: Date.now() - startTime,
           cost: 0,
           retries: 0,
-          error: `Contract validation failed: ${validation.errors.join(', ')}`,
+          error: `Contract validation failed: ${contractValidation.errors.join(', ')}`,
         };
       }
 
@@ -80,20 +99,45 @@ export class ContractExecutor {
       const outputValidation = await this.sentinels.validateOutput(output, contract);
 
       const duration = Date.now() - startTime;
+      const meetsThreshold = this.sentinels.meetsThreshold(outputValidation, contract);
+      const validationResult = {
+        valid: outputValidation.valid,
+        score: outputValidation.score,
+        errors: outputValidation.errors.map(e => e.message),
+      };
 
-      return {
-        success: outputValidation.valid && this.sentinels.meetsThreshold(outputValidation, contract),
+      // Submit to Oracle for judgment if available
+      let judgment: Judgment | undefined;
+      if (this.oracle) {
+        judgment = await this.oracle.submitForJudgment(
+          {
+            agentId: this.agentId,
+            contractId: contract.contract.id,
+            output,
+            duration,
+            cost: context.cost,
+            retries: context.retries,
+          },
+          contract,
+          validationResult
+        );
+      }
+
+      const result: ExecutionResult = {
+        success: outputValidation.valid && meetsThreshold,
         contractId: contract.contract.id,
         output,
         duration,
         cost: context.cost,
         retries: context.retries,
-        validation: {
-          valid: outputValidation.valid,
-          score: outputValidation.score,
-          errors: outputValidation.errors.map(e => e.message),
-        },
+        validation: validationResult,
       };
+
+      if (judgment) {
+        result.judgment = judgment;
+      }
+
+      return result;
     } catch (error) {
       return {
         success: false,
