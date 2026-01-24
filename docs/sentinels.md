@@ -20,44 +20,44 @@ The **Sentinels** are the QA and enforcement layer of The Construct. They are NO
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                   THE SENTINELS                              │
-│              (QA & Enforcement Layer)                        │
-│                                                              │
+│                   THE SENTINELS                             │
+│              (QA & Enforcement Layer)                       │
+│                                                             │
 │  ┌─────────────────────────────────────────────────────┐    │
-│  │                  VALIDATORS                          │    │
-│  │                                                      │    │
+│  │                  VALIDATORS                         │    │
+│  │                                                     │    │
 │  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │    │
 │  │  │  Contract   │  │   Output    │  │   Action    │  │    │
 │  │  │  Validator  │  │  Validator  │  │  Validator  │  │    │
 │  │  └─────────────┘  └─────────────┘  └─────────────┘  │    │
 │  └─────────────────────────────────────────────────────┘    │
-│                           │                                  │
-│                           ▼                                  │
+│                           │                                 │
+│                           ▼                                 │
 │  ┌─────────────────────────────────────────────────────┐    │
-│  │              ENFORCEMENT ENGINE                      │    │
-│  │                                                      │    │
-│  │   • Block unauthorized actions                       │    │
-│  │   • Enforce path restrictions                        │    │
-│  │   • Enforce cost limits                              │    │
-│  │   • Trigger escalations                              │    │
+│  │              ENFORCEMENT ENGINE                     │    │
+│  │                                                     │    │
+│  │   • Block unauthorized actions                      │    │
+│  │   • Enforce path restrictions                       │    │
+│  │   • Enforce cost limits                             │    │
+│  │   • Trigger escalations                             │    │
 │  └─────────────────────────────────────────────────────┘    │
-│                           │                                  │
-│                           ▼                                  │
+│                           │                                 │
+│                           ▼                                 │
 │  ┌─────────────────────────────────────────────────────┐    │
-│  │              QUALITY CHECKS                          │    │
-│  │                                                      │    │
-│  │   • Score outputs (0-10)                             │    │
-│  │   • Check schema compliance                          │    │
-│  │   • Verify deliverables                              │    │
+│  │              QUALITY CHECKS                         │    │
+│  │                                                     │    │
+│  │   • Score outputs (0-10)                            │    │
+│  │   • Check schema compliance                         │    │
+│  │   • Verify deliverables                             │    │
 │  └─────────────────────────────────────────────────────┘    │
-│                           │                                  │
-│                           ▼                                  │
+│                           │                                 │
+│                           ▼                                 │
 │  ┌─────────────────────────────────────────────────────┐    │
-│  │              REPORTING                               │    │
-│  │                                                      │    │
-│  │   • Log all validations                              │    │
-│  │   • Emit events                                      │    │
-│  │   • Report to Oracle                                 │    │
+│  │              REPORTING                              │    │
+│  │                                                     │    │
+│  │   • Log all validations                             │    │
+│  │   • Emit events                                     │    │
+│  │   • Report to Oracle                                │    │
 │  └─────────────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────────┘
 ```
