@@ -126,7 +126,7 @@ export interface AgentContext {
 /**
  * Agent task definition
  */
-export interface AgentTask<TInput = unknown, TOutput = unknown> {
+export interface AgentTask<TInput = unknown, _TOutput = unknown> {
   /** Task ID */
   id: string;
   /** Task type */

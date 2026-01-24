@@ -16,7 +16,7 @@ import type {
   ThreatEvent,
   ThreatLevel,
   SecurityPrincipal,
-  SecurityAuditEntry,
+  // Future use: SecurityAuditEntry,
 } from '../../types/security.js';
 import type { SpecialAgent } from '../smith/agent-smith.js';
 

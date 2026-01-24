@@ -19,7 +19,7 @@
 import type {
   SecurityRequest,
   SecurityResponse,
-  SecurityPrincipal,
+  // Future use: SecurityPrincipal,
   RateLimitConfig,
   ThreatLevel,
 } from '../../types/security.js';

@@ -19,7 +19,7 @@ import {
   MigrationTask,
   MigrationRisk,
   RiskMitigation,
-  MigrationVerification,
+  // Future use: MigrationVerification,
   RollbackStep,
   MigrationEstimates,
   EffortEstimate,
@@ -741,7 +741,7 @@ export class Apoc extends BaseAgent {
     if (risks.length === 0) return 0;
 
     let totalScore = 0;
-    let totalWeight = 0;
+    let _totalWeight = 0;
 
     for (const risk of risks) {
       const probability = RISK_SCORES[risk.probability] ?? 1;
@@ -749,7 +749,7 @@ export class Apoc extends BaseAgent {
       const weight = RISK_WEIGHTS[risk.category] ?? 0.5;
 
       totalScore += (probability * impact) * weight;
-      totalWeight += weight;
+      _totalWeight += weight;
     }
 
     // Normalize to 0-100 scale

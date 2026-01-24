@@ -591,7 +591,7 @@ export class EnforcementEngine {
           }
           break;
 
-        case 'output_validated':
+        case 'output_validated': {
           stats.totalOutputs++;
           contractStats.outputs++;
           const result = entry.details.validationResult as OutputValidationResult | undefined;
@@ -602,6 +602,7 @@ export class EnforcementEngine {
             contractStats.invalid++;
           }
           break;
+        }
       }
     }
 

@@ -4,7 +4,7 @@
  * Stores and retrieves agent performance data using SQLite.
  */
 
-import { DatabaseConnection, type SqlValue } from './database.js';
+import { DatabaseConnection } from './database.js';
 import {
   type AgentProfile,
   type AgentLevel,
@@ -146,7 +146,7 @@ export class AgentProfileStore {
     // Update main profile stats
     const newTotalTasks = profile.stats.totalTasks + 1;
     const newSuccessfulTasks = profile.stats.totalTasks * (profile.stats.successRate / 100) + (success ? 1 : 0);
-    const newSuccessRate = (newSuccessfulTasks / newTotalTasks) * 100;
+    const _newSuccessRate = (newSuccessfulTasks / newTotalTasks) * 100; // TODO: Use in update
     const newAvgScore = ((profile.stats.averageScore * profile.stats.totalTasks) + score) / newTotalTasks;
     const newTotalXp = profile.stats.totalXpEarned + xpEarned;
     const newTotalCost = profile.stats.totalCostIncurred + costIncurred;

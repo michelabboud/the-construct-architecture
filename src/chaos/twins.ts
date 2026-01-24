@@ -649,7 +649,7 @@ export class Twins {
   }
 
   private calculateResilienceMetrics(result: ScenarioResult, startedAt: Date): ResilienceMetrics {
-    const ghostStats = this.ghost.getStats();
+    const _ghostStats = this.ghost.getStats(); // Available for future metrics
     const phantomStats = this.phantom.getStats();
 
     // Calculate metrics from results

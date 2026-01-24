@@ -20,9 +20,7 @@ import type {
 } from '../types/judgment.js';
 import type {
   AgentProfile,
-  XPEvent,
-  XPAward,
-  XPEventType,
+  // Future use: XPEvent, XPAward, XPEventType,
   Achievement,
 } from '../types/agent.js';
 import type { Contract } from '../architect/schemas/contract.schema.js';
@@ -333,7 +331,7 @@ export class Oracle {
     score: number,
     submission: AgentSubmission,
     contract: Contract,
-    profile: AgentProfile
+    _profile: AgentProfile
   ): number {
     // No XP for rejected tasks (positive-only system)
     if (verdict === 'rejected') {

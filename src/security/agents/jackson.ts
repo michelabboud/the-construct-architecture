@@ -18,7 +18,7 @@ import type {
   ThreatLevel,
   ContainmentAction,
   RecoveryPlan,
-  SecurityResource,
+  // Future use: SecurityResource,
 } from '../../types/security.js';
 import type { SpecialAgent } from '../smith/agent-smith.js';
 
@@ -645,7 +645,7 @@ export class AgentJackson implements SpecialAgent {
 
   private async executeContainmentAction(
     planned: { type: ContainmentAction['type']; target: string; reason: string; durationMs: number },
-    threat: ThreatEvent
+    _threat: ThreatEvent
   ): Promise<ContainmentAction> {
     // In a real implementation, this would integrate with Seraph and Agent Smith
     console.log(`[CONTAINMENT] ${planned.type}: ${planned.target} - ${planned.reason}`);

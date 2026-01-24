@@ -16,13 +16,11 @@ import {
   WorkflowStep,
   WorkflowState,
   WorkflowStatus,
-  WorkflowProgress,
-  WorkflowEvent,
-  WorkflowEventType,
+  // Future use: WorkflowProgress, WorkflowEvent, WorkflowEventType,
   CrewMember,
-  AgentResult,
+  // Future use: AgentResult,
   AgentError,
-  ChecklistState,
+  // Future use: ChecklistState,
   Checkpoint,
   FileBackup,
 } from '../types/morpheus.js';
@@ -30,8 +28,9 @@ import { WorkflowLoader, WorkflowLoadResult, createWorkflowLoader } from './work
 import { ChecklistManager, createChecklistManager } from './workflow/checklist.js';
 import { WorkflowStateStore, createStateStore } from './workflow/state.js';
 import { BaseAgent, AgentContext, AgentTask, ExecutionOptions } from './crew/base-agent.js';
-import { readFile, writeFile } from 'fs/promises';
-import { existsSync } from 'fs';
+import { writeFile } from 'fs/promises';
+// Future use: import { readFile } from 'fs/promises';
+// Future use: import { existsSync } from 'fs';
 
 // ============================================================================
 // MORPHEUS TYPES

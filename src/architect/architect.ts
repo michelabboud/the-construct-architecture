@@ -11,7 +11,7 @@
  */
 
 import { minimatch } from 'minimatch';
-import { Contract, ContractSchema, validateContract, ContractValidationResult } from './schemas/contract.schema.js';
+import { Contract, validateContract } from './schemas/contract.schema.js';
 import { TruthLoader, type Truth, type PathRule, type LoadedTruth } from './truth-loader.js';
 import {
   ReferenceResolver,

@@ -30,8 +30,7 @@ import type {
   ProcessFaultParams,
   StateFaultParams,
   ClockFaultParams,
-  ChaosStatus,
-  ChaosSeverity,
+  // Future use: ChaosStatus, ChaosSeverity
 } from '../../types/chaos.js';
 
 /**

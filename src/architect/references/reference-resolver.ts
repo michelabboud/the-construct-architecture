@@ -483,7 +483,7 @@ export function extractMarkdownSections(
 ): string {
   const lines = content.split('\n');
   const result: string[] = [];
-  let currentSection: string | null = null;
+  const __currentSection: string | null = null;
   let inTargetSection = false;
   let sectionLevel = 0;
 
@@ -496,14 +496,14 @@ export function extractMarkdownSections(
 
       // Check if this is a target section
       if (sections.some(s => title.includes(s.toLowerCase()))) {
-        currentSection = title;
+        _currentSection = title;
         inTargetSection = true;
         sectionLevel = level;
         result.push(line);
       } else if (inTargetSection && level <= sectionLevel) {
         // End of target section (same or higher level header)
         inTargetSection = false;
-        currentSection = null;
+        // _currentSection tracking ended
       } else if (inTargetSection) {
         result.push(line);
       }

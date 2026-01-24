@@ -468,7 +468,7 @@ export class Phantom {
     }
   }
 
-  private async executePortScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executePortScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     // Simulate port scan
     result.stats.requestsMade += 100;
     result.stats.responsesReceived += 95;
@@ -495,7 +495,7 @@ export class Phantom {
     }
   }
 
-  private async executeVulnerabilityScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executeVulnerabilityScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 50;
     result.stats.responsesReceived += 48;
 
@@ -509,7 +509,7 @@ export class Phantom {
     }
   }
 
-  private async executeWebScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executeWebScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 200;
     result.stats.responsesReceived += 195;
 
@@ -528,7 +528,7 @@ export class Phantom {
     }
   }
 
-  private async executeApiScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executeApiScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 75;
     result.stats.responsesReceived += 72;
 
@@ -546,7 +546,7 @@ export class Phantom {
     }
   }
 
-  private async executeAuthScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executeAuthScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 30;
     result.stats.responsesReceived += 30;
 
@@ -564,7 +564,7 @@ export class Phantom {
     }
   }
 
-  private async executeInjectionScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executeInjectionScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 100;
     result.stats.responsesReceived += 98;
 
@@ -584,7 +584,7 @@ export class Phantom {
     }
   }
 
-  private async executeConfigScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executeConfigScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 20;
     result.stats.responsesReceived += 20;
 
@@ -600,7 +600,7 @@ export class Phantom {
     });
   }
 
-  private async executeComplianceScan(result: ScanResult, config: ScanConfig): Promise<void> {
+  private async executeComplianceScan(result: ScanResult, _config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 15;
     result.stats.responsesReceived += 15;
 
@@ -664,7 +664,7 @@ export class Phantom {
     }
   }
 
-  private async simulateSqlInjection(result: AttackResult, spec: AttackSpec): Promise<void> {
+  private async simulateSqlInjection(result: AttackResult, _spec: AttackSpec): Promise<void> {
     const payloads = ["' OR '1'='1", "'; DROP TABLE users;--", "1' UNION SELECT * FROM users--"];
     result.evidence.push(`Tested ${payloads.length} SQL injection payloads`);
 
@@ -701,7 +701,7 @@ export class Phantom {
     }
   }
 
-  private async simulateCsrf(result: AttackResult, spec: AttackSpec): Promise<void> {
+  private async simulateCsrf(result: AttackResult, _spec: AttackSpec): Promise<void> {
     result.evidence.push('Checking for CSRF tokens on state-changing requests');
 
     if (Math.random() < 0.5) {
@@ -713,7 +713,7 @@ export class Phantom {
     }
   }
 
-  private async simulatePathTraversal(result: AttackResult, spec: AttackSpec): Promise<void> {
+  private async simulatePathTraversal(result: AttackResult, _spec: AttackSpec): Promise<void> {
     const payloads = ['../../../etc/passwd', '....//....//....//etc/passwd', '%2e%2e%2f%2e%2e%2f'];
     result.evidence.push(`Tested ${payloads.length} path traversal payloads`);
 
@@ -726,20 +726,20 @@ export class Phantom {
     }
   }
 
-  private async simulateCommandInjection(result: AttackResult, spec: AttackSpec): Promise<void> {
+  private async simulateCommandInjection(result: AttackResult, _spec: AttackSpec): Promise<void> {
     result.evidence.push('Testing for command injection vulnerabilities');
     result.blocked = true;
     result.blockedBy = 'Input validation';
     result.recommendations.push('Avoid executing system commands with user input.');
   }
 
-  private async simulateAuthBypass(result: AttackResult, spec: AttackSpec): Promise<void> {
+  private async simulateAuthBypass(result: AttackResult, _spec: AttackSpec): Promise<void> {
     result.evidence.push('Testing authentication bypass techniques');
     result.blocked = true;
     result.blockedBy = 'Proper authentication checks';
   }
 
-  private async simulatePrivilegeEscalation(result: AttackResult, spec: AttackSpec): Promise<void> {
+  private async simulatePrivilegeEscalation(result: AttackResult, _spec: AttackSpec): Promise<void> {
     result.evidence.push('Testing for privilege escalation vectors');
     result.blocked = true;
     result.blockedBy = 'Proper authorization checks';

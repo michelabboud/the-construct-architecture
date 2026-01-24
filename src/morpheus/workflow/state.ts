@@ -7,9 +7,9 @@
  */
 
 import { EventEmitter } from 'events';
-import initSqlJs, { type Database, type SqlValue } from 'sql.js';
+import initSqlJs, { type Database } from 'sql.js';
 import { readFile, writeFile, mkdir } from 'fs/promises';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 import { existsSync } from 'fs';
 import { randomUUID } from 'crypto';
 import {

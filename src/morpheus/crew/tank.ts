@@ -8,7 +8,7 @@
  */
 
 import { readFile, readdir, stat } from 'fs/promises';
-import { join, relative, extname, basename, dirname } from 'path';
+import { join, relative, extname, basename } from 'path';
 import { existsSync } from 'fs';
 import {
   BaseAgent,

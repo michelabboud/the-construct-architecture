@@ -15,7 +15,7 @@
 import type {
   SecurityPrincipal,
   AuthenticationResult,
-  ThreatLevel,
+  // Future use: ThreatLevel,
 } from '../../types/security.js';
 import type { SpecialAgent } from '../smith/agent-smith.js';
 

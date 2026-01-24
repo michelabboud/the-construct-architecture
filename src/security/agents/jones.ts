@@ -17,7 +17,7 @@ import type {
   SecurityResource,
   SecurityAction,
   AuthorizationResult,
-  SecurityPolicy,
+  // Future use: SecurityPolicy,
 } from '../../types/security.js';
 import type { SpecialAgent } from '../smith/agent-smith.js';
 
@@ -614,7 +614,7 @@ export class AgentJones implements SpecialAgent {
     return false;
   }
 
-  private getPrincipalRoles(principalId: string): string[] {
+  private getPrincipalRoles(_principalId: string): string[] {
     // In a real implementation, this would look up the principal's roles from a store
     // For now, return empty (would need integration with Agent Brown)
     return [];

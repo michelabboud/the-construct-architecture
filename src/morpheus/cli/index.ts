@@ -9,7 +9,7 @@
  * Interactive command-line interface for The Construct migration.
  */
 
-import { createMorpheus } from '../morpheus.js';
+// Future use: import { createMorpheus } from '../morpheus.js';
 import { createTank } from '../crew/tank.js';
 import { createTrinity } from '../crew/trinity.js';
 import { createApoc } from '../crew/apoc.js';
@@ -18,7 +18,7 @@ import { createReporter } from '../reporter/reporter.js';
 import {
   FullAnalysis,
   MigrationPlan,
-  ValidationResult,
+  // Future use: ValidationResult,
   AIPackageInfo,
 } from '../../types/morpheus.js';
 

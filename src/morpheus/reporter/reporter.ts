@@ -10,16 +10,11 @@
 import {
   MigrationPlan,
   MigrationPhase,
-  MigrationTask,
-  MigrationRisk,
-  RiskMitigation,
-  MigrationEstimates,
+  // Future use: MigrationTask, MigrationRisk, RiskMitigation, MigrationEstimates,
   FullAnalysis,
   ValidationResult,
   AuditReport,
-  GapAnalysis,
-  CurrentStateSummary,
-  TargetStateSummary,
+  // Future use: GapAnalysis, CurrentStateSummary, TargetStateSummary,
 } from '../../types/morpheus.js';
 
 // ============================================================================

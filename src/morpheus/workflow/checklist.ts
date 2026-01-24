@@ -15,7 +15,7 @@ import {
   ChecklistVerification,
   VerificationResult,
   WorkflowPhase,
-  CrewMember,
+  // Future use: CrewMember,
 } from '../../types/morpheus.js';
 
 /**

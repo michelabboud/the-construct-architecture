@@ -14,9 +14,7 @@
 
 import type {
   SecurityAuditEntry,
-  SecurityPrincipal,
-  SecurityResource,
-  SecurityAction,
+  // Future use: SecurityPrincipal, SecurityResource, SecurityAction,
   ThreatLevel,
 } from '../../types/security.js';
 import type { SpecialAgent } from '../smith/agent-smith.js';
@@ -534,7 +532,7 @@ export class AgentThompson implements SpecialAgent {
 
   private runComplianceChecks(
     logs: SecurityAuditEntry[],
-    period: { start: Date; end: Date }
+    _period: { start: Date; end: Date }
   ): ComplianceReport['complianceChecks'] {
     const checks: ComplianceReport['complianceChecks'] = [];
 

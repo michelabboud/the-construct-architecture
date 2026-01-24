@@ -14,8 +14,7 @@ import type {
 import {
   ProviderRegistry,
   defaultRegistry,
-  type ProviderDefinition,
-  type ModelDefinition,
+  // Future use: type ProviderDefinition, type ModelDefinition
 } from './providers.js';
 
 /**

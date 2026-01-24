@@ -31,7 +31,7 @@ import {
   adapterRegistry,
   AnthropicAdapter,
   GoogleAdapter,
-  type ToolAdapter,
+  // Future use: type ToolAdapter
   type AdapterRequest,
 } from './tool-adapters/index.js';
 import type { Oracle } from '../oracle/oracle.js';

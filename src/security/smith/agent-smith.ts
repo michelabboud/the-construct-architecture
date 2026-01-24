@@ -29,8 +29,7 @@ import type {
   ThreatLevel,
   SecurityIncident,
   ContainmentAction,
-  AuthenticationResult,
-  AuthorizationResult,
+  // Future use: AuthenticationResult, AuthorizationResult,
 } from '../../types/security.js';
 import { Seraph, type SeraphConfig } from '../seraph/seraph.js';
 
@@ -840,7 +839,7 @@ export class AgentSmith {
           result.success = true;
           break;
       }
-    } catch (error) {
+    } catch (_error) {
       result.success = false;
     }
 

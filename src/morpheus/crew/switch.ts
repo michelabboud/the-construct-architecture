@@ -586,7 +586,7 @@ export class Switch extends BaseAgent {
   private isValidYamlSyntax(content: string): boolean {
     // Check for basic YAML structure
     const lines = content.split('\n');
-    const indentStack: number[] = [0];
+    const _indentStack: number[] = [0]; // For future indentation validation
 
     for (const line of lines) {
       // Skip empty lines and comments
@@ -689,7 +689,7 @@ export class Switch extends BaseAgent {
     }
 
     // Validate each phase
-    let totalTasks = 0;
+    let _totalTasks = 0;
     for (let i = 0; i < plan.phases.length; i++) {
       const phase = plan.phases[i]!;
 
@@ -735,7 +735,7 @@ export class Switch extends BaseAgent {
           score -= (100 - taskResult.score) / 10;
         }
 
-        totalTasks += phase.tasks.length;
+        _totalTasks += phase.tasks.length;
       }
     }
 
