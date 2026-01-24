@@ -60,10 +60,10 @@ The Construct fixes this by making **code enforce rules**, not AI's willingness 
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
 │   Traditional Approach:                                     │
-│   "AI, please follow these rules" → AI ignores them        │
+│   "AI, please follow these rules" → AI ignores them         │
 │                                                             │
 │   The Construct Approach:                                   │
-│   Code enforces rules → AI works within boundaries         │
+│   Code enforces rules → AI works within boundaries          │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
