@@ -7,12 +7,43 @@
  * Validates outputs, blocks forbidden actions, scores quality.
  * NOT just monitoring - actively BLOCKS unauthorized actions.
  *
- * Phase 1 Implementation - Basic validation
+ * Phase 1 + Phase 5 Implementation
  */
 
 import { minimatch } from 'minimatch';
 import type { Architect } from '../architect/architect.js';
 import type { Contract } from '../architect/schemas/contract.schema.js';
+import {
+  ActionValidator,
+  type ValidatableAction,
+  type ActionValidationResult,
+  type ActionValidatorConfig,
+  ActionValidationError,
+} from './validators/action-validator.js';
+import {
+  OutputValidator,
+  type OutputValidationResult as FullOutputValidationResult,
+  type OutputValidatorConfig,
+} from './validators/output-validator.js';
+import {
+  EnforcementEngine,
+  type EnforcementConfig,
+  type EscalationRequest,
+  type EscalationHandler,
+} from './enforcement.js';
+
+// Re-export Phase 5 types
+export type {
+  ValidatableAction,
+  ActionValidationResult,
+  ActionValidatorConfig,
+  FullOutputValidationResult,
+  OutputValidatorConfig,
+  EnforcementConfig,
+  EscalationRequest,
+  EscalationHandler,
+};
+export { ActionValidator, ActionValidationError, OutputValidator, EnforcementEngine };
 
 export interface ValidationResult {
   valid: boolean;
@@ -70,15 +101,41 @@ export class PathBlockedError extends Error {
 }
 
 /**
+ * Sentinels configuration
+ */
+export interface SentinelsConfig {
+  /** Enable Phase 5 features (action validator, output validator, enforcement) */
+  enablePhase5?: boolean;
+  /** Action validator configuration */
+  actionValidatorConfig?: ActionValidatorConfig;
+  /** Output validator configuration */
+  outputValidatorConfig?: OutputValidatorConfig;
+  /** Enforcement engine configuration */
+  enforcementConfig?: EnforcementConfig;
+}
+
+/**
  * The Sentinels - QA & Enforcement Layer
  *
- * TODO Phase 1:
- * - Validate outputs against contract requirements
- * - Block forbidden actions (path checks)
- * - Return pass/fail with score
+ * Phase 1: Basic validation (checkAction, checkPath, checkTool, validateOutput)
+ * Phase 5: Full QA system with ActionValidator, OutputValidator, EnforcementEngine
  */
 export class Sentinels {
-  constructor(private architect: Architect) {}
+  private config: SentinelsConfig;
+  private actionValidator?: ActionValidator;
+  private outputValidator?: OutputValidator;
+  private enforcement?: EnforcementEngine;
+
+  constructor(private architect: Architect, config: SentinelsConfig = {}) {
+    this.config = config;
+
+    // Initialize Phase 5 components if enabled
+    if (config.enablePhase5) {
+      this.actionValidator = new ActionValidator(architect, config.actionValidatorConfig);
+      this.outputValidator = new OutputValidator(config.outputValidatorConfig);
+      this.enforcement = new EnforcementEngine(architect, config.enforcementConfig);
+    }
+  }
 
   /**
    * Check if an action is allowed by both Architect and contract
@@ -247,5 +304,196 @@ export class Sentinels {
       return tool.startsWith(prefix);
     }
     return tool === pattern;
+  }
+
+  // ============ Phase 5: Full QA System ============
+
+  /**
+   * Get action validator (Phase 5)
+   * Throws if Phase 5 is not enabled
+   */
+  getActionValidator(): ActionValidator {
+    if (!this.actionValidator) {
+      throw new Error('Phase 5 not enabled. Set enablePhase5: true in config.');
+    }
+    return this.actionValidator;
+  }
+
+  /**
+   * Get output validator (Phase 5)
+   * Throws if Phase 5 is not enabled
+   */
+  getOutputValidator(): OutputValidator {
+    if (!this.outputValidator) {
+      throw new Error('Phase 5 not enabled. Set enablePhase5: true in config.');
+    }
+    return this.outputValidator;
+  }
+
+  /**
+   * Get enforcement engine (Phase 5)
+   * Throws if Phase 5 is not enabled
+   */
+  getEnforcementEngine(): EnforcementEngine {
+    if (!this.enforcement) {
+      throw new Error('Phase 5 not enabled. Set enablePhase5: true in config.');
+    }
+    return this.enforcement;
+  }
+
+  /**
+   * Check if Phase 5 features are enabled
+   */
+  isPhase5Enabled(): boolean {
+    return !!this.config.enablePhase5;
+  }
+
+  /**
+   * Validate action with full Phase 5 validation (if enabled)
+   * Falls back to Phase 1 checkAction if Phase 5 not enabled
+   */
+  async validateActionFull(
+    action: ValidatableAction,
+    contract: Contract
+  ): Promise<ActionValidationResult> {
+    if (this.actionValidator) {
+      return this.actionValidator.validate(action, contract);
+    }
+
+    // Fall back to Phase 1 validation
+    const phase1Action: Action = { type: action.type };
+    if ('tool' in action && (action as { tool: string }).tool) {
+      phase1Action.tool = (action as { tool: string }).tool;
+    }
+    if ('path' in action && (action as { path: string }).path) {
+      phase1Action.path = (action as { path: string }).path;
+    }
+    if (action.type.includes('READ')) {
+      phase1Action.operation = 'read';
+    } else if (action.type.includes('WRITE')) {
+      phase1Action.operation = 'write';
+    }
+
+    try {
+      await this.checkAction(phase1Action, contract);
+      return {
+        allowed: true,
+        action,
+        violations: [],
+        timestamp: new Date(),
+        durationMs: 0,
+      };
+    } catch (error) {
+      return {
+        allowed: false,
+        action,
+        violations: [{
+          code: 'PHASE1_BLOCKED',
+          message: error instanceof Error ? error.message : String(error),
+          severity: 'error',
+          source: 'contract',
+        }],
+        timestamp: new Date(),
+        durationMs: 0,
+      };
+    }
+  }
+
+  /**
+   * Validate output with full Phase 5 validation (if enabled)
+   * Falls back to Phase 1 validateOutput if Phase 5 not enabled
+   */
+  async validateOutputFull(
+    output: unknown,
+    contract: Contract
+  ): Promise<FullOutputValidationResult> {
+    if (this.outputValidator) {
+      return this.outputValidator.validate(output, contract);
+    }
+
+    // Fall back to Phase 1 validation
+    const phase1Result = await this.validateOutput(output, contract);
+
+    return {
+      valid: phase1Result.valid,
+      score: phase1Result.score,
+      scoreBreakdown: {
+        completeness: phase1Result.valid ? 1 : 0,
+        correctness: phase1Result.valid ? 1 : 0,
+        format: 1,
+        constraints: 1,
+      },
+      issues: phase1Result.errors.map(e => {
+        const issue: { code: string; message: string; severity: 'critical' | 'error'; path?: string } = {
+          code: e.code,
+          message: e.message,
+          severity: e.severity,
+        };
+        if (e.path) {
+          issue.path = e.path;
+        }
+        return issue;
+      }),
+      deliverables: [],
+      timestamp: new Date(),
+      durationMs: 0,
+    };
+  }
+
+  /**
+   * Enforce action using enforcement engine (Phase 5)
+   * Throws if action is blocked
+   */
+  async enforceAction(
+    action: ValidatableAction,
+    contract: Contract
+  ): Promise<void> {
+    if (this.enforcement) {
+      await this.enforcement.enforceAction(action, contract);
+    } else {
+      // Fall back to Phase 1
+      const phase1Action: Action = { type: action.type };
+      if ('tool' in action && (action as { tool: string }).tool) {
+        phase1Action.tool = (action as { tool: string }).tool;
+      }
+      if ('path' in action && (action as { path: string }).path) {
+        phase1Action.path = (action as { path: string }).path;
+      }
+      if (action.type.includes('READ')) {
+        phase1Action.operation = 'read';
+      } else if (action.type.includes('WRITE')) {
+        phase1Action.operation = 'write';
+      }
+      await this.checkAction(phase1Action, contract);
+    }
+  }
+
+  /**
+   * Get enforcement statistics (Phase 5)
+   */
+  getEnforcementStats() {
+    if (!this.enforcement) {
+      return null;
+    }
+    return this.enforcement.getStats();
+  }
+
+  /**
+   * Get compliance report (Phase 5)
+   */
+  getComplianceReport(options?: { contractId?: string; since?: Date }): string | null {
+    if (!this.enforcement) {
+      return null;
+    }
+    return this.enforcement.generateComplianceReport(options);
+  }
+
+  /**
+   * Set escalation handler (Phase 5)
+   */
+  setEscalationHandler(handler: EscalationHandler): void {
+    if (this.enforcement) {
+      this.enforcement.setEscalationHandler(handler);
+    }
   }
 }

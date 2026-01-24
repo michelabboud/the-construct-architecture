@@ -189,8 +189,8 @@ describe('Architect', () => {
   });
 
   describe('getConfig', () => {
-    it('should return undefined for unknown config paths', () => {
-      const value = architect.getConfig('unknown.path');
+    it('should return undefined for unknown config paths', async () => {
+      const value = await architect.getConfig('unknown.path');
 
       expect(value).toBeUndefined();
     });

@@ -1,18 +1,18 @@
 # JOBS - Active Work Tracker
 <!-- AI-RESUMABLE: This file is designed for AI model consumption -->
-<!-- LAST_UPDATED: 2026-01-23T21:00:00Z -->
-<!-- SESSION_CONTEXT: Phase 3 Multi-Provider / Keymaker complete - 187 tests passing -->
+<!-- LAST_UPDATED: 2026-01-23T23:30:00Z -->
+<!-- SESSION_CONTEXT: Phase 5 Full Sentinels / QA System complete - 300 tests passing -->
 
 > **Note:** Completed jobs are archived to [`JOBS_COMPLETED.md`](JOBS_COMPLETED.md)
 
 ## ACTIVE_JOBS
 
 ### JOB:construct-phase-1-implementation
-- STATUS: in_progress
+- STATUS: completed
 - PRIORITY: high
 - STARTED: 2026-01-23
 - PLAN_DOC: docs/implementation-plan.md
-- CURRENT_PHASE: 3 (Complete)
+- CURRENT_PHASE: 5 (Complete)
 - PHASES:
   - [x] Phase 1: Foundation (COMPLETED)
     - [x] Contract schema with Zod validation
@@ -40,57 +40,67 @@
     - [x] Cost estimation and tracking
     - [x] Fallback execution with multiple provider attempts
     - [x] Test: 187 tests passing
-  - [ ] Phase 4: Reference System & Full Architect (PENDING)
-  - [ ] Phase 5: Full Sentinels / QA System (PENDING)
+  - [x] Phase 4: Reference System & Full Architect (COMPLETED)
+    - [x] Reference Resolver with URI-based references (guide://, tool://, mcp://, schema://, etc.)
+    - [x] Template variable substitution ({agent_id}, {task_type}, etc.)
+    - [x] Cache with TTL for resolved references
+    - [x] Truth Loader for global (~/.construct/truth/) and project (.construct/truth.yaml) configs
+    - [x] Deep merge for truth inheritance (project extends global)
+    - [x] Registry for tools, agents, and services
+    - [x] Health checks for registered services
+    - [x] Capability and skill-based discovery
+    - [x] Architect integration with all Phase 4 components
+    - [x] Full contract reference validation (validateContractFull)
+    - [x] Test: 249 tests passing (62 new Phase 4 tests)
+  - [x] Phase 5: Full Sentinels / QA System (COMPLETED)
+    - [x] ActionValidator: Tool call interception & validation
+    - [x] OutputValidator: Schema validation, quality scoring, deliverables
+    - [x] EnforcementEngine: Real-time action blocking & escalation
+    - [x] Audit logging for all validations
+    - [x] Custom policy support
+    - [x] Escalation system with handlers
+    - [x] Compliance report generation
+    - [x] Sentinels integration with Phase 5 components
+    - [x] Test: 300 tests passing (51 new Phase 5 tests)
 - BLOCKED_BY: null
-- NEXT_ACTION: Begin Phase 4 - Reference System & Full Architect
+- NEXT_ACTION: Archive to JOBS_COMPLETED.md - All phases complete!
 - CONTEXT: |
     **Session Progress (2026-01-23):**
 
-    **Phase 1 (Complete):**
-    - Fixed package.json (removed litellm, better-sqlite3 deferred to Phase 2)
-    - Implemented minimatch-based pattern matching for Architect & Sentinels
-    - Created comprehensive test suites
+    **Phase 5 (Complete):**
+    - Created ActionValidator (src/sentinels/validators/action-validator.ts)
+      - Validates actions against Architect rules and contract limitations
+      - Custom policy support for extensible validation
+      - Comprehensive audit logging
+      - Statistics and filtering for audit logs
+    - Created OutputValidator (src/sentinels/validators/output-validator.ts)
+      - Schema-based deliverable validation
+      - Quality score breakdown (completeness, correctness, format, constraints)
+      - Pluggable AI scorer interface
+      - Default schemas for image, text, file, code, data types
+      - Human-readable report generation
+    - Created EnforcementEngine (src/sentinels/enforcement.ts)
+      - Real-time action blocking with logging
+      - Output validation with threshold checks
+      - Escalation system with pending/approved/rejected/expired states
+      - Escalation handler interface for custom workflows
+      - Compliance report generation
+      - Comprehensive statistics
+    - Updated Sentinels (src/sentinels/sentinels.ts)
+      - Phase 5 feature toggle (enablePhase5)
+      - Integrated ActionValidator, OutputValidator, EnforcementEngine
+      - validateActionFull(), validateOutputFull(), enforceAction()
+      - getEnforcementStats(), getComplianceReport()
+      - Fallback to Phase 1 when Phase 5 disabled
+    - Created validators index (src/sentinels/validators/index.ts)
+    - Fixed many exactOptionalPropertyTypes TypeScript issues
+    - All 300 tests passing (51 new Phase 5 tests)
 
-    **Phase 2 (Complete):**
-    - Installed sql.js (pure JS SQLite, works with Node 24)
-    - Created database layer and AgentProfileStore
-    - Full Oracle judgment implementation
-    - All 145 tests passing
-
-    **Phase 3 (Complete):**
-    - Discovered litellm is Python-only, implemented custom solution
-    - Created provider registry (src/keymaker/providers.ts)
-      - 6 providers: OpenAI, Anthropic, Google, Groq, Together, Ollama
-      - Model definitions with pricing, capabilities, context windows
-    - Created unified AI client (src/keymaker/ai-client.ts)
-      - OpenAI SDK wrapper for compatible providers
-      - Message conversion, tool handling
-    - Created tool adapters (src/keymaker/tool-adapters/)
-      - Anthropic adapter with direct HTTP requests
-      - Google Gemini adapter with direct HTTP requests
-    - Created provider router (src/keymaker/router.ts)
-      - Oracle integration for performance-based routing
-      - Cost, latency, and capability-based scoring
-      - Fallback execution with multiple attempts
-    - Updated Keymaker class (src/keymaker/keymaker.ts)
-      - generate(), chat(), executeWithTools()
-      - Contract constraint extraction
-      - Provider testing
-    - Updated Worker (src/programs/worker.ts)
-      - Integrated with Keymaker
-      - Builds prompts from contracts
-      - Supports tool execution
-    - Fixed many exactOptionalPropertyTypes issues
-    - All 187 tests passing
-
-    **Core Principle:** "Code that calls AI, not AI that calls code"
-
-    **Architecture Components Status:**
-    - The Architect: ✅ Working (minimatch patterns, contract validation)
+    **All Architecture Components Complete:**
+    - The Architect: ✅ Full implementation with references, truth loading, registry
     - The Oracle: ✅ Working (judgment, XP, achievements, persistence)
     - The Agents: ✅ ContractExecutor with Oracle integration
-    - The Sentinels: ✅ Working (action/path/tool blocking, output validation)
+    - The Sentinels: ✅ Full QA system (ActionValidator, OutputValidator, EnforcementEngine)
     - The Programs: ✅ Worker with Keymaker integration
     - The Keymaker: ✅ Working (multi-provider, routing, tools)
 
@@ -104,17 +114,11 @@
 
 - ARTIFACTS:
     - created:
-      - src/keymaker/providers.ts (Phase 3)
-      - src/keymaker/ai-client.ts (Phase 3)
-      - src/keymaker/router.ts (Phase 3)
-      - src/keymaker/tool-adapters/index.ts (Phase 3)
-      - src/keymaker/tool-adapters/anthropic-adapter.ts (Phase 3)
-      - src/keymaker/tool-adapters/google-adapter.ts (Phase 3)
-      - test/keymaker.test.ts (Phase 3)
+      - src/sentinels/validators/action-validator.ts (Phase 5)
+      - src/sentinels/validators/output-validator.ts (Phase 5)
+      - src/sentinels/validators/index.ts (Phase 5)
+      - src/sentinels/enforcement.ts (Phase 5)
+      - test/phase5.test.ts (Phase 5 - 51 tests)
     - modified:
-      - src/keymaker/keymaker.ts (full implementation)
-      - src/programs/worker.ts (Keymaker integration)
-      - package.json (added openai SDK)
-    - pending:
-      - Phase 4: Reference System & Full Architect
-      - Phase 5: Full Sentinels / QA System
+      - src/sentinels/sentinels.ts (Phase 5 integration)
+    - pending: none
