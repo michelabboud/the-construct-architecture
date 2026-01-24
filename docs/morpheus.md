@@ -29,8 +29,8 @@ Morpheus is an AI-powered migration wizard that helps projects migrate to The Co
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    MORPHEUS COMMANDER                        │
-│              (Orchestrates the crew and workflow)            │
+│                    MORPHEUS COMMANDER                       │
+│              (Orchestrates the crew and workflow)           │
 └─────────────────────────────────────────────────────────────┘
                               │
        ┌──────────────────────┼──────────────────────┐
