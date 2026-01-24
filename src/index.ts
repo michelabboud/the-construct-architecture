@@ -36,5 +36,10 @@ export { AgentJohnson } from './security/agents/johnson.js';
 export { AgentThompson } from './security/agents/thompson.js';
 export { AgentJackson } from './security/agents/jackson.js';
 
+// Chaos Engineering (The Twins) - Phase 7
+export { Ghost, createGhost } from './chaos/ghost/ghost.js';
+export { Phantom, createPhantom } from './chaos/phantom/phantom.js';
+export { Twins, createTwins } from './chaos/twins.js';
+
 // Types
 export * from './types/index.js';
