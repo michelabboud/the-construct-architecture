@@ -166,7 +166,7 @@ console.log(result.output);
           ▼                  │                  ▼
 ┌──────────────────┐         │         ┌──────────────────┐
 │    THE ORACLE    │         │         │   AGENT SMITH    │
-│  (Judgment & XP) │◀────────┤         │   (Security)    │
+│  (Judgment & XP) │◀───────┤         │   (Security)     │
 │                  │         │         │                  │
 │  Feedback loop   │         │         │  Zero Trust      │
 │  XP awards       │         │         │  Auth & threats  │
