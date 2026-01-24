@@ -2,6 +2,12 @@
 
 > *"The Matrix is everywhere. It is all around us."* — Morpheus
 
+---
+
+> **Work in Progress** - This project is actively under development. We welcome contributors! See [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+---
+
 ## Overview
 
 The Construct is a reference architecture for AI orchestration built on the principle **"Code that calls AI, not AI that calls code"**. Every component is named after characters from The Matrix trilogy, creating a cohesive metaphor for a system where code controls AI, security is built-in from day one, and chaos testing ensures resilience.
@@ -83,6 +89,14 @@ The Construct is a reference architecture for AI orchestration built on the prin
 │  │                                                                       │   │
 │  │  Ghost & Phantom • Penetration testing • Fault injection             │   │
 │  │  Pre-production only • Attack simulation • Resilience testing        │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
+│                                                                              │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │                     MORPHEUS                                          │   │
+│  │               (Migration Wizard)                                      │   │
+│  │                                                                       │   │
+│  │  Nebuchadnezzar Crew: Tank • Trinity • Mouse • Apoc • Switch         │   │
+│  │  Project scanning • Migration planning • Contract generation          │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -954,34 +968,218 @@ interface TheKid {
 
 ---
 
+## Migration Wizard
+
+### MORPHEUS (Migration Wizard)
+
+> *"I'm trying to free your mind, Neo. But I can only show you the door. You're the one that has to walk through it."*
+
+**Role:** Migration Wizard for Existing Projects
+
+Morpheus helps migrate existing AI projects to The Construct architecture. He leads the Nebuchadnezzar crew - specialized agents that analyze, plan, and execute migrations.
+
+```typescript
+interface Morpheus {
+  // Migration workflow
+  analyze(project: ProjectPath): Promise<AnalysisResult>;
+  plan(analysis: AnalysisResult): Promise<MigrationPlan>;
+  migrate(plan: MigrationPlan): Promise<MigrationResult>;
+
+  // Crew coordination
+  coordinateCrew(task: MigrationTask): Promise<CrewResult>;
+  getCrewStatus(): CrewStatus;
+}
+```
+
+---
+
+### THE NEBUCHADNEZZAR CREW
+
+The crew of Morpheus's ship, each with specialized roles in the migration process.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         THE NEBUCHADNEZZAR CREW                              │
+│                     "Welcome Aboard, Free Your Mind"                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                           MORPHEUS                                   │    │
+│  │                       Migration Wizard                               │    │
+│  │                                                                      │    │
+│  │  • Coordinates the crew                                              │    │
+│  │  • Manages migration workflow                                        │    │
+│  │  • Reports progress and results                                      │    │
+│  └──────────────────────────────────────────────────────────────────────┘    │
+│                                      │                                       │
+│        ┌─────────────┬───────────────┼───────────────┬─────────────┐        │
+│        │             │               │               │             │        │
+│        ▼             ▼               ▼               ▼             ▼        │
+│  ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐     │
+│  │   TANK    │ │  TRINITY  │ │   MOUSE   │ │   APOC    │ │  SWITCH   │     │
+│  │ Operator  │ │  Expert   │ │ Designer  │ │ Strategist│ │  Skeptic  │     │
+│  │           │ │           │ │           │ │           │ │           │     │
+│  │ • Scans   │ │ • Deep    │ │ • Creates │ │ • Plans   │ │ • Validates│    │
+│  │ • Detects │ │   analysis│ │   configs │ │   phases  │ │ • Verifies │    │
+│  │ • Reports │ │ • Patterns│ │ • Contracts│ │ • Orders  │ │ • Approves │    │
+│  └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘     │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### TANK (The Operator)
+
+> *"So what do you need? Besides a miracle."*
+
+**Role:** Project Scanner & Analyzer
+
+Tank is the Operator - he scans and gathers intelligence.
+
+```typescript
+interface Tank {
+  // Project scanning
+  scanProject(path: string): Promise<ProjectScan>;
+  detectFrameworks(scan: ProjectScan): Framework[];
+  detectPatterns(scan: ProjectScan): Pattern[];
+
+  // Intelligence gathering
+  findAIUsage(scan: ProjectScan): AIUsage[];
+  mapDependencies(scan: ProjectScan): DependencyMap;
+  identifyRisks(scan: ProjectScan): Risk[];
+}
+```
+
+#### TRINITY (The Expert)
+
+> *"Dodge this."*
+
+**Role:** Deep Analysis & Pattern Detection
+
+Trinity is the expert - she goes deep and finds what others miss.
+
+```typescript
+interface Trinity {
+  // Deep analysis
+  analyzeCodeQuality(files: File[]): QualityReport;
+  detectAntiPatterns(code: Code): AntiPattern[];
+  assessComplexity(project: Project): ComplexityScore;
+
+  // Pattern recognition
+  matchKnownPatterns(code: Code): PatternMatch[];
+  suggestRefactoring(patterns: Pattern[]): Refactoring[];
+}
+```
+
+#### MOUSE (The Designer)
+
+> *"To deny our own impulses is to deny the very thing that makes us human."*
+
+**Role:** Configuration & Contract Generator
+
+Mouse creates things - he designs and generates artifacts.
+
+```typescript
+interface Mouse {
+  // Generation
+  generateArchitectConfig(analysis: Analysis): ArchitectConfig;
+  generateContracts(patterns: Pattern[]): Contract[];
+  createMigrationScripts(plan: Plan): Script[];
+
+  // Templates
+  selectTemplates(projectType: string): Template[];
+  customizeTemplate(template: Template, context: Context): Template;
+}
+```
+
+#### APOC (The Strategist)
+
+> *"Up."*
+
+**Role:** Migration Planning & Strategy
+
+Apoc plans the strategy - he determines the order and approach.
+
+```typescript
+interface Apoc {
+  // Planning
+  createMigrationPlan(analysis: Analysis): MigrationPlan;
+  orderPhases(tasks: Task[]): Phase[];
+  estimateEffort(plan: Plan): Estimate;
+
+  // Strategy
+  identifyQuickWins(analysis: Analysis): QuickWin[];
+  planRollbackStrategy(plan: Plan): RollbackPlan;
+  prioritizeByRisk(tasks: Task[]): Task[];
+}
+```
+
+#### SWITCH (The Skeptic)
+
+> *"Not like this. Not like this."*
+
+**Role:** Validation & Quality Assurance
+
+Switch is the skeptic - she validates everything and ensures quality.
+
+```typescript
+interface Switch {
+  // Validation
+  validateMigration(result: MigrationResult): ValidationResult;
+  verifyContracts(contracts: Contract[]): VerificationResult;
+  checkCompatibility(old: Project, new: Project): CompatibilityReport;
+
+  // Quality assurance
+  runTests(project: Project): TestResult;
+  verifyNoRegression(before: Snapshot, after: Snapshot): RegressionReport;
+  approveForProduction(result: MigrationResult): Approval;
+}
+```
+
+---
+
 ## Implementation Phases
 
-### Phase 1-5: Core Architecture
+**Status: All phases complete with 927 passing tests**
+
+### Phase 1-5: Core Architecture ✅
+- Phase 1: Foundation (Architect, Contracts, Sentinels)
+- Phase 2: Oracle & Level-Up System
+- Phase 3: Multi-Provider Keymaker
+- Phase 4: Reference System & Registry
+- Phase 5: Full Sentinels QA
+
 See [implementation-plan.md](./implementation-plan.md)
 
-### Phase 6: Security Layer
-
-#### Phase 6a: Foundation
+### Phase 6: Security Layer ✅
 - Agent Smith (Security Orchestrator)
 - Seraph (Zero Trust Gateway)
-- Basic security policies
-
-#### Phase 6b: Authentication & Authorization
 - Agent Brown (Authentication)
 - Agent Jones (Authorization)
-- RBAC implementation
-
-#### Phase 6c: Detection & Response
 - Agent Johnson (Threat Detection)
 - Agent Thompson (Audit & Compliance)
 - Agent Jackson (Incident Response)
 
-#### Phase 6d: Chaos Engineering
+See [security-architecture.md](./security-architecture.md)
+
+### Phase 7: Chaos Engineering ✅
 - The Twins (Ghost & Phantom)
 - Chaos scenarios
 - Safety controls
 
-### Phase 7: Extended Components
+### Phase 8: Morpheus Migration Wizard ✅
+- Phase 8a: Foundation & Workflow Engine
+- Phase 8b: Tank Agent (Scanner)
+- Phase 8c: Mouse Agent (Generator)
+- Phase 8d: Trinity Agent (Analyzer)
+- Phase 8e: Switch Agent (Validator)
+- Phase 8f: Apoc Agent (Planner)
+- Phase 8g: CLI & Reporter
+- Phase 8h: Knowledge Base
+- Phase 8i: Testing & Documentation
+
+See [morpheus.md](./morpheus.md)
+
+### Future Phases (Planned)
 - The Merovingian (Legacy support)
 - The Trainman (Event bus)
 - Niobe (Service mesh)
@@ -1010,13 +1208,43 @@ The Construct now includes:
 | Incident Response | **Agent Jackson** | Breach handling |
 | Zero Trust | **Seraph** | API gateway |
 | Chaos Engineering | **The Twins** | Penetration testing |
+| Migration Wizard | **Morpheus** | Project migration |
+| Scanner | **Tank** | Project analysis |
+| Expert Analyst | **Trinity** | Deep analysis |
+| Designer | **Mouse** | Config generation |
+| Strategist | **Apoc** | Migration planning |
+| Validator | **Switch** | Quality assurance |
 | Legacy | **The Merovingian** | Backwards compatibility |
 | Messaging | **The Trainman** | Event bus |
 | Networking | **Niobe** | Service mesh |
 | Operations | **Tank & Dozer** | Infrastructure |
-| Transformation | **Switch** | Data formats |
 | Insider Testing | **Cypher** | Threat simulation |
 | Future | **Sati** | Schema evolution |
 | Learning | **The Kid** | Training, onboarding |
+
+---
+
+## Author & Credits
+
+**Author:** [Michel Abboud](https://github.com/michelabboud)
+
+### AI Collaboration Transparency
+
+This project was developed with significant assistance from **Claude** (Anthropic's AI assistant). In the spirit of transparency:
+
+- **Architecture Design:** Collaborative effort between Michel Abboud and Claude
+- **Code Implementation:** Written with Claude's assistance using Claude Code CLI
+- **Documentation:** Co-authored with Claude
+- **Tests:** Developed with Claude's help (927 tests)
+
+We believe in being transparent about AI involvement in software development.
+
+---
+
+## Disclaimer
+
+This project is not affiliated with, endorsed by, or connected to Warner Bros., The Matrix franchise, or any related entities. Character names and concepts from The Matrix are used as metaphorical inspiration only. All trademarks are the property of their respective owners.
+
+---
 
 *"Welcome to the real world."* — Morpheus
