@@ -29,7 +29,7 @@
     "openai": "^6.16.0",
     "sql.js": "^1.13.0",
     "yaml": "^2.3.0",
-    "zod": "^3.22.0"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
