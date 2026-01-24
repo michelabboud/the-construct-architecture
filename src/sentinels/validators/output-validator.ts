@@ -308,7 +308,7 @@ export class OutputValidator {
     if (schema) {
       const parseResult = schema.safeParse(output);
       if (!parseResult.success) {
-        for (const error of parseResult.error.errors) {
+        for (const error of parseResult.error.issues) {
           issues.push({
             code: 'SCHEMA_VALIDATION_FAILED',
             message: error.message,

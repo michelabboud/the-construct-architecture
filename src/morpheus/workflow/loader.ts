@@ -169,7 +169,7 @@ export class WorkflowLoader {
     // Validate with Zod schema
     const schemaResult = WorkflowSchema.safeParse(parsed);
     if (!schemaResult.success) {
-      const errors = schemaResult.error.errors.map((err) => ({
+      const errors = schemaResult.error.issues.map((err) => ({
         type: 'error' as const,
         path: err.path.join('.'),
         message: err.message,
@@ -247,7 +247,7 @@ export class WorkflowLoader {
     // Validate with Zod schema
     const schemaResult = WorkflowSchema.safeParse(parsed);
     if (!schemaResult.success) {
-      const errors = schemaResult.error.errors.map((err) => ({
+      const errors = schemaResult.error.issues.map((err) => ({
         type: 'error' as const,
         path: err.path.join('.'),
         message: err.message,
