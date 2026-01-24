@@ -5,6 +5,34 @@ All notable changes to The Construct Architecture project will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-01-25
+
+### Changed - Dependencies & Code Quality
+
+#### Dependency Upgrades
+- **Zod** 3.x → 4.3.6
+  - Breaking change: `.error.errors` renamed to `.error.issues`
+  - Updated 2 files: `workflow/loader.ts`, `validators/output-validator.ts`
+- **ESLint** 8.x → 9.39.2
+  - Migrated to flat config format (`eslint.config.js`)
+  - Removed deprecated `.eslintrc` style config
+- **typescript-eslint** 6.x → 8.53.1
+  - Parser and plugin updated together
+- **@types/node** 20.x → 25.x
+
+#### Code Quality
+- Fixed all 71 ESLint warnings → 0
+  - Commented unused imports with `// Future use:` annotations
+  - Prefixed unused parameters with underscore (`_param`)
+  - Wrapped case block declarations in braces
+- Enforced zero-warning policy: `--max-warnings 0`
+  - Warnings now fail the lint command
+  - Prevents silent accumulation of technical debt
+
+### Files Modified
+- 29 source files across architect, chaos, keymaker, morpheus, oracle, security, and sentinels modules
+- New: `eslint.config.js` (ESLint 9 flat config)
+
 ## [1.0.0] - 2026-01-24
 
 ### 🎉 Production Release
