@@ -368,7 +368,7 @@ export class Keymaker {
     options: Omit<GenerateOptions, 'tools'> = {},
     maxIterations: number = 10
   ): Promise<GenerateResponse> {
-    let currentMessages = [...messages];
+    const currentMessages = [...messages];
     let iteration = 0;
 
     while (iteration < maxIterations) {

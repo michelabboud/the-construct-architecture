@@ -586,7 +586,7 @@ export class Switch extends BaseAgent {
   private isValidYamlSyntax(content: string): boolean {
     // Check for basic YAML structure
     const lines = content.split('\n');
-    let indentStack: number[] = [0];
+    const indentStack: number[] = [0];
 
     for (const line of lines) {
       // Skip empty lines and comments
