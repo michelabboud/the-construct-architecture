@@ -27,5 +27,14 @@ export { Worker } from './programs/worker.js';
 // Keymaker (Tool Adapter)
 export { Keymaker } from './keymaker/keymaker.js';
 
+// Security (Agent Smith & Team) - Phase 6
+export { Seraph } from './security/seraph/seraph.js';
+export { AgentSmith } from './security/smith/agent-smith.js';
+export { AgentBrown } from './security/agents/brown.js';
+export { AgentJones } from './security/agents/jones.js';
+export { AgentJohnson } from './security/agents/johnson.js';
+export { AgentThompson } from './security/agents/thompson.js';
+export { AgentJackson } from './security/agents/jackson.js';
+
 // Types
 export * from './types/index.js';
