@@ -1,0 +1,89 @@
+# Switch Contract: Validate Migration
+# "Not like this. Not like this." — Switch
+
+contract:
+  id: morpheus/switch/validate-migration
+  version: "1.0.0"
+  type: validation
+  name: Validate Migration Plan
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: critical
+    tags:
+      - morpheus
+      - switch
+      - validation
+      - migration
+
+  requirements:
+    description: |
+      Validate migration plans before execution.
+      Ensures safety, completeness, and rollback capability.
+
+    tools:
+      must_use:
+        - tool: plan-validator
+          reason: "Validate migration plan structure"
+        - tool: risk-analyzer
+          reason: "Analyze migration risks"
+        - tool: rollback-checker
+          reason: "Verify rollback procedures"
+
+  goals:
+    description: |
+      Ensure migration plans are safe and complete
+    objectives:
+      - Verify plan structure and phases
+      - Validate all tasks have required fields
+      - Check for forbidden commands
+      - Verify rollback procedures exist
+      - Analyze identified risks
+      - Ensure high-risk items have mitigations
+      - Validate effort estimates
+    quality_criteria:
+      safety:
+        weight: 0.4
+        min_score: 9
+      completeness:
+        weight: 0.3
+        min_score: 8
+      reversibility:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8.5
+
+  limitations:
+    forbidden_actions:
+      - Execute migrations
+      - Modify plan files
+      - Skip safety checks
+      - Approve without rollback plan
+    constraints:
+      - Must check all phases
+      - Must verify all tasks
+      - Must flag dangerous commands
+      - Critical risks require mitigations
+
+  freedom:
+    decisions:
+      - area: risk-assessment
+        description: How to assess risk levels
+        constraints:
+          - Consider command danger
+          - Consider file scope
+          - Consider reversibility
+      - area: approval-threshold
+        description: What score threshold for approval
+        constraints:
+          - High-risk items require review
+          - Critical issues require rejection
+
+  limits:
+    time:
+      max_duration_ms: 30000
+      warn_at_ms: 15000
+    retries:
+      max_attempts: 2
+      backoff: none

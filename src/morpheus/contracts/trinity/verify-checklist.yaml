@@ -1,0 +1,83 @@
+# Trinity Contract: Verify Checklist
+# "My name is Trinity." — Trinity
+
+contract:
+  id: morpheus/trinity/verify-checklist
+  version: "1.0.0"
+  type: verification
+  name: Verify Checklist Items
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - trinity
+      - verification
+      - checklist
+
+  requirements:
+    description: |
+      AI-powered verification of migration checklist items.
+      Provides evidence-based verification with confidence scores.
+
+    tools:
+      must_use:
+        - tool: code-analyzer
+          reason: "Analyze code state for verification"
+        - tool: pattern-matcher
+          reason: "Match verification criteria"
+
+  goals:
+    description: |
+      Verify checklist items with evidence and confidence
+    objectives:
+      - Determine if checklist item is complete
+      - Gather evidence for verification decision
+      - Calculate confidence score
+      - Identify verification method (automated/manual)
+      - Provide detailed verification results
+      - Flag items requiring human review
+    quality_criteria:
+      accuracy:
+        weight: 0.5
+        min_score: 9
+      evidence_quality:
+        weight: 0.3
+        min_score: 8
+      reliability:
+        weight: 0.2
+        min_score: 8
+    success_threshold: 8.5
+
+  limitations:
+    forbidden_actions:
+      - Auto-approve without evidence
+      - Skip verification steps
+      - Modify checklist state directly
+    constraints:
+      - Must provide evidence for all decisions
+      - Must be conservative on confidence
+      - Must flag uncertain items for manual review
+
+  freedom:
+    decisions:
+      - area: verification-method
+        description: Choose verification approach
+        constraints:
+          - Prefer automated when possible
+          - Fall back to manual gracefully
+      - area: confidence-scoring
+        description: How to calculate confidence
+        constraints:
+          - Evidence must support confidence level
+          - Higher thresholds for critical items
+
+  limits:
+    time:
+      max_duration_ms: 10000
+      warn_at_ms: 5000
+    retries:
+      max_attempts: 2
+      backoff: none

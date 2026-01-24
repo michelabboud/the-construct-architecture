@@ -1,0 +1,83 @@
+# Mouse Contract: Generate Configuration
+# "I know this steak doesn't exist..." — Mouse
+
+contract:
+  id: morpheus/mouse/generate-config
+  version: "1.0.0"
+  type: generation
+  name: Generate Configuration File
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: normal
+    tags:
+      - morpheus
+      - mouse
+      - generation
+      - config
+
+  requirements:
+    description: |
+      Generate configuration files for The Construct components.
+      Creates Architect, Keymaker, Sentinels, Oracle, and Agent Smith configs.
+
+    tools:
+      must_use:
+        - tool: template-engine
+          reason: "Expand configuration templates"
+        - tool: yaml-generator
+          reason: "Generate valid YAML output"
+
+  goals:
+    description: |
+      Generate valid, complete configuration files for Construct components
+    objectives:
+      - Generate Architect config with truth sources and models
+      - Generate Keymaker config with provider settings
+      - Generate Sentinels config with validation rules
+      - Generate Oracle config with XP and judgment criteria
+      - Generate Agent Smith config with security settings
+      - Infer appropriate values from project analysis
+    quality_criteria:
+      validity:
+        weight: 0.4
+        min_score: 9
+      completeness:
+        weight: 0.3
+        min_score: 8
+      appropriateness:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8
+
+  limitations:
+    forbidden_actions:
+      - Generate configs with secrets in plain text
+      - Create overly permissive security settings
+      - Skip validation of generated YAML
+    constraints:
+      - All configs must be valid YAML
+      - Security settings must be conservative
+      - Provider configs must use environment variables for keys
+
+  freedom:
+    decisions:
+      - area: default-values
+        description: What default values to use
+        constraints:
+          - Use safe, conservative defaults
+          - Document non-obvious choices
+      - area: provider-selection
+        description: Which providers to enable
+        constraints:
+          - Only enable detected providers
+          - Include fallback options
+
+  limits:
+    time:
+      max_duration_ms: 10000
+      warn_at_ms: 5000
+    retries:
+      max_attempts: 2
+      backoff: none

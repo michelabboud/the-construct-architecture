@@ -1,0 +1,82 @@
+# Mouse Contract: Generate Contract
+# "To deny our own impulses is to deny the very thing that makes us human." — Mouse
+
+contract:
+  id: morpheus/mouse/generate-contract
+  version: "1.0.0"
+  type: generation
+  name: Generate Construct Contract
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - mouse
+      - generation
+      - contract
+
+  requirements:
+    description: |
+      Generate a YAML contract for The Construct architecture from a prompt analysis.
+      Creates well-structured contracts with proper validation, goals, and constraints.
+
+    tools:
+      must_use:
+        - tool: template-engine
+          reason: "Expand contract templates with variables"
+
+  goals:
+    description: |
+      Generate valid, complete Construct contracts from prompt analysis
+    objectives:
+      - Parse prompt analysis to extract contract requirements
+      - Generate unique contract ID and descriptive name
+      - Infer contract type (completion, chat, tool-use, embedding)
+      - Extract objectives and constraints from prompts
+      - Generate proper Zod-compatible input/output schemas
+      - Include appropriate metadata and tags
+      - Calculate confidence score for generated contract
+    quality_criteria:
+      validity:
+        weight: 0.4
+        min_score: 9
+      completeness:
+        weight: 0.3
+        min_score: 8
+      accuracy:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8.5
+
+  limitations:
+    forbidden_actions:
+      - Generate contracts with hardcoded secrets
+      - Create overly permissive contracts
+      - Skip validation of generated content
+    constraints:
+      - Contract IDs must be kebab-case
+      - All contracts must have goals and limitations
+      - Generated contracts must be valid YAML
+
+  freedom:
+    decisions:
+      - area: contract-structure
+        description: How to structure the generated contract
+        constraints:
+          - Must follow Construct contract schema
+          - Must include all required sections
+      - area: inference
+        description: How to infer contract properties from prompts
+        constraints:
+          - Use conservative defaults when uncertain
+          - Flag low-confidence inferences
+
+  limits:
+    time:
+      max_duration_ms: 10000
+      warn_at_ms: 5000
+    retries:
+      max_attempts: 2
+      backoff: linear

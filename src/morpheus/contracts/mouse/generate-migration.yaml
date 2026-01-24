@@ -1,0 +1,84 @@
+# Mouse Contract: Generate Migration Code
+# "Look at her, looking at him." — Mouse
+
+contract:
+  id: morpheus/mouse/generate-migration
+  version: "1.0.0"
+  type: generation
+  name: Generate Migration Code
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - mouse
+      - generation
+      - migration
+      - code
+
+  requirements:
+    description: |
+      Generate code that migrates existing AI usage to The Construct architecture.
+      Creates adapter code, wrapper functions, and integration points.
+
+    tools:
+      must_use:
+        - tool: template-engine
+          reason: "Expand code templates"
+        - tool: code-formatter
+          reason: "Format generated TypeScript code"
+
+  goals:
+    description: |
+      Generate migration code that adapts existing AI calls to The Construct
+    objectives:
+      - Generate Keymaker adapter code for provider migration
+      - Create wrapper functions for existing AI calls
+      - Generate contract executor implementations
+      - Create Sentinel validator integrations
+      - Preserve existing functionality while adding Construct features
+      - Generate comprehensive TypeScript types
+    quality_criteria:
+      functionality:
+        weight: 0.4
+        min_score: 9
+      type_safety:
+        weight: 0.3
+        min_score: 9
+      maintainability:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8.5
+
+  limitations:
+    forbidden_actions:
+      - Generate code with security vulnerabilities
+      - Remove existing error handling
+      - Break backwards compatibility without warning
+    constraints:
+      - Generated code must be valid TypeScript
+      - Must include proper type annotations
+      - Must preserve existing behavior
+
+  freedom:
+    decisions:
+      - area: code-style
+        description: How to style generated code
+        constraints:
+          - Follow project conventions if available
+          - Use modern TypeScript patterns
+      - area: abstraction-level
+        description: Level of abstraction in generated code
+        constraints:
+          - Balance simplicity with flexibility
+          - Avoid over-engineering
+
+  limits:
+    time:
+      max_duration_ms: 30000
+      warn_at_ms: 15000
+    retries:
+      max_attempts: 2
+      backoff: linear

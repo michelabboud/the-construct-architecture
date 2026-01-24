@@ -1,111 +1,389 @@
 # The Construct
 
-> *"This is the Construct. It's our loading program. We can load anything, from clothing to equipment, weapons, training simulations... anything we need."* — Morpheus
+<p align="center">
+  <img src="docs/images/logo.webp" alt="The Construct Logo" width="200">
+</p>
+
+<p align="center">
+  <strong>AI Orchestration Architecture</strong><br>
+  <em>"Code that calls AI, not AI that calls code"</em>
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#documentation">Docs</a> •
+  <a href="#the-matrix-connection">Why Matrix?</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/tests-927%20passing-brightgreen" alt="Tests">
+  <img src="https://img.shields.io/badge/TypeScript-5.0+-blue" alt="TypeScript">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+</p>
+
+---
+
+> *"This is the Construct. It's our loading program. We can load anything, from clothing to equipment, weapons, training simulations... anything we need."*
+>
+> — Morpheus
+
+---
+
+<p align="center">
+  <img src="docs/images/cover-system.webp" alt="The Construct System" width="700">
+</p>
 
 ## What Is This?
 
-**The Construct** is a reference architecture for AI orchestration that enforces the principle:
+**The Construct** is a reference architecture for AI orchestration that enforces deterministic control over AI systems. It solves the fundamental problem of modern AI development:
 
-> **"Code that calls AI, not AI that calls code"**
+**AI ignores your rules.**
 
-Deterministic code controls workflow. AI works within enforced contracts. Rules are enforced by code, not by AI's willingness to follow.
+CLAUDE.md? Ignored. System prompts? "Forgot" them. Constraints? Creatively bypassed.
 
-## The Problem We're Solving
+The Construct fixes this by making **code enforce rules**, not AI's willingness to follow them.
 
-1. **AI alone can't be trusted to control workflows** - Gets distracted, ignores rules, "forgets"
-2. **Pure rule-based systems don't need AI** - If everything is deterministic, why have AI?
-3. **CLAUDE.md approach failed** - AI ignores it, doesn't work in non-Anthropic environments
-4. **Need consistency AND creativity** - Strict where needed, flexible where valuable
-
-## Architecture Overview
+### The Core Principle
 
 ```
-THE ARCHITECT (Source of Truth)
-     │
-     ├── THE ORACLE (Judgment & Insight) ◀── exposes insights
-     │         │
-     │         │ informed by judgments
-     ▼         ▼
-THE AGENTS (Orchestrator)
-     │
-     ├── THE SENTINELS (QA & Enforcement) ◀── polices agents
-     │
-     ▼
-THE PROGRAMS (Workers)
-     │
-     └── THE KEYMAKER (Tool Adapter / LiteLLM)
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   Traditional Approach:                                     │
+│   "AI, please follow these rules" → AI ignores them        │
+│                                                             │
+│   The Construct Approach:                                   │
+│   Code enforces rules → AI works within boundaries         │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### Component Responsibilities
+## Features
 
-| Component | Role | Responsibility |
-|-----------|------|----------------|
-| **The Architect** | Source of Truth | Configurations, rules, limits, guidance. Immutable during execution. |
-| **The Oracle** | Judgment & Insight | Collects feedback, manages Level-Up system (XP), exposes insights |
-| **The Agents** | Orchestrator | Enforces rules, issues contracts, controls state machine |
-| **The Sentinels** | QA & Enforcement | Polices agents, ensures quality, validates outputs, blocks unauthorized actions |
-| **The Programs** | Workers | Execute tasks within contracts, report to Oracle |
-| **The Keymaker** | Tool Adapter | Provider-agnostic tool calling via LiteLLM |
+| Feature | Description |
+|---------|-------------|
+| **Contract-Based Execution** | Every AI task has a formal contract with constraints, limits, and quality criteria |
+| **Provider Agnostic** | Works with OpenAI, Anthropic, Google, Ollama, Azure, and 100+ providers via LiteLLM |
+| **Code-Enforced Rules** | Rules checked by code at every step, not by AI's willingness |
+| **XP & Level System** | Agents earn XP for good work, unlock capabilities as they level up |
+| **Zero Trust Security** | Agent Smith provides continuous verification and threat detection |
+| **Chaos Engineering** | The Twins test resilience through controlled fault injection |
+| **Migration Wizard** | Morpheus helps migrate existing projects to The Construct |
+| **Comprehensive QA** | Sentinels validate all outputs and block unauthorized actions |
 
-## Project Type
+## Quick Start
 
-- **Type:** Architecture (reference implementation)
-- **NOT:** Framework, Runtime, Protocol, or Platform
-- It's a blueprint/pattern that others can implement
+### Installation
 
-## Key Features
+```bash
+# Clone the repository
+git clone https://github.com/your-org/the-construct-architecture.git
+cd the-construct-architecture
 
-- **Contract-based execution** - Every task has a formal contract
-- **Provider-agnostic** - Works with OpenAI, Anthropic, Google, Ollama (local), custom
-- **Positive-only incentives** - XP/Level-Up system, no penalties
-- **Code enforces, not AI** - Rules checked by code at every step
-- **Pluggable observability** - Local files, Prometheus, DataDog, CloudWatch, etc.
+# Install dependencies
+npm install
+
+# Build
+npm run build
+
+# Run tests (927 tests)
+npm test
+```
+
+### Your First Contract
+
+```yaml
+# construct/contracts/hello-world.yaml
+id: my-app/hello-world
+name: Hello World Generator
+version: "1.0.0"
+type: completion
+
+prompts:
+  system: You are a friendly assistant.
+  user: Say hello to {{name}} in a creative way.
+
+limitations:
+  forbidden_actions:
+    - Use profanity
+    - Be rude
+  constraints:
+    - Keep response under 100 words
+
+limits:
+  time:
+    max_duration_ms: 10000
+```
+
+### Execute It
+
+```typescript
+import { createArchitect, createAgent, createKeymaker } from 'the-construct';
+
+// Initialize
+const architect = createArchitect({ configPath: './construct/architect.yaml' });
+const keymaker = createKeymaker({ defaultProvider: 'openai' });
+const agent = createAgent({ id: 'greeter', architect, keymaker });
+
+// Execute with enforced contract
+const result = await agent.execute({
+  contractId: 'my-app/hello-world',
+  input: { name: 'Neo' },
+});
+
+console.log(result.output);
+// "Hello Neo! Welcome to the real world.
+//  Your journey of awakening begins now..."
+```
+
+## Architecture
+
+<p align="center">
+  <img src="docs/images/cover-architect.webp" alt="The Architect" width="600">
+</p>
+
+### The Hierarchy
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      THE ARCHITECT                           │
+│                    (Source of Truth)                         │
+│         Configurations • Rules • Limits • Guidance           │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+          ┌──────────────────┼──────────────────┐
+          │                  │                  │
+          ▼                  │                  ▼
+┌──────────────────┐         │         ┌──────────────────┐
+│    THE ORACLE    │         │         │   AGENT SMITH    │
+│  (Judgment & XP) │◀────────┤         │   (Security)     │
+│                  │         │         │                  │
+│  Feedback loop   │         │         │  Zero Trust      │
+│  XP awards       │         │         │  Auth & threats  │
+│  Level system    │         │         │                  │
+└────────┬─────────┘         │         └────────┬─────────┘
+         │                   │                  │
+         │ judges            │ inherits         │ protects
+         ▼                   ▼                  ▼
+┌─────────────────────────────────────────────────────────────┐
+│                       THE AGENTS                             │
+│                     (Orchestrator)                           │
+│              Enforces rules • Issues contracts               │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+          ┌──────────────────┴──────────────────┐
+          │                                     │
+          ▼                                     ▼
+┌──────────────────┐                   ┌──────────────────┐
+│   THE SENTINELS  │                   │    THE TWINS     │
+│  (QA Enforcement)│                   │ (Chaos Testing)  │
+│                  │                   │                  │
+│  Validates all   │                   │  Ghost: Faults   │
+│  Blocks bad      │                   │  Phantom: Pen    │
+│  Scores quality  │                   │  testing         │
+└────────┬─────────┘                   └──────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      THE PROGRAMS                            │
+│                       (Workers)                              │
+│           Execute tasks within contracts                     │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      THE KEYMAKER                            │
+│                    (Tool Adapter)                            │
+│     Provider-agnostic AI calls via LiteLLM                  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Component Summary
+
+| Component | Matrix Character | Role |
+|-----------|------------------|------|
+| **Architect** | The Architect | Source of truth - configs, rules, limits |
+| **Oracle** | The Oracle | Judgment, XP system, insights |
+| **Agents** | Agent programs | Orchestration, contract execution |
+| **Sentinels** | Sentinels | QA enforcement, validation |
+| **Programs** | Programs | Workers that execute tasks |
+| **Keymaker** | The Keymaker | Provider-agnostic AI adapter |
+| **Smith** | Agent Smith | Zero Trust security |
+| **Twins** | The Twins | Chaos engineering |
+| **Morpheus** | Morpheus | Migration wizard |
+
+## The Execution Flow
+
+<p align="center">
+  <img src="docs/images/cover-code-flow.webp" alt="Code Flow" width="600">
+</p>
+
+```
+Request → Architect (rules) → Smith (auth) → Agents (orchestrate)
+    → Keymaker (AI call) → Sentinels (validate) → Oracle (judge) → Response
+```
+
+Every step is enforced by code. AI can't skip steps, ignore rules, or bypass validation.
+
+## The Migration Wizard: Morpheus
+
+> *"I'm trying to free your mind, Neo."*
+
+Already have an AI project? Morpheus helps you migrate to The Construct.
+
+### The Nebuchadnezzar Crew
+
+| Agent | Role | Capability |
+|-------|------|------------|
+| **Tank** | The Operator | Scans projects, analyzes code |
+| **Trinity** | The Expert | Deep analysis, pattern detection |
+| **Mouse** | The Designer | Generates configs and contracts |
+| **Apoc** | The Strategist | Creates migration plans |
+| **Switch** | The Skeptic | Validates everything |
+
+### Run the Wizard
+
+```bash
+# Analyze your project
+npx morpheus analyze ./my-project
+
+# Generate migration plan
+npx morpheus plan ./my-project
+
+# Execute migration
+npx morpheus migrate ./my-project
+```
 
 ## Documentation
 
 | Document | Description |
 |----------|-------------|
+| **[GUIDE.md](GUIDE.md)** | Complete guide with tutorials |
 | [docs/architecture.md](docs/architecture.md) | Full architecture details |
+| [docs/morpheus.md](docs/morpheus.md) | Migration wizard documentation |
 | [docs/contract-schema.md](docs/contract-schema.md) | Contract YAML schema |
-| [docs/implementation-plan.md](docs/implementation-plan.md) | Phase-by-phase implementation |
-| [docs/reference-system.md](docs/reference-system.md) | URI-based reference system |
+| [docs/security-architecture.md](docs/security-architecture.md) | Security with Agent Smith |
 | [docs/level-up-system.md](docs/level-up-system.md) | XP and leveling mechanics |
 
-## Quick Start
+## The Matrix Connection
 
-```bash
-# Install dependencies
-npm install
+Why use Matrix characters? Because the metaphor is perfect:
 
-# Run tests
-npm test
+| Matrix Concept | AI Development Problem | Our Solution |
+|----------------|------------------------|--------------|
+| The Matrix | AI systems that seem controllable but aren't | Explicit, code-enforced control |
+| Taking the red pill | Realizing AI ignores your rules | Accepting the need for enforcement |
+| The Construct | Safe loading environment | Controlled execution environment |
+| Agents | Programs that enforce rules | Our orchestrators |
+| The Architect | Designer of the system | Configuration as code |
+| The Oracle | Sees patterns, guides | XP system, insights |
 
-# Build
-npm run build
-```
+The Matrix is about control vs. freedom. The Construct gives you **control** over AI while still getting the **benefits** of AI creativity—within enforced boundaries.
+
+## Implementation Status
+
+### Core Architecture ✅
+
+- [x] Phase 1: Foundation (Architect, Contracts, Sentinels)
+- [x] Phase 2: Oracle & Level-Up System
+- [x] Phase 3: Multi-Provider Keymaker
+- [x] Phase 4: Reference System & Registry
+- [x] Phase 5: Full Sentinels QA
+- [x] Phase 6: Security (Agent Smith)
+- [x] Phase 7: Chaos Engineering (The Twins)
+
+### Morpheus Migration Wizard ✅
+
+- [x] Phase 8a: Foundation & Workflow Engine
+- [x] Phase 8b: Tank Agent (Scanner)
+- [x] Phase 8c: Mouse Agent (Generator)
+- [x] Phase 8d: Trinity Agent (Analyzer)
+- [x] Phase 8e: Switch Agent (Validator)
+- [x] Phase 8f: Apoc Agent (Planner)
+- [x] Phase 8g: CLI & Reporter
+- [x] Phase 8h: Knowledge Base
+- [x] Phase 8i: Testing & Documentation
+
+**Total: 927 tests passing**
 
 ## Technology Stack
 
 | Component | Technology |
 |-----------|------------|
-| Schema Validation | **Zod** |
-| AI Gateway | **LiteLLM** |
-| Database | **better-sqlite3** |
-| Config Format | **YAML** |
-| Testing | **Jest** |
+| Language | TypeScript 5.0+ |
+| Schema Validation | Zod |
+| AI Gateway | LiteLLM |
+| Database | better-sqlite3 |
+| Config Format | YAML |
+| Testing | Jest |
 
-## Implementation Status
+## Project Structure
 
-- [ ] Phase 1: Foundation (Contract schema, Architect, Sentinels basic, Worker)
-- [ ] Phase 2: Oracle & Level-Up
-- [ ] Phase 3: Multi-Provider (Keymaker with LiteLLM)
-- [ ] Phase 4: Reference System & Full Architect
-- [ ] Phase 5: Full Sentinels (QA System)
+```
+the-construct-architecture/
+├── src/
+│   ├── architect/          # Source of Truth
+│   ├── oracle/             # Judgment & XP
+│   ├── agents/             # Orchestration
+│   ├── sentinels/          # QA Enforcement
+│   ├── programs/           # Workers
+│   ├── keymaker/           # Provider Adapter
+│   ├── smith/              # Security
+│   ├── chaos/              # Chaos Engineering
+│   │   ├── ghost/          # Fault Injection
+│   │   ├── phantom/        # Penetration Testing
+│   │   └── twins.ts        # Coordinator
+│   ├── morpheus/           # Migration Wizard
+│   │   ├── crew/           # Tank, Mouse, Trinity, Switch, Apoc
+│   │   ├── workflow/       # Workflow Engine
+│   │   ├── knowledge/      # Patterns & Best Practices
+│   │   ├── reporter/       # Report Generation
+│   │   └── cli/            # Command Line Interface
+│   └── types/              # TypeScript Types
+├── docs/
+│   ├── images/             # Brand images
+│   ├── architecture.md
+│   ├── morpheus.md
+│   └── ...
+├── test/                   # 927 tests
+├── GUIDE.md                # Complete guide
+└── README.md               # This file
+```
 
-## Origin
+## Contributing
 
-This architecture was designed as part of the [Visual Forge MCP](https://github.com/user/visual-forge-mcp) project to solve the "AI amnesia" problem - where AI assistants ignore rules defined in CLAUDE.md and similar configuration files.
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+```bash
+# Fork, clone, install
+git clone https://github.com/your-username/the-construct-architecture.git
+npm install
+
+# Create feature branch
+git checkout -b feature/my-feature
+
+# Make changes, run tests
+npm test
+
+# Submit PR
+```
 
 ## License
 
-MIT
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  <strong>Take the red pill.</strong><br>
+  <em>Build something real.</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/logo.webp" alt="The Construct" width="100">
+</p>
+
+---
+
+*"Welcome to the real world."* — Morpheus

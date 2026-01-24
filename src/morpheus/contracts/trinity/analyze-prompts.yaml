@@ -1,0 +1,83 @@
+# Trinity Contract: Analyze Prompts
+# "The answer is out there, and it's looking for you." — Trinity
+
+contract:
+  id: morpheus/trinity/analyze-prompts
+  version: "1.0.0"
+  type: analysis
+  name: Analyze Prompts
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - trinity
+      - analysis
+      - prompts
+
+  requirements:
+    description: |
+      Deep analysis of AI prompts found in a codebase.
+      Extracts structure, variables, intent, and provides recommendations.
+
+    tools:
+      must_use:
+        - tool: code-parser
+          reason: "Parse prompt patterns from source code"
+        - tool: pattern-matcher
+          reason: "Identify prompt structures and variables"
+
+  goals:
+    description: |
+      Analyze prompts to understand their structure, intent, and quality
+    objectives:
+      - Identify prompt type (inline, template, file, dynamic)
+      - Extract system and user prompt content
+      - Detect template variables and their sources
+      - Assess prompt complexity
+      - Estimate token usage
+      - Generate quality recommendations
+    quality_criteria:
+      accuracy:
+        weight: 0.4
+        min_score: 8
+      completeness:
+        weight: 0.3
+        min_score: 8
+      usefulness:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8
+
+  limitations:
+    forbidden_actions:
+      - Execute or call any AI APIs
+      - Modify source files
+      - Access external resources
+    constraints:
+      - Analysis is read-only
+      - Must handle malformed prompts gracefully
+      - Must provide actionable recommendations
+
+  freedom:
+    decisions:
+      - area: complexity-assessment
+        description: How to assess prompt complexity
+        constraints:
+          - Consider structure, variables, and content length
+          - Use consistent scoring criteria
+      - area: recommendation-generation
+        description: What recommendations to provide
+        constraints:
+          - Focus on actionable improvements
+          - Prioritize by impact
+
+  limits:
+    time:
+      max_duration_ms: 30000
+      warn_at_ms: 15000
+    retries:
+      max_attempts: 2
+      backoff: none

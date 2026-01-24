@@ -41,5 +41,25 @@ export { Ghost, createGhost } from './chaos/ghost/ghost.js';
 export { Phantom, createPhantom } from './chaos/phantom/phantom.js';
 export { Twins, createTwins } from './chaos/twins.js';
 
+// Morpheus Migration Wizard - Phase 8
+export {
+  Morpheus,
+  createMorpheus,
+  // Workflow system
+  WorkflowLoader,
+  createWorkflowLoader,
+  ChecklistManager,
+  createChecklistManager,
+  WorkflowStateStore,
+  createStateStore,
+  // Crew system
+  BaseAgent,
+  CREW_ROLES,
+  createDefaultAgentConfig,
+  isValidCrewMember,
+  getCrewMemberByName,
+  getAllCrewMembers,
+} from './morpheus/index.js';
+
 // Types
 export * from './types/index.js';

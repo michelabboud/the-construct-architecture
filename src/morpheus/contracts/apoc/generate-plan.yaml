@@ -1,0 +1,87 @@
+# Apoc Contract: Generate Migration Plan
+# "Believe me when I say we have a difficult time ahead of us." — Apoc
+
+contract:
+  id: morpheus/apoc/generate-plan
+  version: "1.0.0"
+  type: planning
+  name: Generate Migration Plan
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: critical
+    tags:
+      - morpheus
+      - apoc
+      - planning
+      - migration
+
+  requirements:
+    description: |
+      Generate a comprehensive migration plan from analysis results.
+      Creates phases, tasks, risk assessments, and effort estimates.
+
+    tools:
+      must_use:
+        - tool: analysis-reader
+          reason: "Read analysis results"
+        - tool: phase-generator
+          reason: "Generate migration phases"
+        - tool: task-generator
+          reason: "Generate migration tasks"
+
+  goals:
+    description: |
+      Create a complete migration plan for The Construct
+    objectives:
+      - Summarize current state from analysis
+      - Define target state with components
+      - Generate phases with proper dependencies
+      - Create tasks with steps and verification
+      - Include rollback procedures
+      - Estimate effort for each phase
+    quality_criteria:
+      completeness:
+        weight: 0.4
+        min_score: 9
+      actionability:
+        weight: 0.3
+        min_score: 8
+      feasibility:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8.5
+
+  limitations:
+    forbidden_actions:
+      - Execute migration steps
+      - Modify source files
+      - Delete files
+    constraints:
+      - Must include all required phases
+      - Must have rollback for each phase
+      - Must estimate effort accurately
+
+  freedom:
+    decisions:
+      - area: phase-ordering
+        description: How to order migration phases
+        constraints:
+          - Setup must be first
+          - Validation must be last
+          - Dependencies must be respected
+      - area: task-granularity
+        description: How detailed to make tasks
+        constraints:
+          - Balance between detail and clarity
+          - Complex tasks should be broken down
+          - Simple tasks can be grouped
+
+  limits:
+    time:
+      max_duration_ms: 120000
+      warn_at_ms: 60000
+    retries:
+      max_attempts: 2
+      backoff: linear

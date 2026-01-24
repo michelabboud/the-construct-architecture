@@ -1,0 +1,84 @@
+# Trinity Contract: Analyze Patterns
+# "I know why you're here, Neo." — Trinity
+
+contract:
+  id: morpheus/trinity/analyze-patterns
+  version: "1.0.0"
+  type: analysis
+  name: Analyze Architecture Patterns
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - trinity
+      - analysis
+      - patterns
+      - architecture
+
+  requirements:
+    description: |
+      Analyze codebase for architecture patterns and anti-patterns.
+      Identifies good practices and areas for improvement.
+
+    tools:
+      must_use:
+        - tool: pattern-matcher
+          reason: "Detect architecture patterns"
+        - tool: code-scanner
+          reason: "Scan project structure"
+
+  goals:
+    description: |
+      Detect patterns and anti-patterns in project architecture
+    objectives:
+      - Identify good architecture patterns
+      - Detect anti-patterns and code smells
+      - Locate pattern occurrences in codebase
+      - Assess pattern severity and impact
+      - Provide remediation recommendations
+      - Calculate architecture health score
+    quality_criteria:
+      accuracy:
+        weight: 0.4
+        min_score: 8
+      coverage:
+        weight: 0.3
+        min_score: 8
+      actionability:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8
+
+  limitations:
+    forbidden_actions:
+      - Modify any files
+      - Execute code
+      - Make external calls
+    constraints:
+      - Read-only analysis
+      - Must detect both patterns and anti-patterns
+      - Must provide severity ratings
+
+  freedom:
+    decisions:
+      - area: pattern-categorization
+        description: How to categorize patterns
+        constraints:
+          - Use consistent categories (good, neutral, warning)
+          - Provide clear descriptions
+      - area: severity-assignment
+        description: How to assign anti-pattern severity
+        constraints:
+          - Consider security impact
+          - Consider maintainability impact
+
+  limits:
+    time:
+      max_duration_ms: 60000
+      warn_at_ms: 30000
+    retries:
+      max_attempts: 2
+      backoff: none

@@ -1,0 +1,86 @@
+# Tank Contract: Map Dependencies
+# "One more thing: if you see an Agent, you do what we do - run." — Tank
+
+contract:
+  id: morpheus/tank/map-dependencies
+  version: "1.0.0"
+  type: analysis
+  name: Map Project Dependencies
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: normal
+    tags:
+      - morpheus
+      - tank
+      - dependencies
+      - analysis
+
+  requirements:
+    description: |
+      Analyze package.json and lockfiles to map all project dependencies.
+      Identify AI-related packages, testing frameworks, and build tools.
+
+    tools:
+      must_use:
+        - tool: file-system
+          reason: "Read package.json and lockfiles"
+        - tool: json-parser
+          reason: "Parse package files"
+
+  goals:
+    description: |
+      Create comprehensive dependency map for migration planning
+    objectives:
+      - Parse package.json for dependencies
+      - Identify package manager (npm, yarn, pnpm)
+      - Detect lockfile presence and type
+      - Categorize AI-related packages
+      - Identify testing frameworks
+      - Detect TypeScript configuration
+      - Map related tooling (linters, bundlers)
+      - Check Node.js version requirements
+    quality_criteria:
+      completeness:
+        weight: 0.4
+        min_score: 9
+      categorization:
+        weight: 0.3
+        min_score: 8
+      accuracy:
+        weight: 0.3
+        min_score: 9
+    success_threshold: 8.5
+
+  limitations:
+    forbidden_actions:
+      - Install or uninstall packages
+      - Modify package.json or lockfiles
+      - Execute npm/yarn/pnpm commands
+    constraints:
+      - Only read package management files
+      - Handle missing lockfiles gracefully
+      - Support all major package managers
+
+  freedom:
+    decisions:
+      - area: package-categorization
+        description: How to categorize packages
+        constraints:
+          - AI packages must be identified
+          - Testing packages should be grouped
+          - Build tools should be identified
+      - area: version-analysis
+        description: Depth of version analysis
+        constraints:
+          - Report current versions
+          - Flag outdated AI packages if known
+
+  limits:
+    time:
+      max_duration_ms: 10000
+      warn_at_ms: 5000
+    retries:
+      max_attempts: 2
+      backoff: none

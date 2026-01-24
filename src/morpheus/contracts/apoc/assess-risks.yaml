@@ -1,0 +1,83 @@
+# Apoc Contract: Assess Migration Risks
+# "Believe me when I say we have a difficult time ahead of us." — Apoc
+
+contract:
+  id: morpheus/apoc/assess-risks
+  version: "1.0.0"
+  type: analysis
+  name: Assess Migration Risks
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - apoc
+      - risks
+      - assessment
+
+  requirements:
+    description: |
+      Identify and assess risks in the migration process.
+      Generate mitigations for high-impact risks.
+
+    tools:
+      must_use:
+        - tool: risk-analyzer
+          reason: "Analyze potential risks"
+        - tool: mitigation-generator
+          reason: "Generate risk mitigations"
+
+  goals:
+    description: |
+      Comprehensive risk assessment for migration
+    objectives:
+      - Identify technical risks
+      - Identify operational risks
+      - Identify schedule risks
+      - Identify resource risks
+      - Assess probability and impact
+      - Generate mitigations for high risks
+      - Calculate overall risk score
+    quality_criteria:
+      coverage:
+        weight: 0.4
+        min_score: 9
+      accuracy:
+        weight: 0.3
+        min_score: 8
+      actionability:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8.5
+
+  limitations:
+    forbidden_actions:
+      - Ignore high-impact risks
+      - Skip mitigation generation
+    constraints:
+      - All high risks must have mitigations
+      - Risk scores must be calculated
+      - Categories must be assigned
+
+  freedom:
+    decisions:
+      - area: risk-classification
+        description: How to classify risk severity
+        constraints:
+          - Use probability × impact formula
+          - Consider category weights
+      - area: mitigation-strategy
+        description: What mitigation strategies to recommend
+        constraints:
+          - Must be actionable
+          - Must address root cause
+
+  limits:
+    time:
+      max_duration_ms: 60000
+      warn_at_ms: 30000
+    retries:
+      max_attempts: 2
+      backoff: none

@@ -1,0 +1,95 @@
+# Tank Contract: Scan Project
+# "I know what you're thinking, because right now I'm thinking the same thing." — Tank
+
+contract:
+  id: morpheus/tank/scan-project
+  version: "1.0.0"
+  type: analysis
+  name: Scan Project Structure
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - tank
+      - scanning
+      - discovery
+
+  requirements:
+    description: |
+      Scan a project directory to discover files, dependencies, and AI usage patterns.
+      This is Tank's primary operation - gathering intelligence about the project.
+
+    tools:
+      must_use:
+        - tool: file-system
+          reason: "Read project files and directories"
+        - tool: ast-parser
+          reason: "Parse TypeScript/JavaScript files"
+
+  goals:
+    description: |
+      Comprehensive project scanning for migration analysis
+    objectives:
+      - Scan all relevant source files in the project
+      - Identify file types and languages used
+      - Extract import and export statements
+      - Detect AI-related code patterns
+      - Analyze project dependencies
+      - Scan for configuration files
+      - Detect potential secrets or API keys
+    quality_criteria:
+      completeness:
+        weight: 0.4
+        min_score: 8
+      accuracy:
+        weight: 0.3
+        min_score: 8
+      performance:
+        weight: 0.3
+        min_score: 7
+    success_threshold: 8
+
+  limitations:
+    forbidden_actions:
+      - Modify any files in the scanned project
+      - Execute code from the scanned project
+      - Access files outside the project directory
+      - Store secrets or credentials in plain text
+    forbidden_paths:
+      - pattern: "node_modules/**"
+        reason: "Skip node_modules by default for performance"
+      - pattern: ".git/**"
+        reason: "Skip git internals"
+      - pattern: "dist/**"
+        reason: "Skip build output"
+    constraints:
+      - Maximum file size of 1MB per file
+      - Skip binary files
+      - Respect .gitignore patterns
+
+  freedom:
+    decisions:
+      - area: file-filtering
+        description: Determine which files are relevant for scanning
+        constraints:
+          - Must include all TypeScript/JavaScript files
+          - Must include package.json and config files
+      - area: depth
+        description: How deep to scan the directory tree
+        constraints:
+          - Default unlimited depth
+          - Respect ignore patterns
+
+  limits:
+    time:
+      max_duration_ms: 60000
+      warn_at_ms: 30000
+    retries:
+      max_attempts: 3
+      backoff: exponential
+      retry_on:
+        - file-system-error
+        - timeout

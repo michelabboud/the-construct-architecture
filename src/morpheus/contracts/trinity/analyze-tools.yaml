@@ -1,0 +1,84 @@
+# Trinity Contract: Analyze Tools
+# "Dodge this." — Trinity
+
+contract:
+  id: morpheus/trinity/analyze-tools
+  version: "1.0.0"
+  type: analysis
+  name: Analyze Tools
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - trinity
+      - analysis
+      - tools
+
+  requirements:
+    description: |
+      Analyze AI tool definitions and usage patterns in a codebase.
+      Detects framework patterns, parameters, and handler implementations.
+
+    tools:
+      must_use:
+        - tool: code-parser
+          reason: "Parse tool definitions from source code"
+        - tool: pattern-matcher
+          reason: "Identify tool framework patterns"
+
+  goals:
+    description: |
+      Analyze tool definitions to understand their structure and quality
+    objectives:
+      - Identify tool framework (OpenAI, Anthropic, LangChain, custom)
+      - Extract tool name and description
+      - Parse parameter definitions
+      - Analyze handler implementation
+      - Check for validation and error handling
+      - Assess tool quality
+    quality_criteria:
+      accuracy:
+        weight: 0.4
+        min_score: 8
+      completeness:
+        weight: 0.3
+        min_score: 8
+      usefulness:
+        weight: 0.3
+        min_score: 8
+    success_threshold: 8
+
+  limitations:
+    forbidden_actions:
+      - Execute tools
+      - Modify source files
+      - Make external API calls
+    constraints:
+      - Analysis is read-only
+      - Must detect multiple framework patterns
+      - Must identify missing best practices
+
+  freedom:
+    decisions:
+      - area: pattern-detection
+        description: How to detect tool patterns
+        constraints:
+          - Support major frameworks
+          - Handle hybrid implementations
+      - area: quality-assessment
+        description: How to assess tool quality
+        constraints:
+          - Check for validation
+          - Check for error handling
+          - Check for async handling
+
+  limits:
+    time:
+      max_duration_ms: 30000
+      warn_at_ms: 15000
+    retries:
+      max_attempts: 2
+      backoff: none

@@ -1,0 +1,86 @@
+# Apoc Contract: Estimate Effort
+# "Believe me when I say we have a difficult time ahead of us." — Apoc
+
+contract:
+  id: morpheus/apoc/estimate-effort
+  version: "1.0.0"
+  type: analysis
+  name: Estimate Migration Effort
+
+  metadata:
+    created_at: "2026-01-24"
+    created_by: morpheus
+    priority: high
+    tags:
+      - morpheus
+      - apoc
+      - effort
+      - estimation
+
+  requirements:
+    description: |
+      Estimate effort for migration phases and tasks.
+      Uses three-point estimation (optimistic, realistic, pessimistic).
+
+    tools:
+      must_use:
+        - tool: effort-calculator
+          reason: "Calculate effort estimates"
+        - tool: complexity-analyzer
+          reason: "Analyze task complexity"
+
+  goals:
+    description: |
+      Accurate effort estimation for migration planning
+    objectives:
+      - Calculate optimistic estimates
+      - Calculate realistic estimates
+      - Calculate pessimistic estimates
+      - Determine overall complexity
+      - Calculate confidence level
+      - Document assumptions
+      - Aggregate phase-level estimates
+    quality_criteria:
+      accuracy:
+        weight: 0.5
+        min_score: 8
+      justification:
+        weight: 0.3
+        min_score: 8
+      completeness:
+        weight: 0.2
+        min_score: 8
+    success_threshold: 8.0
+
+  limitations:
+    forbidden_actions:
+      - Provide single-point estimates
+      - Ignore complexity factors
+    constraints:
+      - Must use three-point estimation
+      - Must include confidence level
+      - Must document assumptions
+
+  freedom:
+    decisions:
+      - area: estimation-method
+        description: How to calculate estimates
+        constraints:
+          - Consider task type
+          - Consider team experience
+          - Consider dependencies
+      - area: complexity-rating
+        description: How to rate complexity
+        constraints:
+          - low: < 40 hours total
+          - medium: 40-80 hours
+          - high: 80-160 hours
+          - very-high: > 160 hours
+
+  limits:
+    time:
+      max_duration_ms: 30000
+      warn_at_ms: 15000
+    retries:
+      max_attempts: 2
+      backoff: none
