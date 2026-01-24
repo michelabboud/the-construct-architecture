@@ -1,11 +1,70 @@
 # JOBS - Active Work Tracker
 <!-- AI-RESUMABLE: This file is designed for AI model consumption -->
-<!-- LAST_UPDATED: 2026-01-24T02:00:00Z -->
-<!-- SESSION_CONTEXT: Phase 7 Chaos Engineering COMPLETE. 410 tests passing. All core phases implemented. -->
+<!-- LAST_UPDATED: 2026-01-24T03:30:00Z -->
+<!-- SESSION_CONTEXT: Phase 7 complete. Morpheus Migration Wizard planning in progress. -->
 
 > **Note:** Completed jobs are archived to [`JOBS_COMPLETED.md`](JOBS_COMPLETED.md)
 
 ## ACTIVE_JOBS
+
+### JOB:morpheus-migration-wizard
+- STATUS: planning
+- PRIORITY: high
+- STARTED: 2026-01-24
+- PLAN_DOC: docs/plans/morpheus-migration-wizard-plan.md
+- DEPENDS_ON: null
+- CURRENT_PHASE: Planning
+- PHASES:
+  - [x] Phase 8-Planning: Design & Documentation
+    - [x] Core architecture design
+    - [x] Workflow engine design
+    - [x] Checklist system design
+    - [x] Team agent design (Nebuchadnezzar Crew)
+    - [x] AI contracts design
+    - [x] TypeScript support design
+  - [ ] Phase 8a: Foundation & Workflow Engine
+  - [ ] Phase 8b: Tank Agent (The Operator)
+  - [ ] Phase 8c: Mouse Agent (The Programmer)
+  - [ ] Phase 8d: Trinity Agent (The Executor)
+  - [ ] Phase 8e: Switch Agent (The Validator)
+  - [ ] Phase 8f: Apoc Agent (The Planner)
+  - [ ] Phase 8g: CLI & Reporting
+  - [ ] Phase 8h: Knowledge Base
+  - [ ] Phase 8i: Testing & Documentation
+- BLOCKED_BY: null
+- NEXT_ACTION: Review planning documents, then start Phase 8a implementation
+- CONTEXT: |
+    **Morpheus Migration Wizard Planning (2026-01-24):**
+
+    Morpheus is an AI-powered migration wizard that helps projects adopt
+    The Construct architecture. Key design decisions:
+
+    1. **Built on The Construct**: Morpheus uses its own architecture
+       (dogfooding) - contracts, Keymaker, Sentinels, etc.
+
+    2. **Nebuchadnezzar Crew (Team Agents)**:
+       - Tank (Operator): Scanning, indexing, loading project data
+       - Mouse (Programmer): Code/contract generation
+       - Trinity (Executor): AI-powered analysis and migration
+       - Switch (Validator): Validation and checklist verification
+       - Apoc (Planner): Migration planning and risk assessment
+
+    3. **Flexible Workflows**: YAML-defined workflows with phases,
+       steps, and checklists. Each step assigned to a team agent.
+
+    4. **AI-Verified Checklists**: Switch can use AI to verify
+       checklist completion with evidence.
+
+    5. **TypeScript First**: Full type safety, generates types for
+       contracts, understands TypeScript projects.
+
+- ARTIFACTS:
+    - created:
+      - docs/plans/morpheus-migration-wizard-plan.md
+      - docs/plans/morpheus-technical-spec.md
+    - pending:
+      - src/morpheus/ (entire module)
+      - test/phase8.test.ts
 
 ### JOB:construct-phase-7-chaos
 - STATUS: completed
@@ -17,53 +76,11 @@
 - CURRENT_PHASE: Complete
 - PHASES:
   - [x] Phase 7a: Ghost (Fault Injection)
-    - [x] Network chaos (latency, drops, partitions)
-    - [x] Resource exhaustion (CPU, memory, disk)
-    - [x] Process faults (kills, hangs, crashes)
-    - [x] State corruption testing
-    - [x] Safety controls and blocked targets
   - [x] Phase 7b: Phantom (Penetration Testing)
-    - [x] Port scanning
-    - [x] Vulnerability scanning
-    - [x] Web/API security testing
-    - [x] Attack simulation (brute force, injection, XSS)
-    - [x] Report generation
   - [x] Phase 7c: Twins Coordinator
-    - [x] Combined chaos orchestration
-    - [x] Test scenario management
-    - [x] Result aggregation
-    - [x] Safe mode controls
-    - [x] Emergency stop
-    - [x] Agent Smith integration (approval system)
-    - [x] Resilience metrics
-  - [x] Phase 7d: Testing
-    - [x] 61 tests for chaos engineering
-    - [x] All 410 tests passing
+  - [x] Phase 7d: Testing (61 tests, 410 total)
 - BLOCKED_BY: null
 - NEXT_ACTION: Archive to JOBS_COMPLETED.md
-- CONTEXT: |
-    **Phase 7 Implementation Complete (2026-01-24):**
-
-    **Created Files:**
-    - src/types/chaos.ts - Chaos engineering type definitions
-    - src/chaos/ghost/ghost.ts - Fault injection system
-    - src/chaos/phantom/phantom.ts - Penetration testing system
-    - src/chaos/twins.ts - Chaos coordinator
-    - src/chaos/index.ts - Chaos module exports
-    - test/phase7.test.ts - 61 comprehensive tests
-
-    **Modified Files:**
-    - src/types/index.ts - Added chaos types export
-    - src/index.ts - Added chaos module exports
-
-    **Key Features:**
-    - Ghost: Network faults, resource exhaustion, process faults
-    - Phantom: Security scanning, vulnerability detection, attack simulation
-    - Twins: Scenario orchestration, resilience metrics, emergency stop
-    - Safety by default: All systems disabled until explicitly enabled
-    - Agent Smith approval system for dangerous operations
-    - Comprehensive statistics and reporting
-
 - ARTIFACTS:
     - created:
       - src/types/chaos.ts
@@ -72,9 +89,6 @@
       - src/chaos/twins.ts
       - src/chaos/index.ts
       - test/phase7.test.ts
-    - modified:
-      - src/types/index.ts
-      - src/index.ts
 
 ## COMPLETED_SUMMARY
 
