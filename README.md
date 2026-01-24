@@ -21,7 +21,7 @@
   <img src="https://img.shields.io/badge/status-work%20in%20progress-yellow" alt="Status: Work in Progress">
   <img src="https://img.shields.io/badge/tests-927%20passing-brightgreen" alt="Tests">
   <img src="https://img.shields.io/badge/TypeScript-5.0+-blue" alt="TypeScript">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/license-Apache%202.0-blue" alt="License">
 </p>
 
 ---
@@ -406,7 +406,9 @@ We believe in being transparent about AI involvement in software development. Th
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Apache License 2.0 - see [LICENSE](LICENSE) and [NOTICE](NOTICE) for details.
+
+This license requires attribution. If you use this project, please credit Michel Abboud and include the NOTICE file.
 
 ---
 

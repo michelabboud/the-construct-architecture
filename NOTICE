@@ -1,0 +1,36 @@
+The Construct Architecture
+Copyright 2026 Michel Abboud
+
+This product includes software developed by Michel Abboud
+with assistance from Claude (Anthropic's AI assistant).
+
+---
+
+ATTRIBUTION NOTICE
+
+The Construct Architecture was created by Michel Abboud.
+
+This project was developed with significant AI assistance from Claude,
+an AI assistant created by Anthropic. The collaboration between human
+creativity and AI capabilities is central to this project's development.
+
+Components and their contributors:
+- Architecture Design: Michel Abboud with Claude
+- Code Implementation: Michel Abboud with Claude (via Claude Code CLI)
+- Documentation: Michel Abboud with Claude
+- Test Suite (927 tests): Michel Abboud with Claude
+
+For more information, see:
+- GitHub: https://github.com/michelabboud/the-construct-architecture
+- Author: Michel Abboud (https://github.com/michelabboud)
+
+---
+
+Third-Party Licenses:
+
+This project uses the following open-source libraries:
+- Zod (MIT License) - https://github.com/colinhacks/zod
+- OpenAI Node SDK (Apache 2.0) - https://github.com/openai/openai-node
+- sql.js (MIT License) - https://github.com/sql-js/sql.js
+- yaml (ISC License) - https://github.com/eemeli/yaml
+- minimatch (ISC License) - https://github.com/isaacs/minimatch

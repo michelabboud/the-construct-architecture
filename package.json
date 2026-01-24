@@ -23,7 +23,7 @@
     "contract"
   ],
   "author": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "minimatch": "^9.0.0",
     "openai": "^6.16.0",
