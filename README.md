@@ -18,10 +18,19 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/status-work%20in%20progress-yellow" alt="Status: Work in Progress">
   <img src="https://img.shields.io/badge/tests-927%20passing-brightgreen" alt="Tests">
   <img src="https://img.shields.io/badge/TypeScript-5.0+-blue" alt="TypeScript">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
+
+---
+
+> **⚠️ Work in Progress**
+>
+> This project is actively under development. While the core architecture is implemented with 927 passing tests, APIs may change and some features are still being refined. We welcome contributors who want to help shape the future of AI orchestration!
+>
+> **[Contributors Welcome!](#contributing)** Whether you're fixing bugs, improving documentation, or adding new features, we'd love your help.
 
 ---
 
@@ -353,7 +362,9 @@ the-construct-architecture/
 
 ## Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+We welcome contributions! This is a community project and we'd love your help.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ```bash
 # Fork, clone, install
@@ -368,6 +379,30 @@ npm test
 
 # Submit PR
 ```
+
+**Ways to contribute:**
+- Report bugs and issues
+- Improve documentation
+- Add new features
+- Write tests
+- Share feedback and ideas
+
+## Author & Credits
+
+**Author:** [Michel Abboud](https://github.com/michelabboud)
+
+### AI Collaboration Transparency
+
+This project was developed with significant assistance from **Claude** (Anthropic's AI assistant). In the spirit of transparency:
+
+- **Architecture Design:** Collaborative effort between Michel Abboud and Claude
+- **Code Implementation:** Written with Claude's assistance using Claude Code CLI
+- **Documentation:** Co-authored with Claude
+- **Tests:** Developed with Claude's help (927 tests)
+
+We believe in being transparent about AI involvement in software development. This project demonstrates what's possible when humans and AI collaborate effectively—which is, ironically, exactly what The Construct architecture is designed to facilitate.
+
+> *"The Construct was built using The Construct's principles—code controlling AI, with AI assisting the code."*
 
 ## License
 

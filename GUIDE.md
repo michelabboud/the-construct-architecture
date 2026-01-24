@@ -11,6 +11,14 @@
 
 ---
 
+> **⚠️ Work in Progress**
+>
+> This project is actively under development. The core architecture is implemented with **927 passing tests**, but APIs may evolve and some features are still being refined.
+>
+> **We welcome contributors!** Whether you're a developer, documentation writer, or just someone with great ideas, we'd love your help shaping the future of AI orchestration. See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+
+---
+
 > *"The Matrix is everywhere. It is all around us. Even now, in this very room. You can see it when you look out your window or when you turn on your television. You can feel it when you go to work... when you go to church... when you pay your taxes."*
 >
 > — Morpheus
@@ -1469,6 +1477,39 @@ The Construct gives you control over AI. Not through hope, not through instructi
 - [Contract Schema Reference](docs/contract-schema.md)
 - [Morpheus Migration Guide](docs/morpheus.md)
 - [Security Architecture](docs/security-architecture.md)
+
+---
+
+## Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+**Ways to help:**
+- Report bugs and suggest features
+- Improve documentation and examples
+- Write tests and fix issues
+- Share your use cases and feedback
+
+---
+
+## Author & Credits
+
+**Author:** [Michel Abboud](https://github.com/michelabboud)
+
+### AI Collaboration Transparency
+
+This project was developed with significant assistance from **Claude** (Anthropic's AI assistant). We believe in full transparency about AI involvement:
+
+| Component | Contribution |
+|-----------|--------------|
+| Architecture Design | Collaborative (Michel Abboud + Claude) |
+| Code Implementation | Written with Claude Code CLI assistance |
+| Documentation | Co-authored with Claude |
+| Tests (927 total) | Developed with Claude's help |
+
+This project itself demonstrates the principles it advocates: humans maintaining control while leveraging AI capabilities within defined boundaries. The irony isn't lost on us—The Construct was built using Construct-like principles.
+
+> *"I can only show you the door. You're the one that has to walk through it."* — Morpheus
 
 ---
 
