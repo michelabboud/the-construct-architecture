@@ -404,6 +404,10 @@ We believe in being transparent about AI involvement in software development. Th
 
 > *"The Construct was built using The Construct's principles—code controlling AI, with AI assisting the code."*
 
+## Disclaimer
+
+This project is not affiliated with, endorsed by, or connected to Warner Bros., The Matrix franchise, or any related entities. Character names and concepts from The Matrix are used as metaphorical inspiration only. All trademarks are the property of their respective owners.
+
 ## License
 
 Apache License 2.0 - see [LICENSE](LICENSE) and [NOTICE](NOTICE) for details.

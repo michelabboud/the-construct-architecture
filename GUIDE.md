@@ -1513,4 +1513,10 @@ This project itself demonstrates the principles it advocates: humans maintaining
 
 ---
 
+## Disclaimer
+
+This project is not affiliated with, endorsed by, or connected to Warner Bros., The Matrix franchise, or any related entities. Character names and concepts from The Matrix are used as metaphorical inspiration only. All trademarks are the property of their respective owners.
+
+---
+
 *"Welcome to the real world."* — Morpheus
