@@ -156,9 +156,9 @@ console.log(result.output);
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      THE ARCHITECT                           │
-│                    (Source of Truth)                         │
-│         Configurations • Rules • Limits • Guidance           │
+│                      THE ARCHITECT                          │
+│                    (Source of Truth)                        │
+│         Configurations • Rules • Limits • Guidance          │
 └────────────────────────────┬────────────────────────────────┘
                              │
           ┌──────────────────┼──────────────────┐
@@ -166,7 +166,7 @@ console.log(result.output);
           ▼                  │                  ▼
 ┌──────────────────┐         │         ┌──────────────────┐
 │    THE ORACLE    │         │         │   AGENT SMITH    │
-│  (Judgment & XP) │◀────────┤         │   (Security)     │
+│  (Judgment & XP) │◀────────┤         │   (Security)    │
 │                  │         │         │                  │
 │  Feedback loop   │         │         │  Zero Trust      │
 │  XP awards       │         │         │  Auth & threats  │
@@ -176,9 +176,9 @@ console.log(result.output);
          │ judges            │ inherits         │ protects
          ▼                   ▼                  ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                       THE AGENTS                             │
-│                     (Orchestrator)                           │
-│              Enforces rules • Issues contracts               │
+│                       THE AGENTS                            │
+│                     (Orchestrator)                          │
+│              Enforces rules • Issues contracts              │
 └────────────────────────────┬────────────────────────────────┘
                              │
           ┌──────────────────┴──────────────────┐
@@ -195,15 +195,15 @@ console.log(result.output);
          │
          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                      THE PROGRAMS                            │
-│                       (Workers)                              │
-│           Execute tasks within contracts                     │
+│                      THE PROGRAMS                           │
+│                       (Workers)                             │
+│           Execute tasks within contracts                    │
 └────────────────────────────┬────────────────────────────────┘
                              │
                              ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                      THE KEYMAKER                            │
-│                    (Tool Adapter)                            │
+│                      THE KEYMAKER                           │
+│                    (Tool Adapter)                           │
 │     Provider-agnostic AI calls via LiteLLM                  │
 └─────────────────────────────────────────────────────────────┘
 ```
