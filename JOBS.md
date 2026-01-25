@@ -1,13 +1,41 @@
 # JOBS - Active Work Tracker
 <!-- AI-RESUMABLE: This file is designed for AI model consumption -->
-<!-- LAST_UPDATED: 2026-01-24T22:00:00Z -->
-<!-- SESSION_CONTEXT: v1.0.0 released. All phases complete. 927 tests passing. -->
+<!-- LAST_UPDATED: 2026-01-25T01:30:00Z -->
+<!-- SESSION_CONTEXT: v1.0.1 released. Dependencies upgraded. Zero lint warnings enforced. -->
 
 > **Note:** Completed jobs are archived to [`JOBS_COMPLETED.md`](JOBS_COMPLETED.md)
 
 ## ACTIVE_JOBS
 
-*No active jobs. The Construct v1.0.0 has been released.*
+*No active jobs.*
+
+## RECENT_COMPLETED
+
+### v1.0.1 Release - 2026-01-25
+
+**Dependencies & Code Quality:**
+- Zod 3.x → 4.3.6 (breaking change handled)
+- ESLint 8 → 9 (migrated to flat config)
+- typescript-eslint 6 → 8
+- @types/node 20 → 25
+- Fixed 71 lint warnings → 0
+- Enforced `--max-warnings 0` policy
+
+**Repository Setup:**
+- Branch protection on `main` (PRs required for contributors)
+- Owner bypass enabled for direct pushes
+
+**Documentation:**
+- Added 10 Matrix-themed architecture images
+- Updated README, GUIDE, architecture docs with new images
+- Updated CLAUDE.md with current project status
+
+## RELEASES
+
+| Version | Date | Highlights |
+|---------|------|------------|
+| **v1.0.1** | 2026-01-25 | Dependencies, lint fixes, branch protection |
+| **v1.0.0** | 2026-01-24 | Initial release, 927 tests passing |
 
 ## COMPLETED_SUMMARY
 
@@ -25,18 +53,6 @@ All phases complete with **927 tests passing**:
 - Phase 7: Chaos Engineering - The Twins (410 tests)
 
 ### Migration Wizard (Phase 8)
-- Phase 8a: Foundation & Workflow Engine (68 tests)
-- Phase 8b: Tank Agent - The Operator (47 tests)
-- Phase 8c: Mouse Agent - The Designer (65 tests)
-- Phase 8d: Trinity Agent - The Expert (57 tests)
-- Phase 8e: Switch Agent - The Skeptic (60 tests)
-- Phase 8f: Apoc Agent - The Strategist (81 tests)
-- Phase 8g: CLI & Reporter (63 tests)
-- Phase 8h: Knowledge Base (51 tests)
-- Phase 8i: Testing & Documentation (25 tests)
+- Phase 8a-i: Complete migration wizard with crew agents
 
 **Total: 927 tests passing**
-
-### Released
-- **v1.0.0** - 2026-01-24
-  - GitHub Release: https://github.com/michelabboud/the-construct-architecture/releases/tag/v1.0.0
