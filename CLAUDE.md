@@ -95,35 +95,20 @@ src/
     └── logger.ts
 ```
 
-## Implementation Phases
+## Implementation Status
 
-### Phase 1: Foundation (CURRENT)
-- Contract schema with Zod validation
-- Architect loads config, provides read-only access
-- Contract executor runs simple contracts
-- Sentinels validate outputs (pass/fail/score)
-- Worker executes AI calls with tool support
+All phases complete. See `CHANGELOG.md` for full details.
 
-### Phase 2: Oracle & Level-Up
-- Oracle receives and judges execution results
-- XP awarded for successful contracts
-- Agent profiles stored and retrieved
-
-### Phase 3: Multi-Provider (Keymaker)
-- LiteLLM integration
-- Tool calls work across providers
-- Routing based on performance data
-
-### Phase 4: Reference System & Full Architect
-- URI references resolve correctly
-- Global + project truth inheritance
-- Registry for tools and services
-
-### Phase 5: Full Sentinels (QA System)
-- All tool calls validated before execution
-- Forbidden paths blocked at runtime
-- Output quality scored
-- Escalation to human review
+| Phase | Component | Status |
+|-------|-----------|--------|
+| 1 | Foundation (Architect, Sentinels, Worker) | ✅ Complete |
+| 2 | Oracle & Level-Up | ✅ Complete |
+| 3 | Multi-Provider Keymaker | ✅ Complete |
+| 4 | Reference System & Registry | ✅ Complete |
+| 5 | Full Sentinels QA | ✅ Complete |
+| 6 | Security (Agent Smith) | ✅ Complete |
+| 7 | Chaos Engineering (Twins) | ✅ Complete |
+| 8 | Morpheus Migration Wizard | ✅ Complete |
 
 ## Key Design Decisions
 
@@ -137,27 +122,49 @@ src/
 
 1. `docs/architecture.md` - Full architecture details
 2. `docs/contract-schema.md` - Contract YAML schema
-3. `docs/implementation-plan.md` - Phase-by-phase plan
+3. `CHANGELOG.md` - Version history and features
 4. `JOBS.md` - Current work status (resume from here)
-
-## Build Commands
-
-```bash
-npm run build        # Compile TypeScript
-npm test             # Run tests
-npm run dev          # Development mode
-```
 
 ## Technology Stack
 
 | Component | Technology |
 |-----------|------------|
 | Language | TypeScript |
-| Schema Validation | Zod |
-| AI Gateway | LiteLLM |
-| Database | better-sqlite3 |
+| Schema Validation | Zod 4.x |
+| AI Gateway | OpenAI SDK (multi-provider) |
+| Database | sql.js (SQLite in JS) |
 | Config Format | YAML |
 | Testing | Jest |
+| Linting | ESLint 9 (flat config) |
+
+## Build Commands
+
+```bash
+npm run build        # Compile TypeScript
+npm test             # Run tests
+npm run lint         # Lint (zero warnings enforced)
+npm run typecheck    # Type check without emit
+```
+
+## Code Quality Rules
+
+- **Zero lint warnings** - `--max-warnings 0` is enforced
+- **Unused imports** - Comment with `// Future use:` or remove
+- **Unused parameters** - Prefix with underscore (`_param`)
+- **Case declarations** - Wrap in braces `case 'x': { ... }`
+
+## Branch Protection
+
+The `main` branch is protected:
+
+| Rule | Setting |
+|------|---------|
+| Require PRs | Yes (for external contributors) |
+| Required approvals | 1 |
+| Dismiss stale reviews | Yes |
+| Owner bypass | Yes (can push directly) |
+
+**Contributors** must submit PRs. **Owner + Claude Code** can push directly.
 
 ## Important Notes
 
