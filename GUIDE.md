@@ -26,7 +26,11 @@
 Welcome to **The Construct**. This guide will show you how deep the rabbit hole goes.
 
 <p align="center">
-  <img src="docs/images/cover-system.webp" alt="The Construct System Overview" width="600">
+  <img src="docs/images/the-construct-architecture-prompt-img-06.webp" alt="Simplified Pipeline Flow" width="700">
+</p>
+
+<p align="center">
+  <em>Data flows through well-defined stages with code-enforced control at every step</em>
 </p>
 
 ---

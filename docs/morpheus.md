@@ -4,6 +4,10 @@
 > what you can smell, what you can taste and see, then 'real' is simply electrical
 > signals interpreted by your brain." — Morpheus
 
+<p align="center">
+  <img src="images/the-construct-architecture-prompt-img-05.webp" alt="Alternative Architecture Views" width="800">
+</p>
+
 Morpheus is an AI-powered migration wizard that helps projects migrate to The Construct architecture. It orchestrates a team of specialized agents (The Nebuchadnezzar Crew) to analyze existing codebases, generate migration plans, and automate the transition.
 
 ## Table of Contents

@@ -41,7 +41,11 @@
 ---
 
 <p align="center">
-  <img src="docs/images/cover-system.webp" alt="The Construct System" width="700">
+  <img src="docs/images/construct-main-architecture.webp" alt="The Construct Architecture" width="800">
+</p>
+
+<p align="center">
+  <em>The Construct: A layered architecture from Core truth through Agent frameworks to User interfaces</em>
 </p>
 
 ## What Is This?

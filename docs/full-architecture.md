@@ -2,6 +2,10 @@
 
 > *"The Matrix is everywhere. It is all around us."* — Morpheus
 
+<p align="center">
+  <img src="images/construct-main-architecture.webp" alt="The Construct Main Architecture" width="800">
+</p>
+
 ---
 
 > **Work in Progress** - This project is actively under development. We welcome contributors! See [CONTRIBUTING.md](../CONTRIBUTING.md).

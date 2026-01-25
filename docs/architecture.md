@@ -2,6 +2,10 @@
 
 > *"I am the Architect. I created the Matrix. I have been waiting for you."*
 
+<p align="center">
+  <img src="images/the-construct-architecture-prompt-img-02.webp" alt="AI Orchestrator Architecture" width="800">
+</p>
+
 ## Overview
 
 The Construct is a reference architecture for AI orchestration that enforces the principle **"Code that calls AI, not AI that calls code"**.
@@ -231,6 +235,10 @@ The **provider-agnostic interface**. Adapts any AI provider to work with contrac
 - Performance-based routing
 
 ## Data Flow
+
+<p align="center">
+  <img src="images/the-construct-architecture-prompt-img-03.webp" alt="Data Flow" width="700">
+</p>
 
 ```
 User Request
