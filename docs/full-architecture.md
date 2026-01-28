@@ -22,87 +22,87 @@ The Construct is a reference architecture for AI orchestration built on the prin
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           THE CONSTRUCT                                      │
-│                    "Where Everything Is Loaded"                              │
+│                           THE CONSTRUCT                                     │
+│                    "Where Everything Is Loaded"                             │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  NEO (The Developer)                                                         │
+│                                                                             │
+│  NEO (The Developer)                                                        │
 │  "The One" - Creates, builds, and interacts with The Construct              │
-│       │                                                                      │
-│       │ requests                                                             │
-│       ▼                                                                      │
+│       │                                                                     │
+│       │ requests                                                            │
+│       ▼                                                                     │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                    THE ARCHITECT                                     │    │
-│  │                  (Source of Truth)                                   │    │
-│  │                                                                      │    │
+│  │                    THE ARCHITECT                                    │    │
+│  │                  (Source of Truth)                                  │    │
+│  │                                                                     │    │
 │  │  Configurations • Rules • Limits • Schemas • Guidance               │    │
 │  └──────────────────────────┬──────────────────────────────────────────┘    │
-│                              │                                               │
+│                              │                                              │
 │            ┌─────────────────┼─────────────────┐                            │
-│            │                 │                 │                             │
-│            ▼                 ▼                 ▼                             │
-│  ┌──────────────┐   ┌──────────────┐   ┌──────────────────────────────┐    │
-│  │  THE ORACLE  │   │  THE AGENTS  │   │     AGENT SMITH & TEAM       │    │
-│  │  (Judgment)  │   │(Orchestrator)│   │      (Security Layer)        │    │
-│  │              │   │              │   │                              │    │
-│  │ • Feedback   │   │ • Contracts  │   │ Brown • Jones • Johnson      │    │
-│  │ • XP/Levels  │   │ • Execution  │   │ Thompson • Jackson           │    │
-│  │ • Insights   │   │ • State      │   │                              │    │
-│  └──────────────┘   └──────┬───────┘   └──────────────────────────────┘    │
-│                             │                       │                        │
-│                             │                       │ enforces               │
-│                             ▼                       ▼                        │
+│            │                 │                 │                            │
+│            ▼                 ▼                 ▼                            │
+│  ┌──────────────┐   ┌──────────────┐   ┌──────────────────────────────┐     │
+│  │  THE ORACLE  │   │  THE AGENTS  │   │     AGENT SMITH & TEAM       │     │
+│  │  (Judgment)  │   │(Orchestrator)│   │      (Security Layer)        │     │
+│  │              │   │              │   │                              │     │
+│  │ • Feedback   │   │ • Contracts  │   │ Brown • Jones • Johnson      │     │
+│  │ • XP/Levels  │   │ • Execution  │   │ Thompson • Jackson           │     │
+│  │ • Insights   │   │ • State      │   │                              │     │
+│  └──────────────┘   └──────┬───────┘   └──────────────────────────────┘     │
+│                             │                       │                       │
+│                             │                       │ enforces              │
+│                             ▼                       ▼                       │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                        SERAPH                                         │  │
+│  │                  (Zero Trust Gateway)                                 │  │
+│  │                                                                       │  │
+│  │  "You do not truly know someone until you fight them."                │  │
+│  │  Every request verified • No implicit trust • Least privilege         │  │
+│  └──────────────────────────────────┬────────────────────────────────────┘  │
+│                                     │                                       │
+│                                     │ guards                                │
+│                                     ▼                                       │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                     THE SENTINELS                                     │  │
+│  │                   (QA & Enforcement)                                  │  │
+│  │                                                                       │  │
+│  │  Validates • Blocks • Scores • Escalates                              │  │
+│  └──────────────────────────────────┬────────────────────────────────────┘  │
+│                                     │                                       │
+│                                     │ polices                               │
+│                                     ▼                                       │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                     THE PROGRAMS                                      │  │
+│  │                      (Workers)                                        │  │
+│  │                                                                       │  │
+│  │  Execute tasks within contracts • Report to Oracle • Earn XP          │  │
+│  └──────────────────────────────────┬────────────────────────────────────┘  │
+│                                     │                                       │
+│                                     │ uses                                  │
+│                                     ▼                                       │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                        SERAPH                                         │   │
-│  │                  (Zero Trust Gateway)                                 │   │
-│  │                                                                       │   │
-│  │  "You do not truly know someone until you fight them."               │   │
-│  │  Every request verified • No implicit trust • Least privilege        │   │
-│  └──────────────────────────────────┬───────────────────────────────────┘   │
-│                                      │                                       │
-│                                      │ guards                                │
-│                                      ▼                                       │
-│  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                     THE SENTINELS                                     │   │
-│  │                   (QA & Enforcement)                                  │   │
-│  │                                                                       │   │
-│  │  Validates • Blocks • Scores • Escalates                             │   │
-│  └──────────────────────────────────┬───────────────────────────────────┘   │
-│                                      │                                       │
-│                                      │ polices                               │
-│                                      ▼                                       │
-│  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                     THE PROGRAMS                                      │   │
-│  │                      (Workers)                                        │   │
-│  │                                                                       │   │
-│  │  Execute tasks within contracts • Report to Oracle • Earn XP         │   │
-│  └──────────────────────────────────┬───────────────────────────────────┘   │
-│                                      │                                       │
-│                                      │ uses                                  │
-│                                      ▼                                       │
-│  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                     THE KEYMAKER                                      │   │
-│  │                    (Tool Adapter)                                     │   │
-│  │                                                                       │   │
+│  │                     THE KEYMAKER                                     │   │
+│  │                    (Tool Adapter)                                    │   │
+│  │                                                                      │   │
 │  │  LiteLLM • Provider-agnostic • Tool translation                      │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
-│                                                                              │
+│                                                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                     THE TWINS                                         │   │
-│  │               (Chaos Engineering)                                     │   │
-│  │                                                                       │   │
+│  │                     THE TWINS                                        │   │
+│  │               (Chaos Engineering)                                    │   │
+│  │                                                                      │   │
 │  │  Ghost & Phantom • Penetration testing • Fault injection             │   │
 │  │  Pre-production only • Attack simulation • Resilience testing        │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
-│                                                                              │
+│                                                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                     MORPHEUS                                          │   │
-│  │               (Migration Wizard)                                      │   │
-│  │                                                                       │   │
+│  │                     MORPHEUS                                         │   │
+│  │               (Migration Wizard)                                     │   │
+│  │                                                                      │   │
 │  │  Nebuchadnezzar Crew: Tank • Trinity • Mouse • Apoc • Switch         │   │
-│  │  Project scanning • Migration planning • Contract generation          │   │
+│  │  Project scanning • Migration planning • Contract generation         │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
-│                                                                              │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -248,17 +248,17 @@ Agent Smith oversees all security operations. He coordinates the other Agents an
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         AGENT SMITH                                          │
-│                  Chief Security Orchestrator                                 │
-│                                                                              │
+│                         AGENT SMITH                                         │
+│                  Chief Security Orchestrator                                │
+│                                                                             │
 │  "I'm going to enjoy watching you die, Mr. Anderson."                       │
-│                                                                              │
-│  • Orchestrates all security agents                                          │
-│  • Defines security policies                                                 │
-│  • Coordinates incident response                                             │
-│  • Reports to The Architect                                                  │
+│                                                                             │
+│  • Orchestrates all security agents                                         │
+│  • Defines security policies                                                │
+│  • Coordinates incident response                                            │
+│  • Reports to The Architect                                                 │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
+│                                                                             │
 │  ┌─────────────────────┐    ┌─────────────────────┐                         │
 │  │    AGENT BROWN      │    │    AGENT JONES      │                         │
 │  │   Authentication    │    │   Authorization     │                         │
@@ -269,7 +269,7 @@ Agent Smith oversees all security operations. He coordinates the other Agents an
 │  │ • Session Mgmt      │    │ • Contract AuthZ    │                         │
 │  │ • Credential Vault  │    │ • Resource Access   │                         │
 │  └─────────────────────┘    └─────────────────────┘                         │
-│                                                                              │
+│                                                                             │
 │  ┌─────────────────────┐    ┌─────────────────────┐                         │
 │  │   AGENT JOHNSON     │    │   AGENT THOMPSON    │                         │
 │  │  Threat Detection   │    │  Audit & Compliance │                         │
@@ -280,7 +280,7 @@ Agent Smith oversees all security operations. He coordinates the other Agents an
 │  │ • Threat Intel      │    │ • Regulatory Report │                         │
 │  │ • Intrusion Detect  │    │ • Data Governance   │                         │
 │  └─────────────────────┘    └─────────────────────┘                         │
-│                                                                              │
+│                                                                             │
 │  ┌─────────────────────┐                                                    │
 │  │   AGENT JACKSON     │                                                    │
 │  │  Incident Response  │                                                    │
@@ -291,7 +291,7 @@ Agent Smith oversees all security operations. He coordinates the other Agents an
 │  │ • Recovery          │                                                    │
 │  │ • Post-Mortem       │                                                    │
 │  └─────────────────────┘                                                    │
-│                                                                              │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -562,23 +562,23 @@ interface AgentJackson {
 **Incident Response Workflow:**
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                     INCIDENT RESPONSE WORKFLOW                               │
+│                     INCIDENT RESPONSE WORKFLOW                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐              │
-│  │ DETECT   │───▶│ ANALYZE  │───▶│ CONTAIN  │───▶│ ERADICATE│              │
-│  └──────────┘    └──────────┘    └──────────┘    └──────────┘              │
-│       │                                                 │                    │
-│       │                                                 ▼                    │
+│                                                                             │
+│  ┌──────────┐     ┌──────────┐    ┌──────────┐     ┌──────────┐             │
+│  │ DETECT   │───▶│ ANALYZE  │───▶│ CONTAIN  │───▶│ ERADICATE│             │
+│  └──────────┘     └──────────┘    └──────────┘     └──────────┘             │
+│       │                                                 │                   │
+│       │                                                 ▼                   │
 │       │                                          ┌──────────┐               │
 │       │                                          │ RECOVER  │               │
 │       │                                          └──────────┘               │
-│       │                                                 │                    │
-│       │                                                 ▼                    │
+│       │                                                 │                   │
+│       │                                                 ▼                   │
 │       │                                          ┌──────────┐               │
-│       └─────────────────────────────────────────▶│POST-MORT │               │
+│       └────────────────────────────────────────▶│POST-MORT │               │
 │                    feedback loop                 └──────────┘               │
-│                                                                              │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1003,31 +1003,31 @@ The crew of Morpheus's ship, each with specialized roles in the migration proces
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         THE NEBUCHADNEZZAR CREW                              │
-│                     "Welcome Aboard, Free Your Mind"                         │
+│                         THE NEBUCHADNEZZAR CREW                             │
+│                     "Welcome Aboard, Free Your Mind"                        │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
+│                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                           MORPHEUS                                   │    │
-│  │                       Migration Wizard                               │    │
-│  │                                                                      │    │
-│  │  • Coordinates the crew                                              │    │
-│  │  • Manages migration workflow                                        │    │
-│  │  • Reports progress and results                                      │    │
-│  └──────────────────────────────────────────────────────────────────────┘    │
-│                                      │                                       │
+│  │                           MORPHEUS                                  │    │
+│  │                       Migration Wizard                              │    │
+│  │                                                                     │    │
+│  │  • Coordinates the crew                                             │    │
+│  │  • Manages migration workflow                                       │    │
+│  │  • Reports progress and results                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                      │                                      │
 │        ┌─────────────┬───────────────┼───────────────┬─────────────┐        │
 │        │             │               │               │             │        │
 │        ▼             ▼               ▼               ▼             ▼        │
-│  ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐     │
-│  │   TANK    │ │  TRINITY  │ │   MOUSE   │ │   APOC    │ │  SWITCH   │     │
-│  │ Operator  │ │  Expert   │ │ Designer  │ │ Strategist│ │  Skeptic  │     │
-│  │           │ │           │ │           │ │           │ │           │     │
-│  │ • Scans   │ │ • Deep    │ │ • Creates │ │ • Plans   │ │ • Validates│    │
-│  │ • Detects │ │   analysis│ │   configs │ │   phases  │ │ • Verifies │    │
-│  │ • Reports │ │ • Patterns│ │ • Contracts│ │ • Orders  │ │ • Approves │    │
-│  └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘     │
-│                                                                              │
+│  ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌────────────┐     │
+│  │   TANK    │ │  TRINITY  │ │   MOUSE   │ │   APOC    │ │  SWITCH    │     │
+│  │ Operator  │ │  Expert   │ │ Designer  │ │ Strategist│ │  Skeptic   │     │
+│  │           │ │           │ │           │ │           │ │            │     │
+│  │ • Scans   │ │ • Deep    │ │ • Creates │ │ • Plans   │ │ • Validates│     │
+│  │ • Detects │ │   analysis│ │   configs │ │   phases  │ │ • Verifies │     │
+│  │ • Reports │ │ • Patterns│ │ • Contracts│ │ • Orders │ │ • Approves │     │
+│  └───────────┘ └───────────┘ └───────────┘ └───────────┘ └────────────┘     │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
