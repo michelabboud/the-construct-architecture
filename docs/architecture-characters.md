@@ -18,13 +18,13 @@ The Construct is an AI orchestration framework inspired by The Matrix. Each comp
                                              │
                                              ▼
 ┌────────────────────────────────────────────────────────────────────────────┐
-│                           THE CONSTRUCT                                     │
-│                                                                             │
+│                           THE CONSTRUCT                                    │
+│                                                                            │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │                    THE ARCHITECT (Source of Truth)                   │   │
-│  │         Configuration • Rules • Contracts • References               │   │
+│  │                    THE ARCHITECT (Source of Truth)                  │   │
+│  │         Configuration • Rules • Contracts • References              │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
-│                                    │                                        │
+│                                    │                                       │
 │         ┌──────────────────────────┼──────────────────────────┐            │
 │         │                          │                          │            │
 │         ▼                          ▼                          ▼            │
@@ -33,7 +33,7 @@ The Construct is an AI orchestration framework inspired by The Matrix. Each comp
 │  │  Judgment   │◄─────────►│ Orchestrator│◄─────────►│  Security   │       │
 │  │   & XP      │           │             │           │             │       │
 │  └─────────────┘           └──────┬──────┘           └─────────────┘       │
-│                                   │                                         │
+│                                   │                                        │
 │                    ┌──────────────┼──────────────┐                         │
 │                    │              │              │                         │
 │                    ▼              ▼              ▼                         │
@@ -41,9 +41,9 @@ The Construct is an AI orchestration framework inspired by The Matrix. Each comp
 │             │ SENTINELS │  │ PROGRAMS  │  │ KEYMAKER  │                    │
 │             │    QA     │  │  Workers  │  │ AI Access │                    │
 │             └───────────┘  └───────────┘  └───────────┘                    │
-│                                                                             │
+│                                                                            │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │                    SUPPORTING CHARACTERS                             │   │
+│  │                    SUPPORTING CHARACTERS                            │   │
 │  │  Seraph • The Twins • Merovingian • Trainman • Niobe • Tank/Dozer   │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
 └────────────────────────────────────────────────────────────────────────────┘
@@ -509,14 +509,14 @@ interface AgentJohnson {
 │  Anomalies Detected: 12 │  Alerts Pending:   5          │
 │                                                         │
 │  Rate Limit Status:                                     │
-│  ├── API Calls:    [████░░░░░░] 42%                    │
-│  ├── Auth Attempts:[██░░░░░░░░] 18%                    │
-│  └── Tool Calls:   [█████░░░░░] 51%                    │
+│  ├── API Calls:    [████░░░░░░] 42%                     │
+│  ├── Auth Attempts:[██░░░░░░░░] 18%                     │
+│  └── Tool Calls:   [█████░░░░░] 51%                     │
 │                                                         │
 │  Recent Events:                                         │
-│  • 14:23:01 - Blocked SQL injection attempt            │
-│  • 14:22:45 - Rate limited user_123                    │
-│  • 14:21:30 - Anomaly detected: unusual access pattern │
+│  • 14:23:01 - Blocked SQL injection attempt             │
+│  • 14:22:45 - Rate limited user_123                     │
+│  • 14:21:30 - Anomaly detected: unusual access pattern  │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -850,9 +850,9 @@ experiments:
 **Chaos Dashboard:**
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                   THE TWINS - CHAOS CENTER                   │
+│                   THE TWINS - CHAOS CENTER                  │
 ├─────────────────────────────────────────────────────────────┤
-│                                                              │
+│                                                             │
 │  ┌─────────────────────┐  ┌─────────────────────┐           │
 │  │       GHOST         │  │       PHANTOM       │           │
 │  │   Fault Injection   │  │   Penetration Test  │           │
@@ -861,17 +861,17 @@ experiments:
 │  │ Tests Today: 47     │  │ Vulns Found: 3      │           │
 │  │ Systems OK: 94%     │  │ Critical: 0         │           │
 │  └─────────────────────┘  └─────────────────────┘           │
-│                                                              │
-│  Recent Experiments:                                         │
+│                                                             │
+│  Recent Experiments:                                        │
 │  ✓ API Gateway Failure - PASSED (recovery: 12s)             │
 │  ✓ Database Latency - PASSED (circuit breaker worked)       │
 │  ✗ Memory Exhaustion - FAILED (OOM killer too slow)         │
 │  ✓ Privilege Escalation - PASSED (blocked as expected)      │
-│                                                              │
-│  Next Scheduled:                                             │
-│  • 15:00 - Full Network Partition Test                       │
-│  • 18:00 - Nightly Vulnerability Scan                        │
-│  • 02:00 - Ransomware Simulation (staging only)              │
+│                                                             │
+│  Next Scheduled:                                            │
+│  • 15:00 - Full Network Partition Test                      │
+│  • 18:00 - Nightly Vulnerability Scan                       │
+│  • 02:00 - Ransomware Simulation (staging only)             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -1139,35 +1139,35 @@ Legend: → provides to, ← receives from, ↔ bidirectional
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                           LAYER 1: PERIMETER                            │
 │                              (Seraph)                                   │
-│  • TLS/mTLS  • WAF  • DDoS Protection  • API Gateway  • Rate Limiting  │
+│  • TLS/mTLS  • WAF  • DDoS Protection  • API Gateway  • Rate Limiting   │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                           LAYER 2: IDENTITY                             │
 │                           (Agent Brown)                                 │
-│  • Authentication  • MFA  • Session Management  • Token Validation     │
+│  • Authentication  • MFA  • Session Management  • Token Validation      │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                           LAYER 3: ACCESS                               │
 │                           (Agent Jones)                                 │
-│  • Authorization  • RBAC/ABAC  • Permission Gates  • Scope Validation  │
+│  • Authorization  • RBAC/ABAC  • Permission Gates  • Scope Validation   │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                           LAYER 4: DETECTION                            │
 │                          (Agent Johnson)                                │
-│  • Threat Detection  • Anomaly Analysis  • Pattern Matching  • IDS     │
+│  • Threat Detection  • Anomaly Analysis  • Pattern Matching  • IDS      │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                           LAYER 5: ENFORCEMENT                          │
 │                           (Sentinels)                                   │
-│  • Action Blocking  • Policy Enforcement  • Output Validation          │
+│  • Action Blocking  • Policy Enforcement  • Output Validation           │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                           LAYER 6: AUDIT                                │
 │                         (Agent Thompson)                                │
-│  • Audit Logging  • Compliance  • Forensics  • Evidence Preservation   │
+│  • Audit Logging  • Compliance  • Forensics  • Evidence Preservation    │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                           LAYER 7: RESPONSE                             │
 │                          (Agent Jackson)                                │
-│  • Incident Handling  • Containment  • Recovery  • Communication       │
+│  • Incident Handling  • Containment  • Recovery  • Communication        │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                           LAYER 8: RESILIENCE                           │
 │                           (The Twins)                                   │
-│  • Chaos Testing  • Penetration Testing  • Failure Injection           │
+│  • Chaos Testing  • Penetration Testing  • Failure Injection            │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
