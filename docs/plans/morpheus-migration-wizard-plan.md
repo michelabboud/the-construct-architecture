@@ -27,22 +27,22 @@ Morpheus combines:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                              MORPHEUS                                        │
-│                    (Built on The Construct Architecture)                     │
+│                              MORPHEUS                                       │
+│                    (Built on The Construct Architecture)                    │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
+│                                                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                        WORKFLOW ENGINE                                │   │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │   │
-│  │  │  Workflow   │  │  Checklist  │  │   State     │  │  Progress   │ │   │
-│  │  │  Executor   │  │   Manager   │  │   Machine   │  │   Tracker   │ │   │
-│  │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘ │   │
-│  └─────────┼────────────────┼────────────────┼────────────────┼────────┘   │
+│  │                        WORKFLOW ENGINE                               │   │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │   │
+│  │  │  Workflow   │  │  Checklist  │  │   State     │  │  Progress   │  │   │
+│  │  │  Executor   │  │   Manager   │  │   Machine   │  │   Tracker   │  │   │
+│  │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘  │   │
+│  └─────────┼────────────────┼────────────────┼────────────────┼─────────┘   │
 │            │                │                │                │             │
 │            ▼                ▼                ▼                ▼             │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                    AI ANALYSIS LAYER (via Keymaker)                   │   │
-│  │                                                                        │   │
+│  │                    AI ANALYSIS LAYER (via Keymaker)                  │   │
+│  │                                                                      │   │
 │  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │   │
 │  │  │   Code      │  │   Intent    │  │  Contract   │  │  Migration  │  │   │
 │  │  │ Comprehend  │  │  Extractor  │  │  Generator  │  │  Advisor    │  │   │
@@ -53,27 +53,27 @@ Morpheus combines:
 │  │  │             │  │  achieve?"  │  │             │  │             │  │   │
 │  │  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘  │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
-│                                    │                                         │
-│                                    ▼                                         │
+│                                    │                                        │
+│                                    ▼                                        │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                    STATIC ANALYSIS LAYER                              │   │
-│  │                                                                        │   │
+│  │                    STATIC ANALYSIS LAYER                             │   │
+│  │                                                                      │   │
 │  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │   │
 │  │  │   Scanner   │  │  AST        │  │   Pattern   │  │  Dependency │  │   │
 │  │  │             │  │  Parser     │  │   Detector  │  │   Mapper    │  │   │
 │  │  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘  │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
-│                                    │                                         │
-│                                    ▼                                         │
+│                                    │                                        │
+│                                    ▼                                        │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                    THE CONSTRUCT FOUNDATION                           │   │
-│  │                                                                        │   │
+│  │                    THE CONSTRUCT FOUNDATION                          │   │
+│  │                                                                      │   │
 │  │  ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌─────────┐ │   │
 │  │  │ Architect │ │  Oracle   │ │ Sentinels │ │ Keymaker  │ │  Agent  │ │   │
 │  │  │  (Truth)  │ │(Judgment) │ │   (QA)    │ │ (Adapter) │ │  Smith  │ │   │
 │  │  └───────────┘ └───────────┘ └───────────┘ └───────────┘ └─────────┘ │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
-│                                                                              │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -83,10 +83,10 @@ Like Agent Smith has his team of special agents (Brown, Jones, Johnson, Thompson
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    THE NEBUCHADNEZZAR CREW                                   │
-│                 "Morpheus's Migration Team Agents"                           │
+│                    THE NEBUCHADNEZZAR CREW                                  │
+│                 "Morpheus's Migration Team Agents"                          │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
+│                                                                             │
 │                            ┌─────────────┐                                  │
 │                            │  MORPHEUS   │                                  │
 │                            │ (Commander) │                                  │
@@ -94,26 +94,26 @@ Like Agent Smith has his team of special agents (Brown, Jones, Johnson, Thompson
 │                            │ Orchestrates│                                  │
 │                            │ the mission │                                  │
 │                            └──────┬──────┘                                  │
-│                                   │                                          │
+│                                   │                                         │
 │         ┌───────────┬─────────────┼─────────────┬───────────┐               │
 │         ▼           ▼             ▼             ▼           ▼               │
-│   ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐    │
-│   │   TANK    │ │   MOUSE   │ │  TRINITY  │ │  SWITCH   │ │   APOC    │    │
-│   │(Operator) │ │(Programmer)│ │ (Executor)│ │(Validator)│ │ (Planner) │    │
-│   │           │ │           │ │           │ │           │ │           │    │
-│   │ • Scan    │ │ • Generate│ │ • Execute │ │ • Verify  │ │ • Plan    │    │
-│   │ • Load    │ │   code    │ │   AI-     │ │ • Validate│ │ • Assess  │    │
-│   │ • Map     │ │ • Create  │ │   powered │ │ • Check   │ │   risks   │    │
-│   │   files   │ │   contracts│ │   tasks   │ │   quality │ │ • Estimate│    │
-│   │ • Index   │ │ • Template│ │ • Guide   │ │ • Audit   │ │ • Schedule│    │
-│   │   deps    │ │   prompts │ │   user    │ │   results │ │   phases  │    │
-│   └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘    │
-│                                                                              │
-│   "We're all gonna die."   "Look at her,     "Dodge      "Not like     "We  │
-│                            Looking at him."   this."      this.."       need│
-│        - Tank                  - Mouse        - Trinity    - Switch      an │
-│                                                                        exit"│
-│                                                                        -Apoc│
+│   ┌───────────┐ ┌─────────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐   │
+│   │   TANK    │ │   MOUSE     │ │  TRINITY  │ │  SWITCH   │ │   APOC    │   │
+│   │(Operator) │ │(Programmer) │ │ (Executor)│ │(Validator)│ │ (Planner) │   │
+│   │           │ │             │ │           │ │           │ │           │   │
+│   │ • Scan    │ │ • Generate  │ │ • Execute │ │ • Verify  │ │ • Plan    │   │
+│   │ • Load    │ │   code      │ │   AI-     │ │ • Validate│ │ • Assess  │   │
+│   │ • Map     │ │ • Create    │ │   powered │ │ • Check   │ │   risks   │   │
+│   │   files   │ │   contracts │ │   tasks   │ │   quality │ │ • Estimate│   │
+│   │ • Index   │ │ • Template  │ │ • Guide   │ │ • Audit   │ │ • Schedule│   │
+│   │   deps    │ │   prompts   │ │   user    │ │   results │ │   phases  │   │
+│   └───────────┘ └─────────────┘ └───────────┘ └───────────┘ └───────────┘   │
+│                                                                             │
+│   "We're all gonna die."   "Look at her,     "Dodge      "Not like   "We    │
+│                            Looking at him."   this."      this.."     need  │
+│        - Tank               - Mouse         - Trinity    - Switch     an    │
+│                                                                       exit" │
+│                                                                      -Apoc  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
