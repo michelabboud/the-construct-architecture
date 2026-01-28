@@ -15,25 +15,25 @@
 │                              THE ARCHITECT                                      │
 │                            (Source of Truth)                                    │
 │                                                                                 │
-│   • Configurations    • Rules & Limits    • Contracts (YAML)    • Guidance     │
+│   • Configurations    • Rules & Limits    • Contracts (YAML)    • Guidance      │
 └───────────────────────────────────┬─────────────────────────────────────────────┘
                                     │
                  ┌──────────────────┼──────────────────┐
                  │                  │                  │
                  ▼                  │                  ▼
-┌────────────────────────┐         │         ┌────────────────────────┐
-│      THE ORACLE        │         │         │      AGENT SMITH       │
-│   (Judgment & XP)      │         │         │      (Security)        │
-│                        │         │         │                        │
-│  • Feedback loops      │         │         │  • Zero Trust auth     │
+┌────────────────────────┐          │         ┌────────────────────────┐
+│      THE ORACLE        │          │         │      AGENT SMITH       │
+│   (Judgment & XP)      │          │         │      (Security)        │
+│                        │          │         │                        │
+│  • Feedback loops      │          │         │  • Zero Trust auth     │
 │  • XP awards           │◀────────┤         │  • Threat detection    │
-│  • Level-up system     │         │         │  • Verification        │
-│  • Pattern insights    │         │         │  • Access control      │
-└───────────┬────────────┘         │         └───────────┬────────────┘
-            │                      │                     │
-            │ judges               │ inherits            │ protects
-            │                      │                     │
-            ▼                      ▼                     ▼
+│  • Level-up system     │          │         │  • Verification        │
+│  • Pattern insights    │          │         │  • Access control      │
+└───────────┬────────────┘          │         └───────────┬────────────┘
+            │                       │                     │
+            │ judges                │ inherits            │ protects
+            │                       │                     │
+            ▼                       ▼                     ▼
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                               THE AGENTS                                        │
 │                             (Orchestrator)                                      │
@@ -63,9 +63,9 @@
 │                            (Tool Adapter)                                       │
 │                                                                                 │
 │                    Provider-Agnostic AI Calls via LiteLLM                       │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
-│  │  OpenAI  │ │Anthropic │ │  Google  │ │  Ollama  │ │  Azure   │ │  100+... │ │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘ │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐  │
+│  │  OpenAI  │ │Anthropic │ │  Google  │ │  Ollama  │ │  Azure   │ │  100+... │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘  │
 └───────────────────────────────────┬─────────────────────────────────────────────┘
                                     │
                                     ▼
@@ -77,13 +77,13 @@
 │                          EXECUTION FLOW (Linear)                                │
 ├─────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                 │
-│  Request ──▶ Architect ──▶ Smith ──▶ Agents ──▶ Keymaker ──▶ Sentinels ──▶     │
+│  Request ──▶ Architect ──▶ Smith ──▶ Agents ──▶ Keymaker ──▶ Sentinels ──▶  │
 │             (rules)      (auth)    (orchestrate) (AI call)   (validate)         │
 │                                                                                 │
-│         ──▶ Oracle ──▶ Response                                                 │
+│         ──▶ Oracle ──▶ Response                                                │
 │            (judge)    (enforced)                                                │
 │                                                                                 │
-│  ⚡ Every step enforced by CODE — AI cannot skip, ignore, or bypass             │
+│  ⚡ Every step enforced by CODE — AI cannot skip, ignore, or bypass            │
 └─────────────────────────────────────────────────────────────────────────────────┘
 
 
@@ -92,12 +92,12 @@
 ├─────────────────────────────────────────────────────────────────────────────────┤
 │                         "I'm trying to free your mind"                          │
 │                                                                                 │
-│   ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐      │
-│   │  TANK   │───▶│ TRINITY │───▶│  MOUSE  │───▶│  APOC   │───▶│ SWITCH  │      │
-│   │Operator │    │ Expert  │    │Designer │    │Strategist│   │ Skeptic │      │
-│   └─────────┘    └─────────┘    └─────────┘    └─────────┘    └─────────┘      │
-│      Scan          Analyze       Generate        Plan          Validate        │
-│     Project        Patterns      Contracts      Migration      Everything      │
+│   ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌──────────┐    ┌─────────┐      │
+│   │  TANK   │──▶│ TRINITY │───▶│  MOUSE  │──▶│  APOC    │───▶│ SWITCH  │      │
+│   │Operator │    │ Expert  │    │Designer │    │Strategist│    │ Skeptic │      │
+│   └─────────┘    └─────────┘    └─────────┘    └──────────┘    └─────────┘      │
+│      Scan          Analyze       Generate        Plan          Validate         │
+│     Project        Patterns      Contracts      Migration      Everything       │
 └─────────────────────────────────────────────────────────────────────────────────┘
 
 
@@ -105,15 +105,15 @@
 │                          CONTRACT EXAMPLE (YAML)                                │
 ├─────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                 │
-│   id: my-app/hello-world          │   limitations:                             │
-│   name: Hello World Generator     │     forbidden_actions:                     │
-│   version: "1.0.0"                │       - Use profanity                      │
-│   type: completion                │       - Be rude                            │
-│                                   │     constraints:                           │
-│   prompts:                        │       - Keep response under 100 words      │
-│     system: You are a friendly... │                                            │
-│     user: Say hello to {{name}}   │   limits:                                  │
-│                                   │     time: { max_duration_ms: 10000 }       │
+│   id: my-app/hello-world          │   limitations:                              │
+│   name: Hello World Generator     │     forbidden_actions:                      │
+│   version: "1.0.0"                │       - Use profanity                       │
+│   type: completion                │       - Be rude                             │
+│                                   │     constraints:                            │
+│   prompts:                        │       - Keep response under 100 words       │
+│     system: You are a friendly... │                                             │
+│     user: Say hello to {{name}}   │   limits:                                   │
+│                                   │     time: { max_duration_ms: 10000 }        │
 │                                                                                 │
 │   ⚡ Rules enforced by CODE, not by asking AI nicely                            │
 └─────────────────────────────────────────────────────────────────────────────────┘
