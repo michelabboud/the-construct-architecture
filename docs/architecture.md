@@ -54,10 +54,10 @@ The Construct is a reference architecture for AI orchestration that enforces the
 │                   THE AGENTS                            │
 │                 (Orchestrator)                          │
 │                                                         │
-│   "Never send a human to do a machine's job."          │
+│   "Never send a human to do a machine's job."           │
 │                                                         │
-│   Enforces the Architect's design. Does not make       │
-│   rules, only executes them. Cannot modify truth.      │
+│   Enforces the Architect's design. Does not make        │
+│   rules, only executes them. Cannot modify truth.       │
 └────────────────────────┬────────────────────────────────┘
                          │
           ┌──────────────┴──────────────┐
@@ -78,11 +78,11 @@ The Construct is a reference architecture for AI orchestration that enforces the
 │                   THE PROGRAMS                          │
 │                  (Workers)                              │
 │                                                         │
-│   "Every program that is created must have a           │
-│    purpose. If it does not, it is deleted."            │
+│   "Every program that is created must have a            │
+│    purpose. If it does not, it is deleted."             │
 │                                                         │
-│   Executes tasks within contracts. Reports outcomes    │
-│   to the Oracle. Earns XP, levels up through good work.│
+│   Executes tasks within contracts. Reports outcomes     │
+│   to the Oracle. Earns XP, levels up through good work. │
 └────────────────────────┬────────────────────────────────┘
                          │
                          ▼
@@ -90,10 +90,10 @@ The Construct is a reference architecture for AI orchestration that enforces the
 │                   THE KEYMAKER                          │
 │                 (Tool Adapter)                          │
 │                                                         │
-│   "I know because I must know. It is my purpose."      │
+│   "I know because I must know. It is my purpose."       │
 │                                                         │
-│   Provider-agnostic tool calling. Adapts any AI        │
-│   provider to work with contracts. Uses LiteLLM.       │
+│   Provider-agnostic tool calling. Adapts any AI         │
+│   provider to work with contracts. Uses LiteLLM.        │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -258,22 +258,22 @@ User Request
      │                                            │  │
      │ issues contract                            │  │
      ▼                                            │  │
-┌─────────────┐     validates      ┌─────────────┐  │
-│  Programs   │────────────────────│  Sentinels  │  │
-│  (Workers)  │                    │ (QA/Enforce)│  │
-└─────────────┘                    └─────────────┘  │
-     │                                   │         │
-     │ executes via                      │ reports │
-     ▼                                   │ quality │
-┌─────────────┐                          │         │
-│  Keymaker   │                          │         │
-│  (LiteLLM)  │                          │         │
-└─────────────┘                          │         │
-     │                                   │         │
-     │ returns result                    │         │
-     ▼                                   ▼         │
-┌─────────────┐                    ┌─────────────┐ │
-│   Output    │───────────────────▶│   Oracle    │─┘
+┌─────────────┐     validates      ┌─────────────┐   │
+│  Programs   │────────────────────│  Sentinels  │   │
+│  (Workers)  │                    │ (QA/Enforce)│   │
+└─────────────┘                    └─────────────┘   │
+     │                                   │           │
+     │ executes via                      │ reports   │
+     ▼                                   │ quality   │
+┌─────────────┐                          │           │
+│  Keymaker   │                          │           │
+│  (LiteLLM)  │                          │           │
+└─────────────┘                          │           │
+     │                                   │           │
+     │ returns result                    │           │
+     ▼                                   ▼           │
+┌─────────────┐                    ┌─────────────┐   │
+│   Output    │───────────────────▶│   Oracle    │──┘
 │             │   submits for      │ (Judgment)  │
 └─────────────┘   judgment         └─────────────┘
 ```
