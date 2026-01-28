@@ -126,13 +126,13 @@ Every component in The Construct maps to a character from The Matrix:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        THE ARCHITECT                             │
-│                      (Source of Truth)                           │
-│                                                                  │
+│                        THE ARCHITECT                            │
+│                      (Source of Truth)                          │
+│                                                                 │
 │  "I am the Architect. I created the Matrix."                    │
-│                                                                  │
+│                                                                 │
 │  The cold, logical designer. Holds all truth, rules, limits.    │
-│  Immutable during execution. The final word on everything.       │
+│  Immutable during execution. The final word on everything.      │
 └──────────────────────────────┬──────────────────────────────────┘
                                │
             ┌──────────────────┼──────────────────┐
@@ -140,7 +140,7 @@ Every component in The Construct maps to a character from The Matrix:
             ▼                  │                  │
 ┌───────────────────┐          │          ┌───────────────────┐
 │    THE ORACLE     │          │          │   AGENT SMITH     │
-│  (Judgment &      │◀─────────┤          │    (Security)     │
+│  (Judgment &      │◀─────────┤          │    (Security)    │
 │   Insight)        │          │          │                   │
 │                   │          │          │  Zero Trust       │
 │  "I'm not here to │          │          │  Authentication   │
@@ -157,21 +157,21 @@ Every component in The Construct maps to a character from The Matrix:
           │ informed by        │ inherits           │ protects
           │ judgments          │ truth              │
           ▼                    ▼                    ▼
-┌─────────────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────────────┐
 │                        THE AGENTS                                │
 │                      (Orchestrator)                              │
 │                                                                  │
-│  "Never send a human to do a machine's job."                    │
+│  "Never send a human to do a machine's job."                     │
 │                                                                  │
-│  Executes the Architect's design. Issues contracts.             │
+│  Executes the Architect's design. Issues contracts.              │
 │  Controls the state machine. Cannot modify truth.                │
-└──────────────────────────────┬──────────────────────────────────┘
+└──────────────────────────────┬───────────────────────────────────┘
                                │
             ┌──────────────────┼──────────────────┐
             │                  │                  │
             ▼                  │                  ▼
 ┌───────────────────┐          │          ┌───────────────────┐
-│   THE SENTINELS   │◀─────────┘          │    THE TWINS      │
+│   THE SENTINELS   │◀─────────┘         │    THE TWINS      │
 │  (QA &            │  polices            │  (Chaos Testing)  │
 │   Enforcement)    │  agents             │                   │
 │                   │                     │  "We are getting  │
@@ -186,24 +186,24 @@ Every component in The Construct maps to a character from The Matrix:
           │
           ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                       THE PROGRAMS                               │
-│                        (Workers)                                 │
-│                                                                  │
+│                       THE PROGRAMS                              │
+│                        (Workers)                                │
+│                                                                 │
 │  "Every program that is created must have a purpose."           │
-│                                                                  │
+│                                                                 │
 │  Execute tasks within contracts. Report to Oracle.              │
 │  Earn XP, level up through good work.                           │
 └──────────────────────────────┬──────────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                       THE KEYMAKER                               │
-│                     (Tool Adapter)                               │
-│                                                                  │
+│                       THE KEYMAKER                              │
+│                     (Tool Adapter)                              │
+│                                                                 │
 │  "I know because I must know. It is my purpose."                │
-│                                                                  │
+│                                                                 │
 │  Opens doors to any AI provider. Provider-agnostic              │
-│  tool calling via LiteLLM.                                       │
+│  tool calling via LiteLLM.                                      │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1018,41 +1018,41 @@ async function migrate(projectPath: string) {
                                ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  PHASE 1: SCAN (Tank)                                        │
-│  - Analyze project structure                                  │
-│  - Detect AI usage patterns                                   │
-│  - Index dependencies                                         │
+│  - Analyze project structure                                 │
+│  - Detect AI usage patterns                                  │
+│  - Index dependencies                                        │
 └──────────────────────────────┬───────────────────────────────┘
                                │
                                ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  PHASE 2: ANALYZE (Trinity)                                  │
-│  - Deep code analysis                                         │
-│  - Pattern & anti-pattern detection                           │
-│  - Architecture assessment                                    │
+│  - Deep code analysis                                        │
+│  - Pattern & anti-pattern detection                          │
+│  - Architecture assessment                                   │
 └──────────────────────────────┬───────────────────────────────┘
                                │
                                ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  PHASE 3: PLAN (Apoc)                                        │
-│  - Risk identification                                        │
-│  - Phase generation                                           │
-│  - Effort estimation                                          │
+│  - Risk identification                                       │
+│  - Phase generation                                          │
+│  - Effort estimation                                         │
 └──────────────────────────────┬───────────────────────────────┘
                                │
                                ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  PHASE 4: GENERATE (Mouse)                                   │
-│  - Generate Architect config                                  │
-│  - Generate contracts                                         │
-│  - Generate scaffolding                                       │
+│  - Generate Architect config                                 │
+│  - Generate contracts                                        │
+│  - Generate scaffolding                                      │
 └──────────────────────────────┬───────────────────────────────┘
                                │
                                ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  PHASE 5: VALIDATE (Switch)                                  │
 │  - Validate all generated artifacts                          │
-│  - Audit changes                                              │
-│  - Recommend actions                                          │
+│  - Audit changes                                             │
+│  - Recommend actions                                         │
 └──────────────────────────────┬───────────────────────────────┘
                                │
                                ▼
