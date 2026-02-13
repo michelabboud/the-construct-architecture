@@ -1,0 +1,19 @@
+# STATE - Live Session State
+<!-- AI-RESUMABLE: Read this file at the start of every response -->
+<!-- LAST_UPDATED: {{TIMESTAMP}} -->
+
+## CURRENT_TASK
+None
+
+## COMPLETED_THIS_SESSION
+(empty)
+
+## BLOCKED
+(empty)
+
+## CONTEXT_NOTES
+- Project: {{PROJECT_NAME}}
+- Initialized: {{TIMESTAMP}}
+
+## DECISIONS_LOG
+(empty)
