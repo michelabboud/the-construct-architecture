@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(*.key)",
+      "Write(.env*)",
+      "Write(./production.*)"
+    ]
+  }
+}
