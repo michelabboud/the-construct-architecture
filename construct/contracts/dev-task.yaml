@@ -1,0 +1,58 @@
+id: construct/dev-task
+name: Development Task Execution
+version: "1.0.0"
+type: tool
+
+metadata:
+  created_at: "2026-02-13"
+  priority: normal
+  tags:
+    - development
+    - autonomous
+
+requirements:
+  description: |
+    Execute a development task within The Construct codebase.
+    All changes must pass quality gates before being considered complete.
+
+goals:
+  description: Complete the development task with passing quality gates
+  objectives:
+    - All tests pass after changes
+    - TypeCheck passes with zero errors
+    - Lint passes with zero warnings
+    - Changes are focused and minimal
+  success_threshold: 8
+
+limitations:
+  forbidden_actions:
+    - Modify files outside src/ and test/ without explicit approval
+    - Skip quality gates
+    - Force push to main
+    - Delete test files
+    - Introduce any type assertions
+  constraints:
+    - One logical change per commit
+    - Must update STATE.md after completion
+    - Must update JOBS.md after completion
+
+limits:
+  time:
+    max_duration_ms: 600000
+  retries:
+    max_attempts: 3
+
+quality:
+  criteria:
+    - name: tests_pass
+      weight: 0.3
+      threshold: 10
+    - name: type_safety
+      weight: 0.3
+      threshold: 9
+    - name: lint_clean
+      weight: 0.2
+      threshold: 10
+    - name: minimal_changes
+      weight: 0.2
+      threshold: 8

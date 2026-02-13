@@ -1,4 +1,5 @@
-Enter autonomous work mode. Each task is governed by quality gates: typecheck + tests + lint must pass.
+Enter autonomous work mode. Each task is governed by the `construct/contracts/dev-task.yaml` contract.
+Success criteria: all tests pass, typecheck clean, lint clean, minimal focused changes.
 
 ## Protocol
 
