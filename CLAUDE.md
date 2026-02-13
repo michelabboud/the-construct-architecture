@@ -173,3 +173,38 @@ The `main` branch is protected:
 - The Architect is READ-ONLY during execution
 - Oracle manages XP - no penalties, only positive rewards
 - Sentinels BLOCK unauthorized actions, not just log them
+
+## Autonomous Session Protocol
+
+### State Management
+- **Read `STATE.md` at the start of every response** to recover context after compaction
+- **Update `STATE.md` after completing each task** with what was done
+- **Update `JOBS.md`** when starting or completing jobs
+- State files are the source of truth for session continuity — they survive context compaction
+
+### Work Loop
+1. Read `STATE.md` → understand current position
+2. Read `JOBS.md` → find next task
+3. Execute task (typecheck + test after every code change)
+4. Update `STATE.md` with results
+5. Update `JOBS.md` to mark completion
+6. Loop to step 1
+
+### Quality Gates (MUST pass before any commit)
+```bash
+npm run typecheck    # Zero errors
+npm test             # All tests pass
+npm run lint         # Zero warnings
+```
+
+### Sub-Agent Patterns
+- Use Task tool with `subagent_type=Explore` for codebase research
+- Use Task tool with `subagent_type=qa-testing-expert` for test generation
+- Use Task tool with `subagent_type=nodejs-typescript-backend-expert` for implementation
+- Keep the main session as an orchestrator — delegate heavy implementation to sub-agents
+- Never let the main context window fill with large code reads — delegate to sub-agents
+
+### Error Recovery
+- If a task fails 3 times, log it in `STATE.md` under BLOCKED with the error
+- Move to the next task and come back later
+- Never brute-force retry the same approach

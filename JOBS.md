@@ -1,13 +1,24 @@
 # JOBS - Active Work Tracker
 <!-- AI-RESUMABLE: This file is designed for AI model consumption -->
-<!-- LAST_UPDATED: 2026-01-25T01:30:00Z -->
-<!-- SESSION_CONTEXT: v1.0.1 released. Dependencies upgraded. Zero lint warnings enforced. -->
+<!-- LAST_UPDATED: 2026-02-13T09:55:00Z -->
+<!-- SESSION_CONTEXT: v1.0.1+. TS errors fixed. Autonomous orchestration being added. -->
 
 > **Note:** Completed jobs are archived to [`JOBS_COMPLETED.md`](JOBS_COMPLETED.md)
 
 ## ACTIVE_JOBS
 
-*No active jobs.*
+- [ ] Autonomous orchestration system (Phases 1-6)
+
+## NEXT_UP
+<!-- Priority-ordered backlog. Move items to ACTIVE_JOBS when starting. -->
+
+1. [x] Phase 0: Fix TS errors across codebase
+2. [x] Phase 1: State management files (STATE.md, CLAUDE.md protocol, JOBS.md format)
+3. [ ] Phase 2: Project-level Claude config & slash commands
+4. [ ] Phase 3: Resilience patterns (recover + checkpoint commands)
+5. [ ] Phase 4: Quality gate hooks (git pre-commit)
+6. [ ] Phase 5: New project bootstrap templates
+7. [ ] Phase 6: Wire The Construct's own contract system (optional)
 
 ## RECENT_COMPLETED
 
