@@ -111,7 +111,7 @@ const RequirementsSchema = z.object({
 const GoalsSchema = z.object({
   description: z.string().optional(),
   objectives: z.array(z.string()),
-  quality_criteria: z.record(QualityCriteriaSchema).optional(),
+  quality_criteria: z.record(z.string(), QualityCriteriaSchema).optional(),
   success_threshold: z.number().min(0).max(10),
 });
 
@@ -136,8 +136,8 @@ const ContextSchema = z.object({
     output_key: z.string(),
     path: z.string(),
   })).optional(),
-  inputs: z.record(z.unknown()).optional(),
-  background: z.record(z.unknown()).optional(),
+  inputs: z.record(z.string(), z.unknown()).optional(),
+  background: z.record(z.string(), z.unknown()).optional(),
 }).optional();
 
 // Contract resources

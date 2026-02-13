@@ -982,7 +982,7 @@ export const WorkflowStepSchema = z.object({
   agent: z.enum(['tank', 'mouse', 'trinity', 'switch', 'apoc']).optional(),
   action: z.string().optional(),
   contract: z.string().optional(),
-  input: z.record(z.unknown()).optional(),
+  input: z.record(z.string(), z.unknown()).optional(),
   review: z.enum(['required', 'optional', 'none']).optional(),
   approval: z.enum(['per-file', 'per-step', 'none']).optional(),
   timeout: z.number().positive().optional(),
@@ -1034,7 +1034,7 @@ export const WorkflowSchema = z.object({
   version: z.string(),
   description: z.string(),
   config: WorkflowConfigSchema,
-  crew: z.record(z.enum(['enabled', 'disabled'])).optional(),
+  crew: z.record(z.string(), z.enum(['enabled', 'disabled'])).optional(),
   phases: z.array(WorkflowPhaseSchema),
 });
 

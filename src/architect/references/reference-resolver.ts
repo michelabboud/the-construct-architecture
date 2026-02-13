@@ -483,7 +483,7 @@ export function extractMarkdownSections(
 ): string {
   const lines = content.split('\n');
   const result: string[] = [];
-  const __currentSection: string | null = null;
+  let _currentSection: string | null = null;
   let inTargetSection = false;
   let sectionLevel = 0;
 

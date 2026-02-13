@@ -495,7 +495,7 @@ export class Phantom {
     }
   }
 
-  private async executeVulnerabilityScan(result: ScanResult, _config: ScanConfig): Promise<void> {
+  private async executeVulnerabilityScan(result: ScanResult, config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 50;
     result.stats.responsesReceived += 48;
 
@@ -509,7 +509,7 @@ export class Phantom {
     }
   }
 
-  private async executeWebScan(result: ScanResult, _config: ScanConfig): Promise<void> {
+  private async executeWebScan(result: ScanResult, config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 200;
     result.stats.responsesReceived += 195;
 
@@ -528,7 +528,7 @@ export class Phantom {
     }
   }
 
-  private async executeApiScan(result: ScanResult, _config: ScanConfig): Promise<void> {
+  private async executeApiScan(result: ScanResult, config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 75;
     result.stats.responsesReceived += 72;
 
@@ -546,7 +546,7 @@ export class Phantom {
     }
   }
 
-  private async executeAuthScan(result: ScanResult, _config: ScanConfig): Promise<void> {
+  private async executeAuthScan(result: ScanResult, config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 30;
     result.stats.responsesReceived += 30;
 
@@ -564,7 +564,7 @@ export class Phantom {
     }
   }
 
-  private async executeInjectionScan(result: ScanResult, _config: ScanConfig): Promise<void> {
+  private async executeInjectionScan(result: ScanResult, config: ScanConfig): Promise<void> {
     result.stats.requestsMade += 100;
     result.stats.responsesReceived += 98;
 
