@@ -14,11 +14,11 @@
 
 1. [x] Phase 0: Fix TS errors across codebase
 2. [x] Phase 1: State management files (STATE.md, CLAUDE.md protocol, JOBS.md format)
-3. [ ] Phase 2: Project-level Claude config & slash commands
-4. [ ] Phase 3: Resilience patterns (recover + checkpoint commands)
-5. [ ] Phase 4: Quality gate hooks (git pre-commit)
-6. [ ] Phase 5: New project bootstrap templates
-7. [ ] Phase 6: Wire The Construct's own contract system (optional)
+3. [x] Phase 2: Project-level Claude config & slash commands
+4. [x] Phase 3: Resilience patterns (recover + checkpoint commands)
+5. [x] Phase 4: Quality gate hooks (git pre-commit)
+6. [x] Phase 5: New project bootstrap templates
+7. [x] Phase 6: Wire The Construct's own contract system
 
 ## RECENT_COMPLETED
 
