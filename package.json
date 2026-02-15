@@ -27,7 +27,7 @@
   "dependencies": {
     "minimatch": "^10.1.2",
     "openai": "^6.18.0",
-    "sql.js": "^1.13.0",
+    "sql.js": "^1.14.0",
     "yaml": "^2.3.0",
     "zod": "^4.3.6"
   },
