@@ -8,22 +8,22 @@
  * best practices, and The Construct architecture.
  */
 
-// Main Knowledge Base
+// Main Knowledge Base - value exports
 export {
   KnowledgeBase,
   createKnowledgeBase,
+} from './knowledge-base.js';
+
+// Main Knowledge Base - type exports
+export type {
   QueryOptions,
   SearchResult,
   MigrationGuidance,
   CodeContext,
 } from './knowledge-base.js';
 
-// Patterns
+// Patterns - value exports
 export {
-  Pattern,
-  PatternCategory,
-  PatternComplexity,
-  PatternExample,
   PATTERNS,
   getPatternsByCategory,
   getPatternById,
@@ -31,13 +31,16 @@ export {
   getPatternsForComponent,
 } from './patterns.js';
 
-// Anti-Patterns
+// Patterns - type exports
+export type {
+  Pattern,
+  PatternCategory,
+  PatternComplexity,
+  PatternExample,
+} from './patterns.js';
+
+// Anti-Patterns - value exports
 export {
-  AntiPattern,
-  AntiPatternCategory,
-  AntiPatternSeverity,
-  DetectionRule,
-  AntiPatternExample,
   ANTI_PATTERNS,
   getAntiPatternsByCategory,
   getAntiPatternsBySeverity,
@@ -46,13 +49,17 @@ export {
   searchAntiPatterns,
 } from './anti-patterns.js';
 
-// Best Practices
+// Anti-Patterns - type exports
+export type {
+  AntiPattern,
+  AntiPatternCategory,
+  AntiPatternSeverity,
+  DetectionRule,
+  AntiPatternExample,
+} from './anti-patterns.js';
+
+// Best Practices - value exports
 export {
-  BestPractice,
-  BestPracticeCategory,
-  Priority,
-  ChecklistItem,
-  Resource,
   BEST_PRACTICES,
   getBestPracticesByCategory,
   getBestPracticesByPriority,
@@ -62,12 +69,17 @@ export {
   searchBestPractices,
 } from './best-practices.js';
 
-// The Construct
+// Best Practices - type exports
+export type {
+  BestPractice,
+  BestPracticeCategory,
+  Priority,
+  ChecklistItem,
+  Resource,
+} from './best-practices.js';
+
+// The Construct - value exports
 export {
-  ConstructComponent,
-  ComponentInterface,
-  ConfigurationSpec,
-  MigrationPath,
   CONSTRUCT_COMPONENTS,
   COMPONENT_DEPENDENCIES,
   MIGRATION_ORDER,
@@ -81,4 +93,12 @@ export {
   getNextMigratableComponents,
   calculateMigrationProgress,
   getComponentConfigTemplate,
+} from './construct.js';
+
+// The Construct - type exports
+export type {
+  ConstructComponent,
+  ComponentInterface,
+  ConfigurationSpec,
+  MigrationPath,
 } from './construct.js';

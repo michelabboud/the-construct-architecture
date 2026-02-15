@@ -1,0 +1,61 @@
+# Architect Configuration for the Website Builder
+# This is the source of truth for the entire project.
+
+project:
+  name: "construct-website-builder"
+  version: "1.0.0"
+  description: "An AI-powered website builder orchestrated by The Construct"
+
+rules:
+  # Allowed output paths
+  allowed_paths:
+    - pattern: "output/**"
+      operations: ["read", "write"]
+    - pattern: "construct/**"
+      operations: ["read"]
+
+  # Forbidden paths — agents cannot touch these
+  forbidden_paths:
+    - pattern: "node_modules/**"
+      reason: "Never modify dependencies"
+    - pattern: ".env*"
+      reason: "Never access environment files"
+    - pattern: "../../src/**"
+      reason: "Never modify framework source"
+
+  # Forbidden actions
+  forbidden_actions:
+    - "shell_exec"
+    - "network_request_external"
+    - "database_drop"
+    - "file_delete_recursive"
+
+  # Quality thresholds
+  quality:
+    min_score: 7
+    require_review: true
+    max_retries: 3
+
+# Agent trust levels
+agents:
+  designer:
+    initial_level: "rookie"
+    allowed_types: ["generation"]
+  stylist:
+    initial_level: "rookie"
+    allowed_types: ["generation"]
+  developer:
+    initial_level: "rookie"
+    allowed_types: ["generation", "code_generation"]
+  reviewer:
+    initial_level: "reliable"
+    allowed_types: ["review"]
+  qa:
+    initial_level: "reliable"
+    allowed_types: ["validation"]
+
+# Cost limits
+limits:
+  max_cost_per_task_usd: 0.25
+  max_cost_per_session_usd: 5.00
+  max_retries_per_task: 3

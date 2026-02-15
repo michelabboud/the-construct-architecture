@@ -1,0 +1,50 @@
+contract:
+  id: "review-code-001"
+  version: "1.0.0"
+  type: "review"
+  name: "Code Review"
+
+  metadata:
+    created_at: "2025-01-01T00:00:00Z"
+    created_by: "website-builder"
+    priority: "high"
+    tags: ["review", "quality"]
+
+  requirements:
+    description: "Review generated code for quality, security, and best practices"
+
+  goals:
+    description: "Ensure all generated code meets quality standards"
+    objectives:
+      - "Check HTML validity and semantic correctness"
+      - "Verify CSS follows best practices"
+      - "Identify accessibility issues"
+      - "Flag any security concerns"
+    quality_criteria:
+      accuracy:
+        weight: 0.5
+        min_score: 8
+      completeness:
+        weight: 0.3
+        min_score: 7
+      consistency:
+        weight: 0.2
+        min_score: 7
+    success_threshold: 8
+
+  limitations:
+    constraints:
+      - "Review must be thorough and actionable"
+      - "Must categorize issues by severity"
+      - "Must provide specific fix suggestions"
+
+  limits:
+    cost:
+      max_usd: 0.20
+      warn_at: 0.10
+    tokens:
+      max_input: 8000
+      max_output: 3000
+    retries:
+      max_attempts: 2
+      backoff: "none"

@@ -8,9 +8,14 @@
  * AI-powered migration wizard for The Construct architecture.
  */
 
-// Main Morpheus Commander
+// Main Morpheus Commander - value exports
 export {
   Morpheus,
+  createMorpheus,
+} from './morpheus.js';
+
+// Main Morpheus Commander - type exports
+export type {
   MorpheusOptions,
   MorpheusCallbacks,
   MorpheusRunOptions,
@@ -21,38 +26,55 @@ export {
   FileChange,
   UserInputOptions,
   ProgressUpdate,
-  createMorpheus,
 } from './morpheus.js';
 
-// Workflow system
+// Workflow system - value exports
 export {
   WorkflowLoader,
+  createWorkflowLoader,
+  BUILT_IN_WORKFLOWS,
+} from './workflow/loader.js';
+
+// Workflow system - type exports
+export type {
   WorkflowLoaderOptions,
   WorkflowValidator,
   ValidationIssue,
   WorkflowLoadResult,
-  createWorkflowLoader,
-  BUILT_IN_WORKFLOWS,
   BuiltInWorkflowId,
 } from './workflow/loader.js';
 
+// Checklist Manager - value exports
 export {
   ChecklistManager,
-  ChecklistManagerOptions,
-  ChecklistUpdateEvent,
   createChecklistManager,
 } from './workflow/checklist.js';
 
+// Checklist Manager - type exports
+export type {
+  ChecklistManagerOptions,
+  ChecklistUpdateEvent,
+} from './workflow/checklist.js';
+
+// State Store - value exports
 export {
   WorkflowStateStore,
-  StateStoreOptions,
   createStateStore,
 } from './workflow/state.js';
 
-// Reporter
+// State Store - type exports
+export type {
+  StateStoreOptions,
+} from './workflow/state.js';
+
+// Reporter - value exports
 export {
   Reporter,
   createReporter,
+} from './reporter/index.js';
+
+// Reporter - type exports
+export type {
   ReportFormat,
   ReportSection,
   ReportOptions,
@@ -61,43 +83,34 @@ export {
   GeneratedReport,
 } from './reporter/index.js';
 
-// CLI
+// CLI - value exports
 export {
   MorpheusCLI,
   createCLI,
-  CLIOptions,
-  CLIResult,
-  CLIStyle,
-  OutputFn,
   createStyle,
   MORPHEUS_BANNER,
   MORPHEUS_BANNER_SMALL,
 } from './cli/index.js';
 
-// Knowledge Base
+// CLI - type exports
+export type {
+  CLIOptions,
+  CLIResult,
+  CLIStyle,
+  OutputFn,
+} from './cli/index.js';
+
+// Knowledge Base - value exports
 export {
   KnowledgeBase,
   createKnowledgeBase,
-  QueryOptions,
-  SearchResult,
-  MigrationGuidance,
-  CodeContext,
   // Patterns
-  Pattern,
-  PatternCategory,
-  PatternComplexity,
-  PatternExample,
   PATTERNS,
   getPatternsByCategory,
   getPatternById,
   searchPatterns,
   getPatternsForComponent,
   // Anti-Patterns
-  AntiPattern,
-  AntiPatternCategory,
-  AntiPatternSeverity,
-  DetectionRule,
-  AntiPatternExample,
   ANTI_PATTERNS,
   getAntiPatternsByCategory,
   getAntiPatternsBySeverity,
@@ -105,11 +118,6 @@ export {
   getAllDetectionRules,
   searchAntiPatterns,
   // Best Practices
-  BestPractice,
-  BestPracticeCategory,
-  Priority,
-  ChecklistItem as BestPracticeChecklistItem,
-  Resource,
   BEST_PRACTICES,
   getBestPracticesByCategory,
   getBestPracticesByPriority,
@@ -118,10 +126,6 @@ export {
   getMigrationChecklist,
   searchBestPractices,
   // Construct Knowledge
-  ConstructComponent,
-  ComponentInterface,
-  ConfigurationSpec,
-  MigrationPath,
   CONSTRUCT_COMPONENTS,
   COMPONENT_DEPENDENCIES,
   MIGRATION_ORDER,
@@ -137,17 +141,40 @@ export {
   getComponentConfigTemplate,
 } from './knowledge/index.js';
 
-// Crew (team agents)
+// Knowledge Base - type exports
+export type {
+  QueryOptions,
+  SearchResult,
+  MigrationGuidance,
+  CodeContext,
+  // Patterns
+  Pattern,
+  PatternCategory,
+  PatternComplexity,
+  PatternExample,
+  // Anti-Patterns
+  AntiPattern,
+  AntiPatternCategory,
+  AntiPatternSeverity,
+  DetectionRule,
+  AntiPatternExample,
+  // Best Practices
+  BestPractice,
+  BestPracticeCategory,
+  Priority,
+  ChecklistItem as BestPracticeChecklistItem,
+  Resource,
+  // Construct Knowledge
+  ConstructComponent,
+  ComponentInterface,
+  ConfigurationSpec,
+  MigrationPath,
+} from './knowledge/index.js';
+
+// Crew (team agents) - value exports
 export {
   BaseAgent,
-  AgentCapability,
-  AgentContext,
-  AgentTask,
-  AgentStatus,
-  ExecutionOptions,
-  VerificationContext,
   AgentExecutionError,
-  CrewRole,
   CREW_ROLES,
   createDefaultAgentConfig,
   isValidCrewMember,
@@ -168,6 +195,17 @@ export {
   // Apoc - The Strategist (Planner)
   Apoc,
   createApoc,
+} from './crew/index.js';
+
+// Crew (team agents) - type exports
+export type {
+  AgentCapability,
+  AgentContext,
+  AgentTask,
+  AgentStatus,
+  ExecutionOptions,
+  VerificationContext,
+  CrewRole,
 } from './crew/index.js';
 
 // Re-export types from main types module

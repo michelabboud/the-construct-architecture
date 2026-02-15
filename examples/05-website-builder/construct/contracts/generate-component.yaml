@@ -1,0 +1,60 @@
+contract:
+  id: "generate-component-001"
+  version: "1.0.0"
+  type: "code_generation"
+  name: "Generate UI Component"
+
+  metadata:
+    created_at: "2025-01-01T00:00:00Z"
+    created_by: "website-builder"
+    priority: "normal"
+    tags: ["html", "component", "generation"]
+
+  requirements:
+    description: "Generate a reusable HTML/CSS UI component"
+    deliverables:
+      - type: "html"
+        format: "html5"
+        save_to: "output/components/{{componentName}}.html"
+
+  goals:
+    description: "Create a self-contained, reusable UI component"
+    objectives:
+      - "Component must be self-contained HTML snippet"
+      - "Use BEM naming convention for CSS classes"
+      - "Include ARIA attributes for accessibility"
+      - "Document usage with an HTML comment at the top"
+    quality_criteria:
+      accuracy:
+        weight: 0.3
+        min_score: 7
+      completeness:
+        weight: 0.3
+        min_score: 6
+      consistency:
+        weight: 0.4
+        min_score: 7
+    success_threshold: 7
+
+  limitations:
+    forbidden_actions:
+      - "inline_styles"
+    forbidden_content:
+      - "onclick="
+      - "onload="
+      - "javascript:"
+    constraints:
+      - "Must use BEM naming convention"
+      - "No inline event handlers"
+      - "Must be accessible (ARIA attributes)"
+
+  limits:
+    cost:
+      max_usd: 0.10
+      warn_at: 0.05
+    tokens:
+      max_input: 2000
+      max_output: 2000
+    retries:
+      max_attempts: 3
+      backoff: "linear"

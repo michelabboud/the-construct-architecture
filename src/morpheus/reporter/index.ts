@@ -9,6 +9,8 @@
 export {
   Reporter,
   createReporter,
+} from './reporter.js';
+export type {
   ReportFormat,
   ReportSection,
   ReportOptions,

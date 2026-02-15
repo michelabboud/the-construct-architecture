@@ -1,0 +1,59 @@
+contract:
+  id: "generate-styles-001"
+  version: "1.0.0"
+  type: "generation"
+  name: "Generate CSS Stylesheet"
+
+  metadata:
+    created_at: "2025-01-01T00:00:00Z"
+    created_by: "website-builder"
+    priority: "high"
+    tags: ["css", "styles", "generation"]
+
+  requirements:
+    description: "Generate a CSS stylesheet for the website"
+    deliverables:
+      - type: "css"
+        format: "css3"
+        save_to: "output/styles.css"
+
+  goals:
+    description: "Create a modern, responsive CSS stylesheet"
+    objectives:
+      - "Use CSS custom properties for theming"
+      - "Implement responsive design with media queries"
+      - "Use modern layout (flexbox/grid)"
+      - "Include a consistent color palette"
+    quality_criteria:
+      accuracy:
+        weight: 0.3
+        min_score: 7
+      completeness:
+        weight: 0.4
+        min_score: 7
+      consistency:
+        weight: 0.3
+        min_score: 7
+    success_threshold: 7
+
+  limitations:
+    forbidden_content:
+      - "!important"
+      - "@import url"
+      - "expression("
+    constraints:
+      - "Must be valid CSS3"
+      - "No !important declarations"
+      - "Mobile-first responsive approach"
+      - "Must define CSS custom properties for colors"
+
+  limits:
+    cost:
+      max_usd: 0.15
+      warn_at: 0.10
+    tokens:
+      max_input: 3000
+      max_output: 3000
+    retries:
+      max_attempts: 3
+      backoff: "linear"

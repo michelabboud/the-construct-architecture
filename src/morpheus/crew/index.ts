@@ -7,22 +7,26 @@
  * Exports all crew-related functionality.
  */
 
-// Base agent
+// Base agent - value exports
 export {
   BaseAgent,
+  AgentExecutionError,
+  CREW_ROLES,
+  createDefaultAgentConfig,
+  isValidCrewMember,
+  getCrewMemberByName,
+  getAllCrewMembers,
+} from './base-agent.js';
+
+// Base agent - type exports
+export type {
   AgentCapability,
   AgentContext,
   AgentTask,
   AgentStatus,
   ExecutionOptions,
   VerificationContext,
-  AgentExecutionError,
   CrewRole,
-  CREW_ROLES,
-  createDefaultAgentConfig,
-  isValidCrewMember,
-  getCrewMemberByName,
-  getAllCrewMembers,
 } from './base-agent.js';
 
 // Tank - The Operator (Scanner)
