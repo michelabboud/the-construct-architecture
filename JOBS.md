@@ -1,26 +1,34 @@
 # JOBS - Active Work Tracker
 <!-- AI-RESUMABLE: This file is designed for AI model consumption -->
-<!-- LAST_UPDATED: 2026-02-13T09:55:00Z -->
-<!-- SESSION_CONTEXT: v1.0.1+. TS errors fixed. Autonomous orchestration being added. -->
+<!-- LAST_UPDATED: 2026-02-16T00:00:00Z -->
+<!-- SESSION_CONTEXT: v1.0.1+. All phases complete. Autonomous orchestration complete. -->
 
 > **Note:** Completed jobs are archived to [`JOBS_COMPLETED.md`](JOBS_COMPLETED.md)
 
 ## ACTIVE_JOBS
 
-- [ ] Autonomous orchestration system (Phases 1-6)
+(none)
 
 ## NEXT_UP
 <!-- Priority-ordered backlog. Move items to ACTIVE_JOBS when starting. -->
 
-1. [x] Phase 0: Fix TS errors across codebase
-2. [x] Phase 1: State management files (STATE.md, CLAUDE.md protocol, JOBS.md format)
-3. [x] Phase 2: Project-level Claude config & slash commands
-4. [x] Phase 3: Resilience patterns (recover + checkpoint commands)
-5. [x] Phase 4: Quality gate hooks (git pre-commit)
-6. [x] Phase 5: New project bootstrap templates
-7. [x] Phase 6: Wire The Construct's own contract system
+(empty)
 
 ## RECENT_COMPLETED
+
+### Autonomous Orchestration System - 2026-02-13
+- [x] Phase 0: Fix TS errors across codebase
+- [x] Phase 1: State management files (STATE.md, CLAUDE.md protocol, JOBS.md format)
+- [x] Phase 2: Project-level Claude config & slash commands
+- [x] Phase 3: Resilience patterns (recover + checkpoint commands)
+- [x] Phase 4: Quality gate hooks (git pre-commit)
+- [x] Phase 5: New project bootstrap templates
+- [x] Phase 6: Wire The Construct's own contract system
+
+### Dependency Updates & Cleanup - 2026-02-16
+- Merged Dependabot PRs: @types/node 25.2.3, sql.js 1.14.0, typescript-eslint 8.55.0
+- Separated `export type` in morpheus barrel files (isolatedModules compliance)
+- Added usage examples and orchestration docs
 
 ### v1.0.1 Release - 2026-01-25
 
