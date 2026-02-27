@@ -12,7 +12,7 @@ A comprehensive example showing how to use **every** Construct component in an a
         ┌──────────────────┼──────────────────┐
         │                  │                  │
    ┌────▼────┐       ┌────▼────┐       ┌────▼────┐
-   │ Designer │       │ Stylist │       │Developer│
+   │ Designer│       │ Stylist │       │Developer│
    └────┬────┘       └────┬────┘       └────┬────┘
         │                  │                  │
         └──────────────────┼──────────────────┘
