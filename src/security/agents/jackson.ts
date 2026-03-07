@@ -693,7 +693,7 @@ export class AgentJackson implements SpecialAgent {
 
     // Monitoring step
     steps.push({
-      order: ++order,
+      order: order + 1,
       description: 'Enable enhanced monitoring',
       status: 'pending',
     });

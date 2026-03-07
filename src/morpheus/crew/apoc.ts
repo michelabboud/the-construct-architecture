@@ -598,7 +598,7 @@ export class Apoc extends BaseAgent {
 
     if (!analysis.architecture.structure.hasTests) {
       risks.push({
-        id: `risk-${riskId++}`,
+        id: `risk-${riskId}`,
         title: 'No test coverage',
         description: 'Lack of tests increases risk of undetected regressions',
         probability: 'high',
@@ -923,7 +923,7 @@ export class Apoc extends BaseAgent {
 
     // Test task
     tasks.push({
-      id: `${component}-${taskId++}`,
+      id: `${component}-${taskId}`,
       name: `Test ${componentInfo.name}`,
       description: `Create and run tests for ${componentInfo.name}`,
       type: 'test',
@@ -1046,7 +1046,7 @@ export class Apoc extends BaseAgent {
 
     if (complexPrompts.length > 0) {
       tasks.push({
-        id: `prompts-${taskId++}`,
+        id: `prompts-${taskId}`,
         name: 'Migrate complex prompts',
         description: `Migrate ${complexPrompts.length} complex prompts to contracts`,
         type: 'refactor',
@@ -1117,7 +1117,7 @@ export class Apoc extends BaseAgent {
 
     if (tools.length > 5) {
       tasks.push({
-        id: `tools-${taskId++}`,
+        id: `tools-${taskId}`,
         name: `Migrate remaining tools`,
         description: `Migrate ${tools.length - 5} additional tools`,
         type: 'refactor',
@@ -1276,7 +1276,7 @@ export class Apoc extends BaseAgent {
 
     // Add verification step
     steps.push({
-      order: order++,
+      order: order + 1,
       description: 'Verify rollback successful',
       command: 'npm test',
     });

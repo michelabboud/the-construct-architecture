@@ -384,7 +384,7 @@ export class ReferenceResolver {
       return await fs.readFile(fullPath, 'utf-8');
     } catch (err) {
       if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
-        throw new Error(`Guide not found: ${fullPath}`);
+        throw new Error(`Guide not found: ${fullPath}`, { cause: err });
       }
       throw err;
     }
@@ -402,7 +402,7 @@ export class ReferenceResolver {
       return JSON.parse(content);
     } catch (err) {
       if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
-        throw new Error(`Schema not found: ${fullPath}`);
+        throw new Error(`Schema not found: ${fullPath}`, { cause: err });
       }
       throw err;
     }
