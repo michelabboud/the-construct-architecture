@@ -36,7 +36,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
     "@types/sql.js": "^1.4.9",
-    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^8.60.1",
     "@typescript-eslint/parser": "^8.57.0",
     "eslint": "^10.0.3",
     "jest": "^30.2.0",
