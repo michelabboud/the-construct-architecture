@@ -1,6 +1,6 @@
 {
   "name": "the-construct-architecture",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reference architecture for AI orchestration - Code that calls AI, not AI that calls code",
   "type": "module",
   "main": "dist/index.js",
@@ -26,7 +26,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "minimatch": "^10.1.2",
-    "openai": "^6.29.0",
+    "openai": "^7.10.0",
     "sql.js": "^1.14.1",
     "yaml": "^2.3.0",
     "zod": "^4.3.6"
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.5.0",
+    "@types/node": "^26.4.1",
     "@types/sql.js": "^1.4.9",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
