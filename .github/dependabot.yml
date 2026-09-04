@@ -5,7 +5,23 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # Re-grouped 2026-09-04 (dependency consolidation campaign): one grouped PR
+  # a month instead of five ungrouped weekly ones.
+  - package-ecosystem: "npm"
+    directory: "/"
+    open-pull-requests-limit: 5
     schedule:
-      interval: "weekly"
+      interval: "monthly"
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+    ignore:
+      # typescript-eslint's own latest (8.69.0 as of 2026-09-04) caps its
+      # typescript peer at "<6.1.0" — the whole ecosystem hasn't caught up to
+      # TypeScript 7 (a native Go-based rewrite, not just another major) yet.
+      # See docs/reports/2026-09-03-dependency-consolidation.md in the
+      # Fabulous repo. Move when @typescript-eslint/parser widens its peer
+      # range to include 6.1+/7.x.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]

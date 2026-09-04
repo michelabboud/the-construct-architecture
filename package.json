@@ -1,6 +1,6 @@
 {
   "name": "the-construct-architecture",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reference architecture for AI orchestration - Code that calls AI, not AI that calls code",
   "type": "module",
   "main": "dist/index.js",
